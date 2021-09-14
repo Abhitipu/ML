@@ -1,4 +1,6 @@
-attr_list = ['Buying', 'Maint', 'Doors', 'Persons', 'Lug_boot', 'Safety', 'Class_value']
+header_list = ['Buying', 'Maint', 'Doors', 'Persons', 'Lug_boot', 'Safety', 'Class_value']
+
+attr_list = ['Buying', 'Maint', 'Doors', 'Persons', 'Lug_boot', 'Safety']
 
 possible_values = {
             'Buying': ['vhigh', 'high', 'med', 'low'],
@@ -9,4 +11,4 @@ possible_values = {
             'Safety': ['low', 'med', 'high'],
 }
 
-classifications = ['unacc', 'acc', 'good', 'v-good']
+classifications = ['unacc', 'acc', 'good', 'vgood']

@@ -1,31 +1,9 @@
 import pandas as pd
 import math
 from decision_tree import node
-from description import attr_list, possible_values, classifications
+from description import attr_list, possible_values, classifications, header_list
+from data_handling import my_data
 
-def construct_tree(my_input):
-    my_conjunction = Dict()
-    for attribute in attr_list:
-        my_conjunction[attribute] = ''
-
-    my_indices = [i for i in range(my_data.df.size)]        # maybe choose some random indices here... 80/20 splits
-
-    root1 = node(my_conjunction, my_indices, gini_gain)     # 2 trees are constructed
-    root2 = node(my_conjunction, my_indices, gain_ratio)    # using the 2 impurity measure functions
-
-    return root1, root2
-
-def compute_accuracy():
-    pass
-
-def get_depth_limit():
-    pass
-
-def prune_tree():
-    pass
-
-def print_tree():
-    pass
 
 def gini_index(categories):
     tot = 0
@@ -46,10 +24,37 @@ def entropy(categories):
     
     value = 0.0
     for key in categories:
+        if(categories[key] == 0):
+            continue
         frac = categories[key] / tot
         value -= frac*math.log2(frac)
 
     return value
+
+def construct_tree(my_input):
+    my_conjunction = dict()
+    for attribute in attr_list:
+        my_conjunction[attribute] = ''
+
+    my_indices = [i for i in range(len(my_input.df))]        # maybe choose some random indices here... 80/20 splits
+
+    root1 = node(my_conjunction, my_indices, entropy, my_input)     # 2 trees are constructed
+    root2 = node(my_conjunction, my_indices, gini_index, my_input)    # using the 2 impurity measure functions
+
+    return root1, root2
+
+def compute_accuracy():
+    pass
+
+def get_depth_limit():
+    pass
+
+def prune_tree():
+    pass
+
+def print_tree():
+    pass
+
 
 if __name__ == "__main__":
     my_input = my_data('input_files/car.data')

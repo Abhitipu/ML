@@ -1,3 +1,5 @@
+from description import attr_list, possible_values, classifications
+
 class node:
     def __init__(self, conjunction, indices, impurity_evaluator, input_data):
 
@@ -20,17 +22,17 @@ class node:
         self.total = len(indices)                       # total no of nodes
         self.impurity = 0.0                             # need to compute impurity as well... is it required now?
         self.attr = ''                                  # this will be decided later
-        self.categories = Dict()                        # contains the classifications of input
+        self.categories = dict()                        # contains the classifications of input
         self.input_data = input_data                    # This should rather be static!
 
         self.compute_values()                           # compute initial values
         self.propagate()                                # extend the tree
     
-    def compute_values():
+    def compute_values(self):
         '''
             We are finding out the classifications of our input data
         '''
-        self.categories = my_data.get_classification(indices)
+        self.categories = self.input_data.get_classification(self.indices)
 
         self.best_frequency = 0
         for key, value in self.categories.items():
@@ -66,12 +68,12 @@ class node:
             if self.conjunction[attribute] != '':                       # attribute is already chosen
                 continue
             else:
-                childrenFreq = my_data.get_split(attribute, indices)    # a dictionary of the nodes in the corresponding subtree
+                children_freq = self.input_data.split_values(attribute,self.indices)    # a dictionary of the nodes in the corresponding subtree
                 
                 curr_gain = base_impurity                               
 
-                for key in childrenFreq:
-                    new_classification = my_data.get_classification(children_freq[key])
+                for key in children_freq :
+                    new_classification = self.input_data.get_classification(children_freq[key])
                     curr_gain -= (len(children_freq[key])/self.total)*self.impurity_evaluator(new_classification)   # subtract the weighted mean
                     
                 if curr_gain >= max_gain:                               # re assign if necessary
@@ -79,7 +81,7 @@ class node:
                     best_attribute = attribute
 
         new_conjunction = self.conjunction
-        my_children = my_data.get_split(best_attribute, indices)
+        my_children = self.input_data.split_values(best_attribute, self.indices)
         self.attr = best_attribute                                      # Set the attribute for the node
 
         for value in possible_values[best_attribute]:   
