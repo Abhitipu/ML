@@ -1,0 +1,135 @@
+digraph "Decision Tree" {
+	rankdir=LR size="1000,500"
+	node [shape=rectangle]
+	"Id = 0
+ Attribute = Safety
+ Size = 1382
+ Prediction = unacc" -> "Id = 1
+ Size = 471
+ Target Value = unacc" [label=low]
+	"Id = 0
+ Attribute = Safety
+ Size = 1382
+ Prediction = unacc" -> "Id = 2
+ Attribute = Persons
+ Size = 453
+ Prediction = unacc" [label=med]
+	"Id = 0
+ Attribute = Safety
+ Size = 1382
+ Prediction = unacc" -> "Id = 21
+ Size = 458
+ Target Value = unacc" [label=high]
+	"Id = 2
+ Attribute = Persons
+ Size = 453
+ Prediction = unacc" -> "Id = 3
+ Size = 153
+ Target Value = unacc" [label=2]
+	"Id = 2
+ Attribute = Persons
+ Size = 453
+ Prediction = unacc" -> "Id = 4
+ Attribute = Maint
+ Size = 148
+ Prediction = acc" [label=4]
+	"Id = 2
+ Attribute = Persons
+ Size = 453
+ Prediction = unacc" -> "Id = 20
+ Size = 152
+ Target Value = acc" [label=more]
+	"Id = 4
+ Attribute = Maint
+ Size = 148
+ Prediction = acc" -> "Id = 5
+ Attribute = Buying
+ Size = 37
+ Prediction = unacc" [label=vhigh]
+	"Id = 4
+ Attribute = Maint
+ Size = 148
+ Prediction = acc" -> "Id = 17
+ Size = 38
+ Target Value = unacc" [label=high]
+	"Id = 4
+ Attribute = Maint
+ Size = 148
+ Prediction = acc" -> "Id = 18
+ Size = 38
+ Target Value = acc" [label=med]
+	"Id = 4
+ Attribute = Maint
+ Size = 148
+ Prediction = acc" -> "Id = 19
+ Size = 35
+ Target Value = acc" [label=low]
+	"Id = 5
+ Attribute = Buying
+ Size = 37
+ Prediction = unacc" -> "Id = 6
+ Size = 10
+ Target Value = unacc" [label=vhigh]
+	"Id = 5
+ Attribute = Buying
+ Size = 37
+ Prediction = unacc" -> "Id = 7
+ Size = 8
+ Target Value = unacc" [label=high]
+	"Id = 5
+ Attribute = Buying
+ Size = 37
+ Prediction = unacc" -> "Id = 8
+ Attribute = Lug_boot
+ Size = 9
+ Prediction = unacc" [label=med]
+	"Id = 5
+ Attribute = Buying
+ Size = 37
+ Prediction = unacc" -> "Id = 16
+ Size = 10
+ Target Value = unacc" [label=low]
+	"Id = 8
+ Attribute = Lug_boot
+ Size = 9
+ Prediction = unacc" -> "Id = 9
+ Size = 4
+ Target Value = unacc" [label=small]
+	"Id = 8
+ Attribute = Lug_boot
+ Size = 9
+ Prediction = unacc" -> "Id = 10
+ Attribute = Doors
+ Size = 3
+ Prediction = acc" [label=med]
+	"Id = 8
+ Attribute = Lug_boot
+ Size = 9
+ Prediction = unacc" -> "Id = 15
+ Size = 2
+ Target Value = acc" [label=big]
+	"Id = 10
+ Attribute = Doors
+ Size = 3
+ Prediction = acc" -> "Id = 11
+ Size = 0
+ Target Value = vgood" [label=2]
+	"Id = 10
+ Attribute = Doors
+ Size = 3
+ Prediction = acc" -> "Id = 12
+ Size = 1
+ Target Value = unacc" [label=3]
+	"Id = 10
+ Attribute = Doors
+ Size = 3
+ Prediction = acc" -> "Id = 13
+ Size = 1
+ Target Value = acc" [label=4]
+	"Id = 10
+ Attribute = Doors
+ Size = 3
+ Prediction = acc" -> "Id = 14
+ Size = 1
+ Target Value = acc" [label="5more"]
+}

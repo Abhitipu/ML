@@ -1,6 +1,7 @@
 from description import attr_list, possible_values, classifications
 
 class node:
+
     def __init__(self, conjunction, indices, impurity_evaluator, input_data):
 
         '''
@@ -10,36 +11,49 @@ class node:
             indices: indices of the entries in the dataFrame [corresponding to the conjunction]
             impurity_evaluator is the function which will evaluate our gains for splits
             2 possibilities: Gini index / Info gain
+            idx : unique index of a node
         '''
     
         self.conjunction = conjunction                  # upto the parent
         self.indices = indices                          # a list of all the relevant indices
 
+        self.is_root = True
+        for key in self.conjunction:
+            # print(f"Key = {key} Value = {self.conjunction[key]}")
+            if self.conjunction[key] != '':
+                self.is_root = False
+
         self.impurity_evaluator = impurity_evaluator    # for getting the best split in construction
         
-        self.children = []                              # empty list for now
+        self.children = dict()                          # empty dict for now
         self.class_value = ''                           # useful for leaf nodes! Currently using most popular category only
         self.total = len(indices)                       # total no of nodes
         self.impurity = 0.0                             # need to compute impurity as well... is it required now?
-        self.attr = ''                                  # this will be decided later
+        self.attr = '-'                                  # this will be decided later
         self.categories = dict()                        # contains the classifications of input
         self.input_data = input_data                    # This should rather be static!
+        self.idx = 0
 
         self.compute_values()                           # compute initial values
         self.propagate()                                # extend the tree
+        
+        
+        if(self.is_root):
+            self.assign_index()
     
     def compute_values(self):
         '''
             We are finding out the classifications of our input data
         '''
+        # print(self.conjunction)
         self.categories = self.input_data.get_classification(self.indices)
+        print(self.categories)
 
         self.best_frequency = 0
         for key, value in self.categories.items():
             if value >= self.best_frequency:
-                self.est_frequency = value
+                self.best_frequency = value
                 self.class_value = key
-
 
     def propagate(self):
 
@@ -52,39 +66,61 @@ class node:
         if self.best_frequency == self.total:       # pure node
             return
         
-        done = True
+        self.done = True
         for attribute in attr_list:                 # if we haven't exhausted all attributes
             if self.conjunction[attribute] == '':
-                done = False
+                self.done = False
 
-        if done:
+        if self.done:
             return
         
-        max_gain = 0.0
-        best_attribute = ''
-        base_impurity = self.impurity_evaluator(self.categories)        # advantage: both gini gain and info gain are calculated in the same manner
+        self.max_gain = 0.0
+        self.best_attribute = ''
+        self.base_impurity = self.impurity_evaluator(self.categories)        # advantage: both gini gain and info gain are calculated in the same manner
 
         for attribute in attr_list:
             if self.conjunction[attribute] != '':                       # attribute is already chosen
                 continue
             else:
-                children_freq = self.input_data.split_values(attribute,self.indices)    # a dictionary of the nodes in the corresponding subtree
+                self.children_freq = self.input_data.split_values(attribute,self.indices)    # a dictionary of the nodes in the corresponding subtree
                 
-                curr_gain = base_impurity                               
+                self.curr_gain = self.base_impurity                               
 
-                for key in children_freq :
-                    new_classification = self.input_data.get_classification(children_freq[key])
-                    curr_gain -= (len(children_freq[key])/self.total)*self.impurity_evaluator(new_classification)   # subtract the weighted mean
+                for key in self.children_freq :
+                    self.new_classification = self.input_data.get_classification(self.children_freq[key])
+                    self.curr_gain -= (len(self.children_freq[key])/self.total)*self.impurity_evaluator(self.new_classification)   # subtract the weighted mean
                     
-                if curr_gain >= max_gain:                               # re assign if necessary
-                    max_gain = curr_gain
-                    best_attribute = attribute
+                if self.curr_gain >= self.max_gain:                               # re assign if necessary
+                    self.max_gain = self.curr_gain
+                    self.best_attribute = attribute
 
-        new_conjunction = self.conjunction
-        my_children = self.input_data.split_values(best_attribute, self.indices)
-        self.attr = best_attribute                                      # Set the attribute for the node
+        self.new_conjunction = self.conjunction
+        self.my_children = self.input_data.split_values(self.best_attribute, self.indices)
+        # print(self.my_children)
+        # for key in self.my_children:
+            # print(f"Key = {key}, nValues = {len(self.my_children[key])}")
 
-        for value in possible_values[best_attribute]:   
-            new_conjunction[best_attribute] = value
-            new_node = node(new_conjunction, my_children[value], self.impurity_evaluator, self.input_data)  # add to child list
-            self.children.append(new_node)
+        self.attr = self.best_attribute                                      # Set the attribute for the node
+        
+        print(possible_values[self.best_attribute])
+        for value in possible_values[self.best_attribute]:                   # Stop if you have no values!
+            self.new_conjunction[self.best_attribute] = value
+            print(f"Constructing for {self.new_conjunction}")
+            self.children[value] = node(self.new_conjunction, self.my_children[value], self.impurity_evaluator, self.input_data)  
+
+
+    def assign_index(self, cur = 0):
+        self.idx = cur
+        self.max_index = cur
+        for key, child in self.children.items():
+           self.max_index = child.assign_index(self.max_index+1)
+
+        # print(f"Id = {self.idx}, Categories = {self.categories}")
+
+        return self.max_index
+
+    def __str__(self):                  # used for printing the node, add more info if reqd
+        if self.attr != '-':
+            return f"Id = {self.idx}\n Attribute = {self.attr}\n Size = {len(self.indices)}\n Prediction = {self.class_value}"
+        else:
+            return f"Id = {self.idx}\n Size = {len(self.indices)}\n Target Value = {self.class_value}"
