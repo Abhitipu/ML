@@ -47,7 +47,7 @@ class node:
         '''
         # print(self.conjunction)
         self.categories = self.input_data.get_classification(self.indices)
-        print(self.categories)
+        # print(self.categories)
 
         self.best_frequency = 0
         for key, value in self.categories.items():
@@ -96,17 +96,22 @@ class node:
 
         self.new_conjunction = self.conjunction
         self.my_children = self.input_data.split_values(self.best_attribute, self.indices)
+
         # print(self.my_children)
         # for key in self.my_children:
             # print(f"Key = {key}, nValues = {len(self.my_children[key])}")
 
         self.attr = self.best_attribute                                      # Set the attribute for the node
         
-        print(possible_values[self.best_attribute])
         for value in possible_values[self.best_attribute]:                   # Stop if you have no values!
-            self.new_conjunction[self.best_attribute] = value
-            print(f"Constructing for {self.new_conjunction}")
-            self.children[value] = node(self.new_conjunction, self.my_children[value], self.impurity_evaluator, self.input_data)  
+            new_conjunction = dict()
+            for key, val in self.conjunction.items():
+                new_conjunction[key] = val
+
+            new_conjunction[self.best_attribute] = value
+
+            if(len(self.my_children[value])):
+                self.children[value] = node(new_conjunction, self.my_children[value], self.impurity_evaluator, self.input_data)  
 
 
     def assign_index(self, cur = 0):

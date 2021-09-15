@@ -12,6 +12,9 @@ def gini_index(categories):
     for key in categories:
         tot += categories[key]
     
+    if tot == 0:
+        return 0
+
     value = 1.0
     for key in categories:
         frac = categories[key] / tot
@@ -23,7 +26,10 @@ def entropy(categories):
     tot = 0
     for key in categories:
         tot += categories[key]
-    
+
+    if tot == 0:
+        return 0
+
     value = 0.0
     for key in categories:
         if(categories[key] == 0):
