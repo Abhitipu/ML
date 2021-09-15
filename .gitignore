@@ -1,0 +1,5 @@
+# Virtual Environment
+venv/
+
+# Auto gen files
+__pycache__/

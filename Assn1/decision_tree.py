@@ -19,7 +19,6 @@ class node:
 
         self.is_root = True
         for key in self.conjunction:
-            # print(f"Key = {key} Value = {self.conjunction[key]}")
             if self.conjunction[key] != '':
                 self.is_root = False
 
@@ -45,9 +44,7 @@ class node:
         '''
             We are finding out the classifications of our input data
         '''
-        # print(self.conjunction)
         self.categories = self.input_data.get_classification(self.indices)
-        # print(self.categories)
 
         self.best_frequency = 0
         for key, value in self.categories.items():
@@ -97,10 +94,6 @@ class node:
         self.new_conjunction = self.conjunction
         self.my_children = self.input_data.split_values(self.best_attribute, self.indices)
 
-        # print(self.my_children)
-        # for key in self.my_children:
-            # print(f"Key = {key}, nValues = {len(self.my_children[key])}")
-
         self.attr = self.best_attribute                                      # Set the attribute for the node
         
         for value in possible_values[self.best_attribute]:                   # Stop if you have no values!
@@ -119,8 +112,6 @@ class node:
         self.max_index = cur
         for key, child in self.children.items():
            self.max_index = child.assign_index(self.max_index+1)
-
-        # print(f"Id = {self.idx}, Categories = {self.categories}")
 
         return self.max_index
 
