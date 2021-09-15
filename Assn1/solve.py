@@ -61,9 +61,9 @@ def get_depth_limit():
 def prune_tree():
     pass
 
-def print_tree(my_tree):
+def print_tree(my_tree, op_file):
     
-    my_graph= Digraph('Decision Tree', filename='./output_files/decision_tree.gv')
+    my_graph= Digraph('Decision Tree', filename=op_file)
     my_graph.attr(rankdir='LR', size='1000,500')
 
     my_graph.attr('node', shape='rectangle')
@@ -76,7 +76,7 @@ def print_tree(my_tree):
             my_graph.edge(str(node), str(child), label=key)
             qq.append(child)
 
-    my_graph.render('./output_files/decision_tree.gv', view=True)
+    my_graph.render(op_file, view=True)
 
 if __name__ == "__main__":
     my_input = my_data('input_files/car.data')
@@ -87,5 +87,5 @@ if __name__ == "__main__":
     get_depth_limit()
     prune_tree()
 
-    print_tree(tree1)
-    # print_tree(tree2)
+    print_tree(tree1, './output_files/decision_tree_entropy.gv')
+    print_tree(tree2, './output_files/decision_tree_gini_index.gv')
