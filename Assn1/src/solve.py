@@ -65,7 +65,7 @@ def get_depth_limit(my_tree):
     plt.plot(height_values, accuracy_values)
     plt.xlabel('Height of the tree')
     plt.ylabel('Accuracy in validation set')
-    plt.savefig('output_files/height_vs_accuracy.png')
+    plt.savefig('../output_files/height_vs_accuracy.png')
 
     return best_height, best_accuracy
 
@@ -122,7 +122,7 @@ def prune_tree(my_tree, curr_accuracy):
     plt.plot(num_nodes, accuracy_values)
     plt.xlabel('Number of nodes')
     plt.ylabel('Accuracy in validation set')
-    plt.savefig('output_files/num_nodes_vs_accuracy.png')
+    plt.savefig('../output_files/num_nodes_vs_accuracy.png')
 
     return new_accuracy
 
@@ -150,7 +150,7 @@ if __name__ == "__main__":
     print("Reading from csv....")
     start = time.time()
 
-    my_input = my_data('input_files/car.data')
+    my_input = my_data('../input_files/car.data')
 
     # Part 1
     print("Constructing both decision trees")
@@ -187,4 +187,4 @@ if __name__ == "__main__":
     print(f"Time taken: {time.time()-start} seconds\n")
 
     # Part 5
-    print_tree(better_tree, './output_files/decision_tree.gv')
+    print_tree(better_tree, '../output_files/decision_tree.gv')
