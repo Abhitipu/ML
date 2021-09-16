@@ -91,6 +91,9 @@ def prune_tree(my_tree, curr_accuracy):
         data.append(row['Class_value'])
     
     new_accuracy = curr_accuracy
+    
+    num_nodes = [my_tree.max_index]
+    accuracy_values = [curr_accuracy]
 
     while(True):
         best_node = -1
@@ -110,8 +113,16 @@ def prune_tree(my_tree, curr_accuracy):
         if best_node == -1:
             break
         
+        num_nodes.append(num_nodes[-1]-1)
+        accuracy_values.append(new_accuracy)
+
         print(f"Removing node: {best_node}")
         locations[best_node].alter_prune()
+
+    plt.plot(num_nodes, accuracy_values)
+    plt.xlabel('Number of nodes')
+    plt.ylabel('Accuracy in validation set')
+    plt.savefig('output_files/num_nodes_vs_accuracy.png')
 
     return new_accuracy
 
@@ -173,6 +184,7 @@ if __name__ == "__main__":
     print("Pruning tree")
     new_accuracy = prune_tree(better_tree, best_accuracy)         # Confirm this!
     print(f"Done! Accuracy = {new_accuracy}")
+    print(f"Time taken: {time.time()-start} seconds\n")
 
     # Part 5
     print_tree(better_tree, './output_files/decision_tree.gv')
