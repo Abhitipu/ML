@@ -5,763 +5,738 @@ digraph "Decision Tree" {
  Attribute = Safety
  Size = 1382
  Prediction = unacc" -> "Id = 1
- Size = 467
+ Size = 452
  Target Value = unacc" [label=low]
 	"Id = 0
  Attribute = Safety
  Size = 1382
  Prediction = unacc" -> "Id = 2
  Attribute = Persons
- Size = 448
+ Size = 465
  Prediction = unacc" [label=med]
 	"Id = 0
  Attribute = Safety
  Size = 1382
- Prediction = unacc" -> "Id = 178
+ Prediction = unacc" -> "Id = 190
  Attribute = Persons
- Size = 467
+ Size = 465
  Prediction = unacc" [label=high]
 	"Id = 2
  Attribute = Persons
- Size = 448
+ Size = 465
  Prediction = unacc" -> "Id = 3
- Size = 141
+ Size = 148
  Target Value = unacc" [label=2]
 	"Id = 2
  Attribute = Persons
- Size = 448
+ Size = 465
  Prediction = unacc" -> "Id = 4
  Attribute = Buying
- Size = 155
+ Size = 162
  Prediction = acc" [label=4]
 	"Id = 2
  Attribute = Persons
- Size = 448
+ Size = 465
  Prediction = unacc" -> "Id = 85
- Attribute = Buying
- Size = 152
- Prediction = acc" [label=more]
-	"Id = 178
- Attribute = Persons
- Size = 467
- Prediction = unacc" -> "Id = 179
- Size = 156
- Target Value = unacc" [label=2]
-	"Id = 178
- Attribute = Persons
- Size = 467
- Prediction = unacc" -> "Id = 180
- Attribute = Buying
- Size = 156
- Prediction = acc" [label=4]
-	"Id = 178
- Attribute = Persons
- Size = 467
- Prediction = unacc" -> "Id = 228
- Attribute = Buying
+ Attribute = Lug_boot
  Size = 155
+ Prediction = acc" [label=more]
+	"Id = 190
+ Attribute = Persons
+ Size = 465
+ Prediction = unacc" -> "Id = 191
+ Size = 155
+ Target Value = unacc" [label=2]
+	"Id = 190
+ Attribute = Persons
+ Size = 465
+ Prediction = unacc" -> "Id = 192
+ Attribute = Buying
+ Size = 147
+ Prediction = acc" [label=4]
+	"Id = 190
+ Attribute = Persons
+ Size = 465
+ Prediction = unacc" -> "Id = 244
+ Attribute = Buying
+ Size = 163
  Prediction = acc" [label=more]
 	"Id = 4
  Attribute = Buying
- Size = 155
+ Size = 162
  Prediction = acc" -> "Id = 5
  Attribute = Maint
- Size = 35
+ Size = 40
  Prediction = unacc" [label=vhigh]
 	"Id = 4
  Attribute = Buying
- Size = 155
+ Size = 162
  Prediction = acc" -> "Id = 22
  Attribute = Lug_boot
- Size = 33
+ Size = 41
  Prediction = unacc" [label=high]
 	"Id = 4
  Attribute = Buying
- Size = 155
- Prediction = acc" -> "Id = 38
- Attribute = Maint
- Size = 44
- Prediction = acc" [label=med]
-	"Id = 4
- Attribute = Buying
- Size = 155
- Prediction = acc" -> "Id = 62
- Attribute = Maint
- Size = 43
- Prediction = acc" [label=low]
-	"Id = 85
- Attribute = Buying
- Size = 152
- Prediction = acc" -> "Id = 86
- Attribute = Maint
- Size = 37
- Prediction = unacc" [label=vhigh]
-	"Id = 85
- Attribute = Buying
- Size = 152
- Prediction = acc" -> "Id = 99
- Attribute = Lug_boot
- Size = 39
- Prediction = unacc" [label=high]
-	"Id = 85
- Attribute = Buying
- Size = 152
- Prediction = acc" -> "Id = 114
- Attribute = Maint
- Size = 42
- Prediction = acc" [label=med]
-	"Id = 85
- Attribute = Buying
- Size = 152
- Prediction = acc" -> "Id = 147
- Attribute = Maint
- Size = 34
- Prediction = acc" [label=low]
-	"Id = 180
- Attribute = Buying
- Size = 156
- Prediction = acc" -> "Id = 181
- Attribute = Maint
- Size = 40
- Prediction = acc" [label=vhigh]
-	"Id = 180
- Attribute = Buying
- Size = 156
- Prediction = acc" -> "Id = 186
- Attribute = Maint
- Size = 37
- Prediction = acc" [label=high]
-	"Id = 180
- Attribute = Buying
- Size = 156
- Prediction = acc" -> "Id = 191
+ Size = 162
+ Prediction = acc" -> "Id = 39
  Attribute = Maint
  Size = 41
  Prediction = acc" [label=med]
-	"Id = 180
+	"Id = 4
  Attribute = Buying
- Size = 156
- Prediction = acc" -> "Id = 208
+ Size = 162
+ Prediction = acc" -> "Id = 62
  Attribute = Maint
- Size = 38
- Prediction = vgood" [label=low]
-	"Id = 228
- Attribute = Buying
+ Size = 40
+ Prediction = acc" [label=low]
+	"Id = 85
+ Attribute = Lug_boot
  Size = 155
- Prediction = acc" -> "Id = 229
+ Prediction = acc" -> "Id = 86
+ Attribute = Buying
+ Size = 51
+ Prediction = unacc" [label=small]
+	"Id = 85
+ Attribute = Lug_boot
+ Size = 155
+ Prediction = acc" -> "Id = 107
+ Attribute = Doors
+ Size = 54
+ Prediction = acc" [label=med]
+	"Id = 85
+ Attribute = Lug_boot
+ Size = 155
+ Prediction = acc" -> "Id = 169
+ Attribute = Buying
+ Size = 50
+ Prediction = acc" [label=big]
+	"Id = 192
+ Attribute = Buying
+ Size = 147
+ Prediction = acc" -> "Id = 193
  Attribute = Maint
  Size = 40
  Prediction = unacc" [label=vhigh]
-	"Id = 228
+	"Id = 192
  Attribute = Buying
- Size = 155
- Prediction = acc" -> "Id = 241
+ Size = 147
+ Prediction = acc" -> "Id = 198
  Attribute = Maint
- Size = 38
+ Size = 36
  Prediction = acc" [label=high]
-	"Id = 228
+	"Id = 192
  Attribute = Buying
- Size = 155
- Prediction = acc" -> "Id = 260
+ Size = 147
+ Prediction = acc" -> "Id = 203
  Attribute = Maint
- Size = 43
+ Size = 35
  Prediction = acc" [label=med]
-	"Id = 228
+	"Id = 192
  Attribute = Buying
- Size = 155
- Prediction = acc" -> "Id = 294
+ Size = 147
+ Prediction = acc" -> "Id = 219
  Attribute = Maint
- Size = 34
+ Size = 36
+ Prediction = acc" [label=low]
+	"Id = 244
+ Attribute = Buying
+ Size = 163
+ Prediction = acc" -> "Id = 245
+ Attribute = Maint
+ Size = 36
+ Prediction = unacc" [label=vhigh]
+	"Id = 244
+ Attribute = Buying
+ Size = 163
+ Prediction = acc" -> "Id = 262
+ Attribute = Maint
+ Size = 44
+ Prediction = acc" [label=high]
+	"Id = 244
+ Attribute = Buying
+ Size = 163
+ Prediction = acc" -> "Id = 286
+ Attribute = Maint
+ Size = 41
+ Prediction = acc" [label=med]
+	"Id = 244
+ Attribute = Buying
+ Size = 163
+ Prediction = acc" -> "Id = 318
+ Attribute = Maint
+ Size = 42
  Prediction = vgood" [label=low]
 	"Id = 5
  Attribute = Maint
- Size = 35
+ Size = 40
  Prediction = unacc" -> "Id = 6
- Size = 6
+ Size = 11
  Target Value = unacc" [label=vhigh]
 	"Id = 5
  Attribute = Maint
- Size = 35
+ Size = 40
  Prediction = unacc" -> "Id = 7
- Size = 12
+ Size = 9
  Target Value = unacc" [label=high]
 	"Id = 5
  Attribute = Maint
- Size = 35
+ Size = 40
  Prediction = unacc" -> "Id = 8
  Attribute = Lug_boot
- Size = 10
+ Size = 11
  Prediction = acc" [label=med]
 	"Id = 5
  Attribute = Maint
- Size = 35
+ Size = 40
  Prediction = unacc" -> "Id = 15
  Attribute = Lug_boot
- Size = 7
- Prediction = unacc" [label=low]
+ Size = 9
+ Prediction = acc" [label=low]
 	"Id = 22
  Attribute = Lug_boot
- Size = 33
+ Size = 41
  Prediction = unacc" -> "Id = 23
- Size = 12
+ Size = 13
  Target Value = unacc" [label=small]
 	"Id = 22
  Attribute = Lug_boot
- Size = 33
+ Size = 41
  Prediction = unacc" -> "Id = 24
- Attribute = Maint
- Size = 10
+ Attribute = Doors
+ Size = 13
  Prediction = unacc" [label=med]
 	"Id = 22
  Attribute = Lug_boot
- Size = 33
- Prediction = unacc" -> "Id = 33
+ Size = 41
+ Prediction = unacc" -> "Id = 34
  Attribute = Maint
- Size = 11
+ Size = 15
  Prediction = acc" [label=big]
-	"Id = 38
+	"Id = 39
  Attribute = Maint
- Size = 44
- Prediction = acc" -> "Id = 39
+ Size = 41
+ Prediction = acc" -> "Id = 40
  Attribute = Lug_boot
- Size = 11
+ Size = 10
  Prediction = unacc" [label=vhigh]
-	"Id = 38
+	"Id = 39
  Attribute = Maint
- Size = 44
- Prediction = acc" -> "Id = 46
+ Size = 41
+ Prediction = acc" -> "Id = 47
  Attribute = Lug_boot
  Size = 10
  Prediction = acc" [label=high]
-	"Id = 38
+	"Id = 39
  Attribute = Maint
- Size = 44
- Prediction = acc" -> "Id = 53
- Size = 12
- Target Value = acc" [label=med]
-	"Id = 38
- Attribute = Maint
- Size = 44
+ Size = 41
  Prediction = acc" -> "Id = 54
- Attribute = Lug_boot
  Size = 11
+ Target Value = acc" [label=med]
+	"Id = 39
+ Attribute = Maint
+ Size = 41
+ Prediction = acc" -> "Id = 55
+ Attribute = Lug_boot
+ Size = 10
  Prediction = acc" [label=low]
 	"Id = 62
  Attribute = Maint
- Size = 43
+ Size = 40
  Prediction = acc" -> "Id = 63
  Attribute = Lug_boot
- Size = 10
+ Size = 9
  Prediction = acc" [label=vhigh]
 	"Id = 62
  Attribute = Maint
- Size = 43
+ Size = 40
  Prediction = acc" -> "Id = 70
- Size = 11
+ Size = 10
  Target Value = acc" [label=high]
 	"Id = 62
  Attribute = Maint
- Size = 43
+ Size = 40
  Prediction = acc" -> "Id = 71
  Attribute = Lug_boot
- Size = 11
- Prediction = acc" [label=med]
+ Size = 10
+ Prediction = good" [label=med]
 	"Id = 62
  Attribute = Maint
- Size = 43
+ Size = 40
  Prediction = acc" -> "Id = 78
  Attribute = Lug_boot
  Size = 11
  Prediction = good" [label=low]
 	"Id = 86
- Attribute = Maint
- Size = 37
+ Attribute = Buying
+ Size = 51
  Prediction = unacc" -> "Id = 87
- Size = 10
+ Size = 15
  Target Value = unacc" [label=vhigh]
 	"Id = 86
- Attribute = Maint
- Size = 37
+ Attribute = Buying
+ Size = 51
  Prediction = unacc" -> "Id = 88
- Size = 9
+ Size = 13
  Target Value = unacc" [label=high]
 	"Id = 86
- Attribute = Maint
- Size = 37
+ Attribute = Buying
+ Size = 51
  Prediction = unacc" -> "Id = 89
- Attribute = Lug_boot
- Size = 9
+ Attribute = Maint
+ Size = 12
  Prediction = unacc" [label=med]
 	"Id = 86
- Attribute = Maint
- Size = 37
- Prediction = unacc" -> "Id = 95
- Attribute = Lug_boot
- Size = 9
+ Attribute = Buying
+ Size = 51
+ Prediction = unacc" -> "Id = 99
+ Attribute = Doors
+ Size = 11
  Prediction = acc" [label=low]
-	"Id = 99
- Attribute = Lug_boot
- Size = 39
- Prediction = unacc" -> "Id = 100
+	"Id = 107
+ Attribute = Doors
+ Size = 54
+ Prediction = acc" -> "Id = 108
+ Attribute = Buying
  Size = 13
- Target Value = unacc" [label=small]
-	"Id = 99
- Attribute = Lug_boot
- Size = 39
- Prediction = unacc" -> "Id = 101
+ Prediction = unacc" [label=2]
+	"Id = 107
+ Attribute = Doors
+ Size = 54
+ Prediction = acc" -> "Id = 118
+ Attribute = Buying
+ Size = 13
+ Prediction = acc" [label=3]
+	"Id = 107
+ Attribute = Doors
+ Size = 54
+ Prediction = acc" -> "Id = 133
+ Attribute = Maint
+ Size = 13
+ Prediction = acc" [label=4]
+	"Id = 107
+ Attribute = Doors
+ Size = 54
+ Prediction = acc" -> "Id = 149
+ Attribute = Maint
+ Size = 15
+ Prediction = acc" [label="5more"]
+	"Id = 169
+ Attribute = Buying
+ Size = 50
+ Prediction = acc" -> "Id = 170
+ Attribute = Maint
+ Size = 13
+ Prediction = unacc" [label=vhigh]
+	"Id = 169
+ Attribute = Buying
+ Size = 50
+ Prediction = acc" -> "Id = 175
+ Attribute = Maint
+ Size = 14
+ Prediction = acc" [label=high]
+	"Id = 169
+ Attribute = Buying
+ Size = 50
+ Prediction = acc" -> "Id = 180
  Attribute = Maint
  Size = 13
  Prediction = acc" [label=med]
-	"Id = 99
- Attribute = Lug_boot
- Size = 39
- Prediction = unacc" -> "Id = 109
- Attribute = Maint
- Size = 13
- Prediction = acc" [label=big]
-	"Id = 114
- Attribute = Maint
- Size = 42
- Prediction = acc" -> "Id = 115
- Attribute = Lug_boot
- Size = 10
- Prediction = acc" [label=vhigh]
-	"Id = 114
- Attribute = Maint
- Size = 42
- Prediction = acc" -> "Id = 122
- Attribute = Lug_boot
- Size = 10
- Prediction = acc" [label=high]
-	"Id = 114
- Attribute = Maint
- Size = 42
- Prediction = acc" -> "Id = 129
- Attribute = Doors
- Size = 12
- Prediction = acc" [label=med]
-	"Id = 114
- Attribute = Maint
- Size = 42
- Prediction = acc" -> "Id = 137
- Attribute = Lug_boot
- Size = 10
- Prediction = good" [label=low]
-	"Id = 147
- Attribute = Maint
- Size = 34
- Prediction = acc" -> "Id = 148
- Attribute = Lug_boot
- Size = 5
- Prediction = acc" [label=vhigh]
-	"Id = 147
- Attribute = Maint
- Size = 34
- Prediction = acc" -> "Id = 152
- Attribute = Doors
- Size = 10
- Prediction = acc" [label=high]
-	"Id = 147
- Attribute = Maint
- Size = 34
- Prediction = acc" -> "Id = 159
- Attribute = Lug_boot
- Size = 10
- Prediction = good" [label=med]
-	"Id = 147
- Attribute = Maint
- Size = 34
- Prediction = acc" -> "Id = 171
- Attribute = Lug_boot
- Size = 9
- Prediction = good" [label=low]
-	"Id = 181
- Attribute = Maint
- Size = 40
- Prediction = acc" -> "Id = 182
- Size = 9
- Target Value = unacc" [label=vhigh]
-	"Id = 181
- Attribute = Maint
- Size = 40
- Prediction = acc" -> "Id = 183
- Size = 9
- Target Value = unacc" [label=high]
-	"Id = 181
- Attribute = Maint
- Size = 40
- Prediction = acc" -> "Id = 184
- Size = 11
- Target Value = acc" [label=med]
-	"Id = 181
- Attribute = Maint
- Size = 40
+	"Id = 169
+ Attribute = Buying
+ Size = 50
  Prediction = acc" -> "Id = 185
- Size = 11
- Target Value = acc" [label=low]
-	"Id = 186
  Attribute = Maint
- Size = 37
- Prediction = acc" -> "Id = 187
+ Size = 10
+ Prediction = acc" [label=low]
+	"Id = 193
+ Attribute = Maint
+ Size = 40
+ Prediction = unacc" -> "Id = 194
+ Size = 10
+ Target Value = unacc" [label=vhigh]
+	"Id = 193
+ Attribute = Maint
+ Size = 40
+ Prediction = unacc" -> "Id = 195
+ Size = 12
+ Target Value = unacc" [label=high]
+	"Id = 193
+ Attribute = Maint
+ Size = 40
+ Prediction = unacc" -> "Id = 196
+ Size = 8
+ Target Value = acc" [label=med]
+	"Id = 193
+ Attribute = Maint
+ Size = 40
+ Prediction = unacc" -> "Id = 197
+ Size = 10
+ Target Value = acc" [label=low]
+	"Id = 198
+ Attribute = Maint
+ Size = 36
+ Prediction = acc" -> "Id = 199
+ Size = 11
+ Target Value = unacc" [label=vhigh]
+	"Id = 198
+ Attribute = Maint
+ Size = 36
+ Prediction = acc" -> "Id = 200
+ Size = 9
+ Target Value = acc" [label=high]
+	"Id = 198
+ Attribute = Maint
+ Size = 36
+ Prediction = acc" -> "Id = 201
+ Size = 7
+ Target Value = acc" [label=med]
+	"Id = 198
+ Attribute = Maint
+ Size = 36
+ Prediction = acc" -> "Id = 202
+ Size = 9
+ Target Value = acc" [label=low]
+	"Id = 203
+ Attribute = Maint
+ Size = 35
+ Prediction = acc" -> "Id = 204
+ Size = 10
+ Target Value = acc" [label=vhigh]
+	"Id = 203
+ Attribute = Maint
+ Size = 35
+ Prediction = acc" -> "Id = 205
+ Size = 10
+ Target Value = acc" [label=high]
+	"Id = 203
+ Attribute = Maint
+ Size = 35
+ Prediction = acc" -> "Id = 206
+ Attribute = Lug_boot
+ Size = 8
+ Prediction = acc" [label=med]
+	"Id = 203
+ Attribute = Maint
+ Size = 35
+ Prediction = acc" -> "Id = 213
+ Attribute = Lug_boot
+ Size = 7
+ Prediction = vgood" [label=low]
+	"Id = 219
+ Attribute = Maint
+ Size = 36
+ Prediction = acc" -> "Id = 220
+ Size = 10
+ Target Value = acc" [label=vhigh]
+	"Id = 219
+ Attribute = Maint
+ Size = 36
+ Prediction = acc" -> "Id = 221
+ Attribute = Lug_boot
+ Size = 10
+ Prediction = vgood" [label=high]
+	"Id = 219
+ Attribute = Maint
+ Size = 36
+ Prediction = acc" -> "Id = 229
+ Attribute = Lug_boot
+ Size = 9
+ Prediction = vgood" [label=med]
+	"Id = 219
+ Attribute = Maint
+ Size = 36
+ Prediction = acc" -> "Id = 237
+ Attribute = Lug_boot
+ Size = 7
+ Prediction = good" [label=low]
+	"Id = 245
+ Attribute = Maint
+ Size = 36
+ Prediction = unacc" -> "Id = 246
  Size = 7
  Target Value = unacc" [label=vhigh]
-	"Id = 186
+	"Id = 245
  Attribute = Maint
- Size = 37
- Prediction = acc" -> "Id = 188
- Size = 11
- Target Value = acc" [label=high]
-	"Id = 186
- Attribute = Maint
- Size = 37
- Prediction = acc" -> "Id = 189
- Size = 9
- Target Value = acc" [label=med]
-	"Id = 186
- Attribute = Maint
- Size = 37
- Prediction = acc" -> "Id = 190
+ Size = 36
+ Prediction = unacc" -> "Id = 247
  Size = 10
- Target Value = acc" [label=low]
-	"Id = 191
- Attribute = Maint
- Size = 41
- Prediction = acc" -> "Id = 192
- Size = 12
- Target Value = acc" [label=vhigh]
-	"Id = 191
- Attribute = Maint
- Size = 41
- Prediction = acc" -> "Id = 193
- Size = 10
- Target Value = acc" [label=high]
-	"Id = 191
- Attribute = Maint
- Size = 41
- Prediction = acc" -> "Id = 194
- Attribute = Lug_boot
- Size = 11
- Prediction = acc" [label=med]
-	"Id = 191
- Attribute = Maint
- Size = 41
- Prediction = acc" -> "Id = 201
- Attribute = Lug_boot
- Size = 8
- Prediction = good" [label=low]
-	"Id = 208
- Attribute = Maint
- Size = 38
- Prediction = vgood" -> "Id = 209
- Size = 10
- Target Value = acc" [label=vhigh]
-	"Id = 208
- Attribute = Maint
- Size = 38
- Prediction = vgood" -> "Id = 210
- Attribute = Lug_boot
- Size = 9
- Prediction = vgood" [label=high]
-	"Id = 208
- Attribute = Maint
- Size = 38
- Prediction = vgood" -> "Id = 218
- Attribute = Lug_boot
- Size = 10
- Prediction = vgood" [label=med]
-	"Id = 208
- Attribute = Maint
- Size = 38
- Prediction = vgood" -> "Id = 224
- Attribute = Lug_boot
- Size = 9
- Prediction = vgood" [label=low]
-	"Id = 229
- Attribute = Maint
- Size = 40
- Prediction = unacc" -> "Id = 230
- Size = 11
- Target Value = unacc" [label=vhigh]
-	"Id = 229
- Attribute = Maint
- Size = 40
- Prediction = unacc" -> "Id = 231
- Size = 9
  Target Value = unacc" [label=high]
-	"Id = 229
+	"Id = 245
  Attribute = Maint
- Size = 40
- Prediction = unacc" -> "Id = 232
- Size = 8
- Target Value = acc" [label=med]
-	"Id = 229
- Attribute = Maint
- Size = 40
- Prediction = unacc" -> "Id = 233
+ Size = 36
+ Prediction = unacc" -> "Id = 248
  Attribute = Doors
- Size = 12
- Prediction = acc" [label=low]
-	"Id = 241
- Attribute = Maint
- Size = 38
- Prediction = acc" -> "Id = 242
- Size = 8
- Target Value = unacc" [label=vhigh]
-	"Id = 241
- Attribute = Maint
- Size = 38
- Prediction = acc" -> "Id = 243
- Size = 9
- Target Value = acc" [label=high]
-	"Id = 241
- Attribute = Maint
- Size = 38
- Prediction = acc" -> "Id = 244
- Attribute = Doors
- Size = 12
+ Size = 10
  Prediction = acc" [label=med]
-	"Id = 241
+	"Id = 245
  Attribute = Maint
- Size = 38
- Prediction = acc" -> "Id = 252
- Attribute = Doors
+ Size = 36
+ Prediction = unacc" -> "Id = 256
+ Attribute = Lug_boot
  Size = 9
  Prediction = acc" [label=low]
-	"Id = 260
+	"Id = 262
  Attribute = Maint
- Size = 43
- Prediction = acc" -> "Id = 261
+ Size = 44
+ Prediction = acc" -> "Id = 263
+ Size = 12
+ Target Value = unacc" [label=vhigh]
+	"Id = 262
+ Attribute = Maint
+ Size = 44
+ Prediction = acc" -> "Id = 264
+ Attribute = Doors
+ Size = 11
+ Prediction = acc" [label=high]
+	"Id = 262
+ Attribute = Maint
+ Size = 44
+ Prediction = acc" -> "Id = 272
+ Attribute = Doors
+ Size = 10
+ Prediction = acc" [label=med]
+	"Id = 262
+ Attribute = Maint
+ Size = 44
+ Prediction = acc" -> "Id = 279
+ Attribute = Doors
+ Size = 11
+ Prediction = acc" [label=low]
+	"Id = 286
+ Attribute = Maint
+ Size = 41
+ Prediction = acc" -> "Id = 287
  Attribute = Doors
  Size = 10
  Prediction = acc" [label=vhigh]
-	"Id = 260
+	"Id = 286
  Attribute = Maint
- Size = 43
- Prediction = acc" -> "Id = 268
- Attribute = Lug_boot
- Size = 11
- Prediction = acc" [label=high]
-	"Id = 260
+ Size = 41
+ Prediction = acc" -> "Id = 294
+ Size = 8
+ Target Value = acc" [label=high]
+	"Id = 286
  Attribute = Maint
- Size = 43
- Prediction = acc" -> "Id = 275
+ Size = 41
+ Prediction = acc" -> "Id = 295
  Attribute = Lug_boot
  Size = 11
  Prediction = vgood" [label=med]
-	"Id = 260
+	"Id = 286
  Attribute = Maint
- Size = 43
- Prediction = acc" -> "Id = 283
+ Size = 41
+ Prediction = acc" -> "Id = 306
  Attribute = Lug_boot
- Size = 11
+ Size = 12
  Prediction = vgood" [label=low]
-	"Id = 294
+	"Id = 318
  Attribute = Maint
- Size = 34
- Prediction = vgood" -> "Id = 295
- Size = 8
+ Size = 42
+ Prediction = vgood" -> "Id = 319
+ Size = 9
  Target Value = acc" [label=vhigh]
-	"Id = 294
+	"Id = 318
  Attribute = Maint
- Size = 34
- Prediction = vgood" -> "Id = 296
+ Size = 42
+ Prediction = vgood" -> "Id = 320
  Attribute = Lug_boot
- Size = 8
+ Size = 12
  Prediction = vgood" [label=high]
-	"Id = 294
+	"Id = 318
  Attribute = Maint
- Size = 34
- Prediction = vgood" -> "Id = 303
+ Size = 42
+ Prediction = vgood" -> "Id = 332
  Attribute = Lug_boot
- Size = 9
+ Size = 11
  Prediction = vgood" [label=med]
-	"Id = 294
+	"Id = 318
  Attribute = Maint
- Size = 34
- Prediction = vgood" -> "Id = 310
+ Size = 42
+ Prediction = vgood" -> "Id = 343
  Attribute = Lug_boot
- Size = 9
+ Size = 10
  Prediction = vgood" [label=low]
 	"Id = 8
  Attribute = Lug_boot
- Size = 10
+ Size = 11
  Prediction = acc" -> "Id = 9
- Size = 3
+ Size = 4
  Target Value = unacc" [label=small]
 	"Id = 8
  Attribute = Lug_boot
- Size = 10
+ Size = 11
  Prediction = acc" -> "Id = 10
  Attribute = Doors
  Size = 3
- Prediction = unacc" [label=med]
+ Prediction = acc" [label=med]
 	"Id = 8
  Attribute = Lug_boot
- Size = 10
+ Size = 11
  Prediction = acc" -> "Id = 14
  Size = 4
  Target Value = acc" [label=big]
 	"Id = 15
  Attribute = Lug_boot
- Size = 7
- Prediction = unacc" -> "Id = 16
- Size = 3
+ Size = 9
+ Prediction = acc" -> "Id = 16
+ Size = 2
  Target Value = unacc" [label=small]
 	"Id = 15
  Attribute = Lug_boot
- Size = 7
- Prediction = unacc" -> "Id = 17
+ Size = 9
+ Prediction = acc" -> "Id = 17
  Attribute = Doors
  Size = 3
  Prediction = unacc" [label=med]
 	"Id = 15
  Attribute = Lug_boot
- Size = 7
- Prediction = unacc" -> "Id = 21
- Size = 1
+ Size = 9
+ Prediction = acc" -> "Id = 21
+ Size = 4
  Target Value = acc" [label=big]
 	"Id = 24
- Attribute = Maint
- Size = 10
+ Attribute = Doors
+ Size = 13
  Prediction = unacc" -> "Id = 25
  Size = 4
- Target Value = unacc" [label=vhigh]
+ Target Value = unacc" [label=2]
 	"Id = 24
- Attribute = Maint
- Size = 10
- Prediction = unacc" -> "Id = 26
  Attribute = Doors
+ Size = 13
+ Prediction = unacc" -> "Id = 26
  Size = 4
- Prediction = acc" [label=high]
+ Target Value = unacc" [label=3]
 	"Id = 24
+ Attribute = Doors
+ Size = 13
+ Prediction = unacc" -> "Id = 27
  Attribute = Maint
- Size = 10
+ Size = 3
+ Prediction = acc" [label=4]
+	"Id = 24
+ Attribute = Doors
+ Size = 13
  Prediction = unacc" -> "Id = 31
- Size = 1
- Target Value = acc" [label=med]
-	"Id = 24
  Attribute = Maint
- Size = 10
- Prediction = unacc" -> "Id = 32
- Size = 1
- Target Value = acc" [label=low]
-	"Id = 33
+ Size = 2
+ Prediction = acc" [label="5more"]
+	"Id = 34
  Attribute = Maint
- Size = 11
- Prediction = acc" -> "Id = 34
+ Size = 15
+ Prediction = acc" -> "Id = 35
  Size = 4
  Target Value = unacc" [label=vhigh]
-	"Id = 33
+	"Id = 34
  Attribute = Maint
- Size = 11
- Prediction = acc" -> "Id = 35
- Size = 2
- Target Value = acc" [label=high]
-	"Id = 33
- Attribute = Maint
- Size = 11
+ Size = 15
  Prediction = acc" -> "Id = 36
  Size = 3
- Target Value = acc" [label=med]
-	"Id = 33
+ Target Value = acc" [label=high]
+	"Id = 34
  Attribute = Maint
- Size = 11
+ Size = 15
  Prediction = acc" -> "Id = 37
- Size = 2
+ Size = 4
+ Target Value = acc" [label=med]
+	"Id = 34
+ Attribute = Maint
+ Size = 15
+ Prediction = acc" -> "Id = 38
+ Size = 4
  Target Value = acc" [label=low]
-	"Id = 39
+	"Id = 40
  Attribute = Lug_boot
- Size = 11
- Prediction = unacc" -> "Id = 40
+ Size = 10
+ Prediction = unacc" -> "Id = 41
  Size = 4
  Target Value = unacc" [label=small]
-	"Id = 39
+	"Id = 40
  Attribute = Lug_boot
- Size = 11
- Prediction = unacc" -> "Id = 41
+ Size = 10
+ Prediction = unacc" -> "Id = 42
  Attribute = Doors
  Size = 3
  Prediction = unacc" [label=med]
-	"Id = 39
- Attribute = Lug_boot
- Size = 11
- Prediction = unacc" -> "Id = 45
- Size = 4
- Target Value = acc" [label=big]
-	"Id = 46
+	"Id = 40
  Attribute = Lug_boot
  Size = 10
- Prediction = acc" -> "Id = 47
+ Prediction = unacc" -> "Id = 46
  Size = 3
- Target Value = unacc" [label=small]
-	"Id = 46
+ Target Value = acc" [label=big]
+	"Id = 47
  Attribute = Lug_boot
  Size = 10
  Prediction = acc" -> "Id = 48
+ Size = 3
+ Target Value = unacc" [label=small]
+	"Id = 47
+ Attribute = Lug_boot
+ Size = 10
+ Prediction = acc" -> "Id = 49
  Attribute = Doors
  Size = 3
  Prediction = unacc" [label=med]
-	"Id = 46
+	"Id = 47
  Attribute = Lug_boot
  Size = 10
- Prediction = acc" -> "Id = 52
+ Prediction = acc" -> "Id = 53
  Size = 4
  Target Value = acc" [label=big]
-	"Id = 54
+	"Id = 55
  Attribute = Lug_boot
- Size = 11
- Prediction = acc" -> "Id = 55
+ Size = 10
+ Prediction = acc" -> "Id = 56
  Size = 4
  Target Value = acc" [label=small]
-	"Id = 54
+	"Id = 55
  Attribute = Lug_boot
- Size = 11
- Prediction = acc" -> "Id = 56
+ Size = 10
+ Prediction = acc" -> "Id = 57
  Attribute = Doors
- Size = 4
- Prediction = good" [label=med]
-	"Id = 54
+ Size = 3
+ Prediction = acc" [label=med]
+	"Id = 55
  Attribute = Lug_boot
- Size = 11
+ Size = 10
  Prediction = acc" -> "Id = 61
  Size = 3
  Target Value = good" [label=big]
 	"Id = 63
  Attribute = Lug_boot
- Size = 10
+ Size = 9
  Prediction = acc" -> "Id = 64
  Size = 3
  Target Value = unacc" [label=small]
 	"Id = 63
  Attribute = Lug_boot
- Size = 10
+ Size = 9
  Prediction = acc" -> "Id = 65
  Attribute = Doors
  Size = 3
- Prediction = unacc" [label=med]
+ Prediction = acc" [label=med]
 	"Id = 63
  Attribute = Lug_boot
- Size = 10
+ Size = 9
  Prediction = acc" -> "Id = 69
- Size = 4
+ Size = 3
  Target Value = acc" [label=big]
 	"Id = 71
  Attribute = Lug_boot
- Size = 11
- Prediction = acc" -> "Id = 72
- Size = 4
+ Size = 10
+ Prediction = good" -> "Id = 72
+ Size = 3
  Target Value = acc" [label=small]
 	"Id = 71
  Attribute = Lug_boot
- Size = 11
- Prediction = acc" -> "Id = 73
+ Size = 10
+ Prediction = good" -> "Id = 73
  Attribute = Doors
  Size = 3
  Prediction = acc" [label=med]
 	"Id = 71
  Attribute = Lug_boot
- Size = 11
- Prediction = acc" -> "Id = 77
+ Size = 10
+ Prediction = good" -> "Id = 77
  Size = 4
  Target Value = good" [label=big]
 	"Id = 78
@@ -784,583 +759,617 @@ digraph "Decision Tree" {
  Size = 4
  Target Value = good" [label=big]
 	"Id = 89
- Attribute = Lug_boot
- Size = 9
+ Attribute = Maint
+ Size = 12
  Prediction = unacc" -> "Id = 90
  Size = 4
- Target Value = unacc" [label=small]
+ Target Value = unacc" [label=vhigh]
 	"Id = 89
- Attribute = Lug_boot
- Size = 9
+ Attribute = Maint
+ Size = 12
  Prediction = unacc" -> "Id = 91
+ Size = 3
+ Target Value = unacc" [label=high]
+	"Id = 89
+ Attribute = Maint
+ Size = 12
+ Prediction = unacc" -> "Id = 92
  Attribute = Doors
  Size = 2
  Prediction = acc" [label=med]
 	"Id = 89
- Attribute = Lug_boot
- Size = 9
- Prediction = unacc" -> "Id = 94
- Size = 3
- Target Value = acc" [label=big]
-	"Id = 95
- Attribute = Lug_boot
- Size = 9
- Prediction = acc" -> "Id = 96
- Size = 4
- Target Value = unacc" [label=small]
-	"Id = 95
- Attribute = Lug_boot
- Size = 9
- Prediction = acc" -> "Id = 97
- Size = 3
- Target Value = acc" [label=med]
-	"Id = 95
- Attribute = Lug_boot
- Size = 9
- Prediction = acc" -> "Id = 98
- Size = 2
- Target Value = acc" [label=big]
-	"Id = 101
  Attribute = Maint
+ Size = 12
+ Prediction = unacc" -> "Id = 95
+ Attribute = Doors
+ Size = 3
+ Prediction = acc" [label=low]
+	"Id = 99
+ Attribute = Doors
+ Size = 11
+ Prediction = acc" -> "Id = 100
+ Size = 3
+ Target Value = unacc" [label=2]
+	"Id = 99
+ Attribute = Doors
+ Size = 11
+ Prediction = acc" -> "Id = 101
+ Attribute = Maint
+ Size = 3
+ Prediction = acc" [label=3]
+	"Id = 99
+ Attribute = Doors
+ Size = 11
+ Prediction = acc" -> "Id = 105
+ Size = 3
+ Target Value = acc" [label=4]
+	"Id = 99
+ Attribute = Doors
+ Size = 11
+ Prediction = acc" -> "Id = 106
+ Size = 2
+ Target Value = acc" [label="5more"]
+	"Id = 108
+ Attribute = Buying
  Size = 13
- Prediction = acc" -> "Id = 102
+ Prediction = unacc" -> "Id = 109
  Size = 4
  Target Value = unacc" [label=vhigh]
-	"Id = 101
- Attribute = Maint
+	"Id = 108
+ Attribute = Buying
  Size = 13
- Prediction = acc" -> "Id = 103
- Attribute = Doors
+ Prediction = unacc" -> "Id = 110
+ Size = 4
+ Target Value = unacc" [label=high]
+	"Id = 108
+ Attribute = Buying
+ Size = 13
+ Prediction = unacc" -> "Id = 111
+ Attribute = Maint
+ Size = 2
+ Prediction = acc" [label=med]
+	"Id = 108
+ Attribute = Buying
+ Size = 13
+ Prediction = unacc" -> "Id = 114
+ Attribute = Maint
+ Size = 3
+ Prediction = acc" [label=low]
+	"Id = 118
+ Attribute = Buying
+ Size = 13
+ Prediction = acc" -> "Id = 119
+ Attribute = Maint
+ Size = 4
+ Prediction = acc" [label=vhigh]
+	"Id = 118
+ Attribute = Buying
+ Size = 13
+ Prediction = acc" -> "Id = 124
+ Attribute = Maint
  Size = 3
  Prediction = acc" [label=high]
-	"Id = 101
- Attribute = Maint
+	"Id = 118
+ Attribute = Buying
  Size = 13
- Prediction = acc" -> "Id = 107
+ Prediction = acc" -> "Id = 128
  Size = 3
  Target Value = acc" [label=med]
-	"Id = 101
- Attribute = Maint
+	"Id = 118
+ Attribute = Buying
  Size = 13
- Prediction = acc" -> "Id = 108
+ Prediction = acc" -> "Id = 129
+ Attribute = Maint
  Size = 3
- Target Value = acc" [label=low]
-	"Id = 109
+ Prediction = acc" [label=low]
+	"Id = 133
  Attribute = Maint
  Size = 13
- Prediction = acc" -> "Id = 110
+ Prediction = acc" -> "Id = 134
+ Attribute = Buying
+ Size = 3
+ Prediction = unacc" [label=vhigh]
+	"Id = 133
+ Attribute = Maint
+ Size = 13
+ Prediction = acc" -> "Id = 138
+ Size = 2
+ Target Value = acc" [label=high]
+	"Id = 133
+ Attribute = Maint
+ Size = 13
+ Prediction = acc" -> "Id = 139
+ Attribute = Buying
+ Size = 4
+ Prediction = acc" [label=med]
+	"Id = 133
+ Attribute = Maint
+ Size = 13
+ Prediction = acc" -> "Id = 144
+ Attribute = Buying
+ Size = 4
+ Prediction = good" [label=low]
+	"Id = 149
+ Attribute = Maint
+ Size = 15
+ Prediction = acc" -> "Id = 150
+ Attribute = Buying
+ Size = 4
+ Prediction = acc" [label=vhigh]
+	"Id = 149
+ Attribute = Maint
+ Size = 15
+ Prediction = acc" -> "Id = 155
+ Attribute = Buying
+ Size = 4
+ Prediction = acc" [label=high]
+	"Id = 149
+ Attribute = Maint
+ Size = 15
+ Prediction = acc" -> "Id = 160
+ Attribute = Buying
+ Size = 3
+ Prediction = acc" [label=med]
+	"Id = 149
+ Attribute = Maint
+ Size = 15
+ Prediction = acc" -> "Id = 164
+ Attribute = Buying
+ Size = 4
+ Prediction = good" [label=low]
+	"Id = 170
+ Attribute = Maint
+ Size = 13
+ Prediction = unacc" -> "Id = 171
  Size = 3
  Target Value = unacc" [label=vhigh]
-	"Id = 109
+	"Id = 170
  Attribute = Maint
  Size = 13
- Prediction = acc" -> "Id = 111
+ Prediction = unacc" -> "Id = 172
+ Size = 4
+ Target Value = unacc" [label=high]
+	"Id = 170
+ Attribute = Maint
+ Size = 13
+ Prediction = unacc" -> "Id = 173
+ Size = 3
+ Target Value = acc" [label=med]
+	"Id = 170
+ Attribute = Maint
+ Size = 13
+ Prediction = unacc" -> "Id = 174
+ Size = 3
+ Target Value = acc" [label=low]
+	"Id = 175
+ Attribute = Maint
+ Size = 14
+ Prediction = acc" -> "Id = 176
+ Size = 2
+ Target Value = unacc" [label=vhigh]
+	"Id = 175
+ Attribute = Maint
+ Size = 14
+ Prediction = acc" -> "Id = 177
  Size = 4
  Target Value = acc" [label=high]
-	"Id = 109
+	"Id = 175
  Attribute = Maint
- Size = 13
- Prediction = acc" -> "Id = 112
- Size = 2
+ Size = 14
+ Prediction = acc" -> "Id = 178
+ Size = 4
  Target Value = acc" [label=med]
-	"Id = 109
+	"Id = 175
  Attribute = Maint
- Size = 13
- Prediction = acc" -> "Id = 113
+ Size = 14
+ Prediction = acc" -> "Id = 179
  Size = 4
  Target Value = acc" [label=low]
-	"Id = 115
- Attribute = Lug_boot
- Size = 10
- Prediction = acc" -> "Id = 116
+	"Id = 180
+ Attribute = Maint
+ Size = 13
+ Prediction = acc" -> "Id = 181
  Size = 3
- Target Value = unacc" [label=small]
-	"Id = 115
- Attribute = Lug_boot
- Size = 10
- Prediction = acc" -> "Id = 117
- Attribute = Doors
- Size = 3
- Prediction = acc" [label=med]
-	"Id = 115
- Attribute = Lug_boot
- Size = 10
- Prediction = acc" -> "Id = 121
+ Target Value = acc" [label=vhigh]
+	"Id = 180
+ Attribute = Maint
+ Size = 13
+ Prediction = acc" -> "Id = 182
  Size = 4
- Target Value = acc" [label=big]
-	"Id = 122
- Attribute = Lug_boot
- Size = 10
- Prediction = acc" -> "Id = 123
- Size = 3
- Target Value = unacc" [label=small]
-	"Id = 122
- Attribute = Lug_boot
- Size = 10
- Prediction = acc" -> "Id = 124
- Attribute = Doors
- Size = 3
- Prediction = acc" [label=med]
-	"Id = 122
- Attribute = Lug_boot
- Size = 10
- Prediction = acc" -> "Id = 128
+ Target Value = acc" [label=high]
+	"Id = 180
+ Attribute = Maint
+ Size = 13
+ Prediction = acc" -> "Id = 183
  Size = 4
- Target Value = acc" [label=big]
-	"Id = 129
- Attribute = Doors
- Size = 12
- Prediction = acc" -> "Id = 130
- Attribute = Lug_boot
- Size = 3
- Prediction = acc" [label=2]
-	"Id = 129
- Attribute = Doors
- Size = 12
- Prediction = acc" -> "Id = 134
- Size = 3
- Target Value = acc" [label=3]
-	"Id = 129
- Attribute = Doors
- Size = 12
- Prediction = acc" -> "Id = 135
- Size = 3
- Target Value = acc" [label=4]
-	"Id = 129
- Attribute = Doors
- Size = 12
- Prediction = acc" -> "Id = 136
- Size = 3
- Target Value = acc" [label="5more"]
-	"Id = 137
- Attribute = Lug_boot
- Size = 10
- Prediction = good" -> "Id = 138
- Attribute = Doors
- Size = 3
- Prediction = acc" [label=small]
-	"Id = 137
- Attribute = Lug_boot
- Size = 10
- Prediction = good" -> "Id = 142
- Attribute = Doors
- Size = 3
- Prediction = good" [label=med]
-	"Id = 137
- Attribute = Lug_boot
- Size = 10
- Prediction = good" -> "Id = 146
- Size = 4
- Target Value = good" [label=big]
-	"Id = 148
- Attribute = Lug_boot
- Size = 5
- Prediction = acc" -> "Id = 149
- Size = 1
- Target Value = unacc" [label=small]
-	"Id = 148
- Attribute = Lug_boot
- Size = 5
- Prediction = acc" -> "Id = 150
- Size = 2
  Target Value = acc" [label=med]
-	"Id = 148
- Attribute = Lug_boot
- Size = 5
- Prediction = acc" -> "Id = 151
+	"Id = 180
+ Attribute = Maint
+ Size = 13
+ Prediction = acc" -> "Id = 184
  Size = 2
- Target Value = acc" [label=big]
-	"Id = 152
- Attribute = Doors
+ Target Value = good" [label=low]
+	"Id = 185
+ Attribute = Maint
  Size = 10
- Prediction = acc" -> "Id = 153
- Attribute = Lug_boot
- Size = 2
- Prediction = acc" [label=2]
-	"Id = 152
- Attribute = Doors
- Size = 10
- Prediction = acc" -> "Id = 156
+ Prediction = acc" -> "Id = 186
  Size = 3
- Target Value = acc" [label=3]
-	"Id = 152
- Attribute = Doors
+ Target Value = acc" [label=vhigh]
+	"Id = 185
+ Attribute = Maint
  Size = 10
- Prediction = acc" -> "Id = 157
- Size = 2
- Target Value = acc" [label=4]
-	"Id = 152
- Attribute = Doors
- Size = 10
- Prediction = acc" -> "Id = 158
+ Prediction = acc" -> "Id = 187
  Size = 3
- Target Value = acc" [label="5more"]
-	"Id = 159
- Attribute = Lug_boot
+ Target Value = acc" [label=high]
+	"Id = 185
+ Attribute = Maint
  Size = 10
- Prediction = good" -> "Id = 160
- Attribute = Doors
- Size = 4
- Prediction = acc" [label=small]
-	"Id = 159
- Attribute = Lug_boot
- Size = 10
- Prediction = good" -> "Id = 165
- Attribute = Doors
- Size = 4
- Prediction = good" [label=med]
-	"Id = 159
- Attribute = Lug_boot
- Size = 10
- Prediction = good" -> "Id = 170
+ Prediction = acc" -> "Id = 188
  Size = 2
- Target Value = good" [label=big]
-	"Id = 171
+ Target Value = good" [label=med]
+	"Id = 185
+ Attribute = Maint
+ Size = 10
+ Prediction = acc" -> "Id = 189
+ Size = 2
+ Target Value = good" [label=low]
+	"Id = 206
  Attribute = Lug_boot
- Size = 9
- Prediction = good" -> "Id = 172
+ Size = 8
+ Prediction = acc" -> "Id = 207
  Size = 3
  Target Value = acc" [label=small]
-	"Id = 171
+	"Id = 206
  Attribute = Lug_boot
- Size = 9
- Prediction = good" -> "Id = 173
- Attribute = Doors
- Size = 3
- Prediction = good" [label=med]
-	"Id = 171
- Attribute = Lug_boot
- Size = 9
- Prediction = good" -> "Id = 177
- Size = 3
- Target Value = good" [label=big]
-	"Id = 194
- Attribute = Lug_boot
- Size = 11
- Prediction = acc" -> "Id = 195
- Size = 4
- Target Value = acc" [label=small]
-	"Id = 194
- Attribute = Lug_boot
- Size = 11
- Prediction = acc" -> "Id = 196
+ Size = 8
+ Prediction = acc" -> "Id = 208
  Attribute = Doors
  Size = 3
  Prediction = acc" [label=med]
-	"Id = 194
- Attribute = Lug_boot
- Size = 11
- Prediction = acc" -> "Id = 200
- Size = 4
- Target Value = vgood" [label=big]
-	"Id = 201
+	"Id = 206
  Attribute = Lug_boot
  Size = 8
- Prediction = good" -> "Id = 202
- Size = 3
+ Prediction = acc" -> "Id = 212
+ Size = 2
+ Target Value = vgood" [label=big]
+	"Id = 213
+ Attribute = Lug_boot
+ Size = 7
+ Prediction = vgood" -> "Id = 214
+ Size = 2
  Target Value = good" [label=small]
-	"Id = 201
+	"Id = 213
  Attribute = Lug_boot
- Size = 8
- Prediction = good" -> "Id = 203
+ Size = 7
+ Prediction = vgood" -> "Id = 215
  Attribute = Doors
+ Size = 2
+ Prediction = vgood" [label=med]
+	"Id = 213
+ Attribute = Lug_boot
+ Size = 7
+ Prediction = vgood" -> "Id = 218
  Size = 3
- Prediction = good" [label=med]
-	"Id = 201
- Attribute = Lug_boot
- Size = 8
- Prediction = good" -> "Id = 207
- Size = 2
  Target Value = vgood" [label=big]
-	"Id = 210
+	"Id = 221
  Attribute = Lug_boot
- Size = 9
- Prediction = vgood" -> "Id = 211
- Size = 2
+ Size = 10
+ Prediction = vgood" -> "Id = 222
+ Size = 3
  Target Value = acc" [label=small]
-	"Id = 210
- Attribute = Lug_boot
- Size = 9
- Prediction = vgood" -> "Id = 212
- Attribute = Doors
- Size = 4
- Prediction = vgood" [label=med]
-	"Id = 210
- Attribute = Lug_boot
- Size = 9
- Prediction = vgood" -> "Id = 217
- Size = 3
- Target Value = vgood" [label=big]
-	"Id = 218
- Attribute = Lug_boot
- Size = 10
- Prediction = vgood" -> "Id = 219
- Size = 4
- Target Value = good" [label=small]
-	"Id = 218
- Attribute = Lug_boot
- Size = 10
- Prediction = vgood" -> "Id = 220
- Attribute = Doors
- Size = 2
- Prediction = vgood" [label=med]
-	"Id = 218
+	"Id = 221
  Attribute = Lug_boot
  Size = 10
  Prediction = vgood" -> "Id = 223
+ Attribute = Doors
  Size = 4
+ Prediction = vgood" [label=med]
+	"Id = 221
+ Attribute = Lug_boot
+ Size = 10
+ Prediction = vgood" -> "Id = 228
+ Size = 3
  Target Value = vgood" [label=big]
-	"Id = 224
+	"Id = 229
  Attribute = Lug_boot
  Size = 9
- Prediction = vgood" -> "Id = 225
- Size = 4
+ Prediction = vgood" -> "Id = 230
+ Size = 1
  Target Value = good" [label=small]
-	"Id = 224
+	"Id = 229
  Attribute = Lug_boot
  Size = 9
- Prediction = vgood" -> "Id = 226
- Size = 2
- Target Value = vgood" [label=med]
-	"Id = 224
+ Prediction = vgood" -> "Id = 231
+ Attribute = Doors
+ Size = 4
+ Prediction = vgood" [label=med]
+	"Id = 229
  Attribute = Lug_boot
  Size = 9
- Prediction = vgood" -> "Id = 227
- Size = 3
+ Prediction = vgood" -> "Id = 236
+ Size = 4
  Target Value = vgood" [label=big]
-	"Id = 233
- Attribute = Doors
- Size = 12
- Prediction = acc" -> "Id = 234
+	"Id = 237
  Attribute = Lug_boot
+ Size = 7
+ Prediction = good" -> "Id = 238
  Size = 3
- Prediction = acc" [label=2]
-	"Id = 233
- Attribute = Doors
- Size = 12
- Prediction = acc" -> "Id = 238
- Size = 3
- Target Value = acc" [label=3]
-	"Id = 233
- Attribute = Doors
- Size = 12
- Prediction = acc" -> "Id = 239
- Size = 3
- Target Value = acc" [label=4]
-	"Id = 233
- Attribute = Doors
- Size = 12
- Prediction = acc" -> "Id = 240
- Size = 3
- Target Value = acc" [label="5more"]
-	"Id = 244
- Attribute = Doors
- Size = 12
- Prediction = acc" -> "Id = 245
+ Target Value = good" [label=small]
+	"Id = 237
  Attribute = Lug_boot
- Size = 3
- Prediction = acc" [label=2]
-	"Id = 244
+ Size = 7
+ Prediction = good" -> "Id = 239
  Attribute = Doors
- Size = 12
+ Size = 3
+ Prediction = vgood" [label=med]
+	"Id = 237
+ Attribute = Lug_boot
+ Size = 7
+ Prediction = good" -> "Id = 243
+ Size = 1
+ Target Value = vgood" [label=big]
+	"Id = 248
+ Attribute = Doors
+ Size = 10
  Prediction = acc" -> "Id = 249
- Size = 3
- Target Value = acc" [label=3]
-	"Id = 244
- Attribute = Doors
- Size = 12
- Prediction = acc" -> "Id = 250
- Size = 3
- Target Value = acc" [label=4]
-	"Id = 244
- Attribute = Doors
- Size = 12
- Prediction = acc" -> "Id = 251
- Size = 3
- Target Value = acc" [label="5more"]
-	"Id = 252
- Attribute = Doors
- Size = 9
- Prediction = acc" -> "Id = 253
  Attribute = Lug_boot
  Size = 3
  Prediction = acc" [label=2]
-	"Id = 252
+	"Id = 248
  Attribute = Doors
+ Size = 10
+ Prediction = acc" -> "Id = 253
+ Size = 3
+ Target Value = acc" [label=3]
+	"Id = 248
+ Attribute = Doors
+ Size = 10
+ Prediction = acc" -> "Id = 254
+ Size = 3
+ Target Value = acc" [label=4]
+	"Id = 248
+ Attribute = Doors
+ Size = 10
+ Prediction = acc" -> "Id = 255
+ Size = 1
+ Target Value = acc" [label="5more"]
+	"Id = 256
+ Attribute = Lug_boot
  Size = 9
  Prediction = acc" -> "Id = 257
- Size = 3
- Target Value = acc" [label=3]
-	"Id = 252
  Attribute = Doors
- Size = 9
- Prediction = acc" -> "Id = 258
- Size = 1
- Target Value = acc" [label=4]
-	"Id = 252
- Attribute = Doors
- Size = 9
- Prediction = acc" -> "Id = 259
  Size = 2
+ Prediction = acc" [label=small]
+	"Id = 256
+ Attribute = Lug_boot
+ Size = 9
+ Prediction = acc" -> "Id = 260
+ Size = 4
+ Target Value = acc" [label=med]
+	"Id = 256
+ Attribute = Lug_boot
+ Size = 9
+ Prediction = acc" -> "Id = 261
+ Size = 3
+ Target Value = acc" [label=big]
+	"Id = 264
+ Attribute = Doors
+ Size = 11
+ Prediction = acc" -> "Id = 265
+ Attribute = Lug_boot
+ Size = 3
+ Prediction = acc" [label=2]
+	"Id = 264
+ Attribute = Doors
+ Size = 11
+ Prediction = acc" -> "Id = 269
+ Size = 2
+ Target Value = acc" [label=3]
+	"Id = 264
+ Attribute = Doors
+ Size = 11
+ Prediction = acc" -> "Id = 270
+ Size = 3
+ Target Value = acc" [label=4]
+	"Id = 264
+ Attribute = Doors
+ Size = 11
+ Prediction = acc" -> "Id = 271
+ Size = 3
  Target Value = acc" [label="5more"]
-	"Id = 261
+	"Id = 272
  Attribute = Doors
  Size = 10
- Prediction = acc" -> "Id = 262
+ Prediction = acc" -> "Id = 273
  Attribute = Lug_boot
  Size = 2
  Prediction = acc" [label=2]
-	"Id = 261
+	"Id = 272
  Attribute = Doors
  Size = 10
- Prediction = acc" -> "Id = 265
+ Prediction = acc" -> "Id = 276
  Size = 3
  Target Value = acc" [label=3]
-	"Id = 261
+	"Id = 272
  Attribute = Doors
  Size = 10
- Prediction = acc" -> "Id = 266
+ Prediction = acc" -> "Id = 277
  Size = 2
  Target Value = acc" [label=4]
-	"Id = 261
+	"Id = 272
  Attribute = Doors
  Size = 10
- Prediction = acc" -> "Id = 267
+ Prediction = acc" -> "Id = 278
  Size = 3
  Target Value = acc" [label="5more"]
-	"Id = 268
+	"Id = 279
+ Attribute = Doors
+ Size = 11
+ Prediction = acc" -> "Id = 280
+ Attribute = Lug_boot
+ Size = 2
+ Prediction = acc" [label=2]
+	"Id = 279
+ Attribute = Doors
+ Size = 11
+ Prediction = acc" -> "Id = 283
+ Size = 3
+ Target Value = acc" [label=3]
+	"Id = 279
+ Attribute = Doors
+ Size = 11
+ Prediction = acc" -> "Id = 284
+ Size = 3
+ Target Value = acc" [label=4]
+	"Id = 279
+ Attribute = Doors
+ Size = 11
+ Prediction = acc" -> "Id = 285
+ Size = 3
+ Target Value = acc" [label="5more"]
+	"Id = 287
+ Attribute = Doors
+ Size = 10
+ Prediction = acc" -> "Id = 288
+ Attribute = Lug_boot
+ Size = 2
+ Prediction = acc" [label=2]
+	"Id = 287
+ Attribute = Doors
+ Size = 10
+ Prediction = acc" -> "Id = 291
+ Size = 3
+ Target Value = acc" [label=3]
+	"Id = 287
+ Attribute = Doors
+ Size = 10
+ Prediction = acc" -> "Id = 292
+ Size = 2
+ Target Value = acc" [label=4]
+	"Id = 287
+ Attribute = Doors
+ Size = 10
+ Prediction = acc" -> "Id = 293
+ Size = 3
+ Target Value = acc" [label="5more"]
+	"Id = 295
  Attribute = Lug_boot
  Size = 11
- Prediction = acc" -> "Id = 269
+ Prediction = vgood" -> "Id = 296
+ Attribute = Doors
+ Size = 4
+ Prediction = acc" [label=small]
+	"Id = 295
+ Attribute = Lug_boot
+ Size = 11
+ Prediction = vgood" -> "Id = 301
  Attribute = Doors
  Size = 3
- Prediction = acc" [label=small]
-	"Id = 268
+ Prediction = vgood" [label=med]
+	"Id = 295
  Attribute = Lug_boot
  Size = 11
- Prediction = acc" -> "Id = 273
- Size = 4
- Target Value = acc" [label=med]
-	"Id = 268
- Attribute = Lug_boot
- Size = 11
- Prediction = acc" -> "Id = 274
- Size = 4
- Target Value = acc" [label=big]
-	"Id = 275
- Attribute = Lug_boot
- Size = 11
- Prediction = vgood" -> "Id = 276
- Attribute = Doors
- Size = 4
- Prediction = acc" [label=small]
-	"Id = 275
- Attribute = Lug_boot
- Size = 11
- Prediction = vgood" -> "Id = 281
- Size = 3
- Target Value = vgood" [label=med]
-	"Id = 275
- Attribute = Lug_boot
- Size = 11
- Prediction = vgood" -> "Id = 282
+ Prediction = vgood" -> "Id = 305
  Size = 4
  Target Value = vgood" [label=big]
-	"Id = 283
+	"Id = 306
  Attribute = Lug_boot
- Size = 11
- Prediction = vgood" -> "Id = 284
+ Size = 12
+ Prediction = vgood" -> "Id = 307
  Attribute = Doors
  Size = 4
  Prediction = good" [label=small]
-	"Id = 283
+	"Id = 306
  Attribute = Lug_boot
- Size = 11
- Prediction = vgood" -> "Id = 289
- Attribute = Doors
- Size = 3
- Prediction = vgood" [label=med]
-	"Id = 283
- Attribute = Lug_boot
- Size = 11
- Prediction = vgood" -> "Id = 293
- Size = 4
- Target Value = vgood" [label=big]
-	"Id = 296
- Attribute = Lug_boot
- Size = 8
- Prediction = vgood" -> "Id = 297
- Size = 1
- Target Value = acc" [label=small]
-	"Id = 296
- Attribute = Lug_boot
- Size = 8
- Prediction = vgood" -> "Id = 298
- Attribute = Doors
- Size = 3
- Prediction = vgood" [label=med]
-	"Id = 296
- Attribute = Lug_boot
- Size = 8
- Prediction = vgood" -> "Id = 302
- Size = 4
- Target Value = vgood" [label=big]
-	"Id = 303
- Attribute = Lug_boot
- Size = 9
- Prediction = vgood" -> "Id = 304
- Size = 3
- Target Value = good" [label=small]
-	"Id = 303
- Attribute = Lug_boot
- Size = 9
- Prediction = vgood" -> "Id = 305
- Attribute = Doors
- Size = 3
- Prediction = vgood" [label=med]
-	"Id = 303
- Attribute = Lug_boot
- Size = 9
- Prediction = vgood" -> "Id = 309
- Size = 3
- Target Value = vgood" [label=big]
-	"Id = 310
- Attribute = Lug_boot
- Size = 9
- Prediction = vgood" -> "Id = 311
- Size = 1
- Target Value = good" [label=small]
-	"Id = 310
- Attribute = Lug_boot
- Size = 9
+ Size = 12
  Prediction = vgood" -> "Id = 312
  Attribute = Doors
  Size = 4
  Prediction = vgood" [label=med]
-	"Id = 310
+	"Id = 306
  Attribute = Lug_boot
- Size = 9
+ Size = 12
  Prediction = vgood" -> "Id = 317
+ Size = 4
+ Target Value = vgood" [label=big]
+	"Id = 320
+ Attribute = Lug_boot
+ Size = 12
+ Prediction = vgood" -> "Id = 321
+ Attribute = Doors
+ Size = 4
+ Prediction = acc" [label=small]
+	"Id = 320
+ Attribute = Lug_boot
+ Size = 12
+ Prediction = vgood" -> "Id = 326
+ Attribute = Doors
+ Size = 4
+ Prediction = vgood" [label=med]
+	"Id = 320
+ Attribute = Lug_boot
+ Size = 12
+ Prediction = vgood" -> "Id = 331
+ Size = 4
+ Target Value = vgood" [label=big]
+	"Id = 332
+ Attribute = Lug_boot
+ Size = 11
+ Prediction = vgood" -> "Id = 333
+ Attribute = Doors
+ Size = 3
+ Prediction = good" [label=small]
+	"Id = 332
+ Attribute = Lug_boot
+ Size = 11
+ Prediction = vgood" -> "Id = 337
+ Attribute = Doors
+ Size = 4
+ Prediction = vgood" [label=med]
+	"Id = 332
+ Attribute = Lug_boot
+ Size = 11
+ Prediction = vgood" -> "Id = 342
+ Size = 4
+ Target Value = vgood" [label=big]
+	"Id = 343
+ Attribute = Lug_boot
+ Size = 10
+ Prediction = vgood" -> "Id = 344
+ Attribute = Doors
+ Size = 3
+ Prediction = good" [label=small]
+	"Id = 343
+ Attribute = Lug_boot
+ Size = 10
+ Prediction = vgood" -> "Id = 348
+ Attribute = Doors
+ Size = 3
+ Prediction = vgood" [label=med]
+	"Id = 343
+ Attribute = Lug_boot
+ Size = 10
+ Prediction = vgood" -> "Id = 352
  Size = 4
  Target Value = vgood" [label=big]
 	"Id = 10
  Attribute = Doors
  Size = 3
- Prediction = unacc" -> "Id = 11
+ Prediction = acc" -> "Id = 11
  Size = 1
  Target Value = unacc" [label=2]
 	"Id = 10
  Attribute = Doors
  Size = 3
- Prediction = unacc" -> "Id = 12
+ Prediction = acc" -> "Id = 12
  Size = 1
- Target Value = unacc" [label=3]
+ Target Value = acc" [label=4]
 	"Id = 10
  Attribute = Doors
  Size = 3
- Prediction = unacc" -> "Id = 13
+ Prediction = acc" -> "Id = 13
  Size = 1
- Target Value = acc" [label=4]
+ Target Value = acc" [label="5more"]
 	"Id = 17
  Attribute = Doors
  Size = 3
@@ -1378,109 +1387,109 @@ digraph "Decision Tree" {
  Size = 3
  Prediction = unacc" -> "Id = 20
  Size = 1
- Target Value = acc" [label=4]
-	"Id = 26
- Attribute = Doors
- Size = 4
- Prediction = acc" -> "Id = 27
- Size = 1
- Target Value = unacc" [label=2]
-	"Id = 26
- Attribute = Doors
- Size = 4
+ Target Value = acc" [label="5more"]
+	"Id = 27
+ Attribute = Maint
+ Size = 3
  Prediction = acc" -> "Id = 28
  Size = 1
- Target Value = unacc" [label=3]
-	"Id = 26
- Attribute = Doors
- Size = 4
+ Target Value = unacc" [label=vhigh]
+	"Id = 27
+ Attribute = Maint
+ Size = 3
  Prediction = acc" -> "Id = 29
  Size = 1
- Target Value = acc" [label=4]
-	"Id = 26
- Attribute = Doors
- Size = 4
+ Target Value = acc" [label=high]
+	"Id = 27
+ Attribute = Maint
+ Size = 3
  Prediction = acc" -> "Id = 30
  Size = 1
- Target Value = acc" [label="5more"]
-	"Id = 41
- Attribute = Doors
- Size = 3
- Prediction = unacc" -> "Id = 42
+ Target Value = acc" [label=low]
+	"Id = 31
+ Attribute = Maint
+ Size = 2
+ Prediction = acc" -> "Id = 32
  Size = 1
- Target Value = unacc" [label=2]
-	"Id = 41
+ Target Value = unacc" [label=vhigh]
+	"Id = 31
+ Attribute = Maint
+ Size = 2
+ Prediction = acc" -> "Id = 33
+ Size = 1
+ Target Value = acc" [label=low]
+	"Id = 42
  Attribute = Doors
  Size = 3
  Prediction = unacc" -> "Id = 43
  Size = 1
- Target Value = unacc" [label=3]
-	"Id = 41
+ Target Value = unacc" [label=2]
+	"Id = 42
  Attribute = Doors
  Size = 3
  Prediction = unacc" -> "Id = 44
  Size = 1
- Target Value = acc" [label="5more"]
-	"Id = 48
+ Target Value = unacc" [label=3]
+	"Id = 42
  Attribute = Doors
  Size = 3
- Prediction = unacc" -> "Id = 49
+ Prediction = unacc" -> "Id = 45
  Size = 1
- Target Value = unacc" [label=2]
-	"Id = 48
+ Target Value = acc" [label="5more"]
+	"Id = 49
  Attribute = Doors
  Size = 3
  Prediction = unacc" -> "Id = 50
  Size = 1
- Target Value = unacc" [label=3]
-	"Id = 48
+ Target Value = unacc" [label=2]
+	"Id = 49
  Attribute = Doors
  Size = 3
  Prediction = unacc" -> "Id = 51
  Size = 1
- Target Value = acc" [label=4]
-	"Id = 56
+ Target Value = unacc" [label=3]
+	"Id = 49
  Attribute = Doors
- Size = 4
- Prediction = good" -> "Id = 57
+ Size = 3
+ Prediction = unacc" -> "Id = 52
+ Size = 1
+ Target Value = acc" [label=4]
+	"Id = 57
+ Attribute = Doors
+ Size = 3
+ Prediction = acc" -> "Id = 58
  Size = 1
  Target Value = acc" [label=2]
-	"Id = 56
+	"Id = 57
  Attribute = Doors
- Size = 4
- Prediction = good" -> "Id = 58
+ Size = 3
+ Prediction = acc" -> "Id = 59
  Size = 1
  Target Value = acc" [label=3]
-	"Id = 56
+	"Id = 57
  Attribute = Doors
- Size = 4
- Prediction = good" -> "Id = 59
- Size = 1
- Target Value = good" [label=4]
-	"Id = 56
- Attribute = Doors
- Size = 4
- Prediction = good" -> "Id = 60
+ Size = 3
+ Prediction = acc" -> "Id = 60
  Size = 1
  Target Value = good" [label="5more"]
 	"Id = 65
  Attribute = Doors
  Size = 3
- Prediction = unacc" -> "Id = 66
- Size = 1
- Target Value = unacc" [label=2]
-	"Id = 65
- Attribute = Doors
- Size = 3
- Prediction = unacc" -> "Id = 67
+ Prediction = acc" -> "Id = 66
  Size = 1
  Target Value = unacc" [label=3]
 	"Id = 65
  Attribute = Doors
  Size = 3
- Prediction = unacc" -> "Id = 68
+ Prediction = acc" -> "Id = 67
  Size = 1
  Target Value = acc" [label=4]
+	"Id = 65
+ Attribute = Doors
+ Size = 3
+ Prediction = acc" -> "Id = 68
+ Size = 1
+ Target Value = acc" [label="5more"]
 	"Id = 73
  Attribute = Doors
  Size = 3
@@ -1517,462 +1526,546 @@ digraph "Decision Tree" {
  Prediction = good" -> "Id = 83
  Size = 1
  Target Value = good" [label="5more"]
-	"Id = 91
- Attribute = Doors
- Size = 2
- Prediction = acc" -> "Id = 92
- Size = 1
- Target Value = unacc" [label=2]
-	"Id = 91
+	"Id = 92
  Attribute = Doors
  Size = 2
  Prediction = acc" -> "Id = 93
  Size = 1
- Target Value = acc" [label=3]
-	"Id = 103
+ Target Value = unacc" [label=2]
+	"Id = 92
  Attribute = Doors
+ Size = 2
+ Prediction = acc" -> "Id = 94
+ Size = 1
+ Target Value = acc" [label="5more"]
+	"Id = 95
+ Attribute = Doors
+ Size = 3
+ Prediction = acc" -> "Id = 96
+ Size = 1
+ Target Value = unacc" [label=2]
+	"Id = 95
+ Attribute = Doors
+ Size = 3
+ Prediction = acc" -> "Id = 97
+ Size = 1
+ Target Value = acc" [label=3]
+	"Id = 95
+ Attribute = Doors
+ Size = 3
+ Prediction = acc" -> "Id = 98
+ Size = 1
+ Target Value = acc" [label="5more"]
+	"Id = 101
+ Attribute = Maint
+ Size = 3
+ Prediction = acc" -> "Id = 102
+ Size = 1
+ Target Value = unacc" [label=vhigh]
+	"Id = 101
+ Attribute = Maint
+ Size = 3
+ Prediction = acc" -> "Id = 103
+ Size = 1
+ Target Value = acc" [label=high]
+	"Id = 101
+ Attribute = Maint
  Size = 3
  Prediction = acc" -> "Id = 104
  Size = 1
- Target Value = unacc" [label=2]
-	"Id = 103
- Attribute = Doors
- Size = 3
- Prediction = acc" -> "Id = 105
+ Target Value = acc" [label=low]
+	"Id = 111
+ Attribute = Maint
+ Size = 2
+ Prediction = acc" -> "Id = 112
  Size = 1
- Target Value = acc" [label=4]
-	"Id = 103
- Attribute = Doors
- Size = 3
- Prediction = acc" -> "Id = 106
+ Target Value = unacc" [label=vhigh]
+	"Id = 111
+ Attribute = Maint
+ Size = 2
+ Prediction = acc" -> "Id = 113
  Size = 1
- Target Value = acc" [label="5more"]
-	"Id = 117
- Attribute = Doors
+ Target Value = acc" [label=low]
+	"Id = 114
+ Attribute = Maint
  Size = 3
- Prediction = acc" -> "Id = 118
+ Prediction = acc" -> "Id = 115
  Size = 1
- Target Value = unacc" [label=2]
-	"Id = 117
- Attribute = Doors
+ Target Value = unacc" [label=vhigh]
+	"Id = 114
+ Attribute = Maint
  Size = 3
- Prediction = acc" -> "Id = 119
+ Prediction = acc" -> "Id = 116
  Size = 1
- Target Value = acc" [label=3]
-	"Id = 117
- Attribute = Doors
+ Target Value = acc" [label=med]
+	"Id = 114
+ Attribute = Maint
  Size = 3
+ Prediction = acc" -> "Id = 117
+ Size = 1
+ Target Value = acc" [label=low]
+	"Id = 119
+ Attribute = Maint
+ Size = 4
  Prediction = acc" -> "Id = 120
  Size = 1
- Target Value = acc" [label=4]
+ Target Value = unacc" [label=vhigh]
+	"Id = 119
+ Attribute = Maint
+ Size = 4
+ Prediction = acc" -> "Id = 121
+ Size = 1
+ Target Value = unacc" [label=high]
+	"Id = 119
+ Attribute = Maint
+ Size = 4
+ Prediction = acc" -> "Id = 122
+ Size = 1
+ Target Value = acc" [label=med]
+	"Id = 119
+ Attribute = Maint
+ Size = 4
+ Prediction = acc" -> "Id = 123
+ Size = 1
+ Target Value = acc" [label=low]
 	"Id = 124
- Attribute = Doors
+ Attribute = Maint
  Size = 3
  Prediction = acc" -> "Id = 125
  Size = 1
- Target Value = unacc" [label=2]
+ Target Value = unacc" [label=vhigh]
 	"Id = 124
- Attribute = Doors
+ Attribute = Maint
  Size = 3
  Prediction = acc" -> "Id = 126
  Size = 1
- Target Value = acc" [label=3]
+ Target Value = acc" [label=med]
 	"Id = 124
- Attribute = Doors
+ Attribute = Maint
  Size = 3
  Prediction = acc" -> "Id = 127
  Size = 1
- Target Value = acc" [label="5more"]
-	"Id = 130
- Attribute = Lug_boot
+ Target Value = acc" [label=low]
+	"Id = 129
+ Attribute = Maint
+ Size = 3
+ Prediction = acc" -> "Id = 130
+ Size = 1
+ Target Value = acc" [label=vhigh]
+	"Id = 129
+ Attribute = Maint
  Size = 3
  Prediction = acc" -> "Id = 131
  Size = 1
- Target Value = unacc" [label=small]
-	"Id = 130
- Attribute = Lug_boot
+ Target Value = acc" [label=high]
+	"Id = 129
+ Attribute = Maint
  Size = 3
  Prediction = acc" -> "Id = 132
  Size = 1
- Target Value = acc" [label=med]
-	"Id = 130
- Attribute = Lug_boot
+ Target Value = good" [label=med]
+	"Id = 134
+ Attribute = Buying
  Size = 3
- Prediction = acc" -> "Id = 133
+ Prediction = unacc" -> "Id = 135
  Size = 1
- Target Value = acc" [label=big]
-	"Id = 138
- Attribute = Doors
+ Target Value = unacc" [label=vhigh]
+	"Id = 134
+ Attribute = Buying
  Size = 3
- Prediction = acc" -> "Id = 139
+ Prediction = unacc" -> "Id = 136
  Size = 1
- Target Value = unacc" [label=2]
-	"Id = 138
- Attribute = Doors
+ Target Value = unacc" [label=high]
+	"Id = 134
+ Attribute = Buying
  Size = 3
+ Prediction = unacc" -> "Id = 137
+ Size = 1
+ Target Value = acc" [label=low]
+	"Id = 139
+ Attribute = Buying
+ Size = 4
  Prediction = acc" -> "Id = 140
  Size = 1
- Target Value = acc" [label=3]
-	"Id = 138
- Attribute = Doors
- Size = 3
+ Target Value = acc" [label=vhigh]
+	"Id = 139
+ Attribute = Buying
+ Size = 4
  Prediction = acc" -> "Id = 141
  Size = 1
- Target Value = acc" [label="5more"]
-	"Id = 142
- Attribute = Doors
- Size = 3
- Prediction = good" -> "Id = 143
+ Target Value = acc" [label=high]
+	"Id = 139
+ Attribute = Buying
+ Size = 4
+ Prediction = acc" -> "Id = 142
  Size = 1
- Target Value = acc" [label=2]
-	"Id = 142
- Attribute = Doors
- Size = 3
- Prediction = good" -> "Id = 144
+ Target Value = acc" [label=med]
+	"Id = 139
+ Attribute = Buying
+ Size = 4
+ Prediction = acc" -> "Id = 143
  Size = 1
- Target Value = good" [label=3]
-	"Id = 142
- Attribute = Doors
- Size = 3
+ Target Value = good" [label=low]
+	"Id = 144
+ Attribute = Buying
+ Size = 4
  Prediction = good" -> "Id = 145
  Size = 1
- Target Value = good" [label=4]
-	"Id = 153
- Attribute = Lug_boot
- Size = 2
+ Target Value = acc" [label=vhigh]
+	"Id = 144
+ Attribute = Buying
+ Size = 4
+ Prediction = good" -> "Id = 146
+ Size = 1
+ Target Value = acc" [label=high]
+	"Id = 144
+ Attribute = Buying
+ Size = 4
+ Prediction = good" -> "Id = 147
+ Size = 1
+ Target Value = good" [label=med]
+	"Id = 144
+ Attribute = Buying
+ Size = 4
+ Prediction = good" -> "Id = 148
+ Size = 1
+ Target Value = good" [label=low]
+	"Id = 150
+ Attribute = Buying
+ Size = 4
+ Prediction = acc" -> "Id = 151
+ Size = 1
+ Target Value = unacc" [label=vhigh]
+	"Id = 150
+ Attribute = Buying
+ Size = 4
+ Prediction = acc" -> "Id = 152
+ Size = 1
+ Target Value = unacc" [label=high]
+	"Id = 150
+ Attribute = Buying
+ Size = 4
+ Prediction = acc" -> "Id = 153
+ Size = 1
+ Target Value = acc" [label=med]
+	"Id = 150
+ Attribute = Buying
+ Size = 4
  Prediction = acc" -> "Id = 154
  Size = 1
- Target Value = unacc" [label=small]
-	"Id = 153
- Attribute = Lug_boot
- Size = 2
- Prediction = acc" -> "Id = 155
- Size = 1
- Target Value = acc" [label=big]
-	"Id = 160
- Attribute = Doors
+ Target Value = acc" [label=low]
+	"Id = 155
+ Attribute = Buying
  Size = 4
+ Prediction = acc" -> "Id = 156
+ Size = 1
+ Target Value = unacc" [label=vhigh]
+	"Id = 155
+ Attribute = Buying
+ Size = 4
+ Prediction = acc" -> "Id = 157
+ Size = 1
+ Target Value = acc" [label=high]
+	"Id = 155
+ Attribute = Buying
+ Size = 4
+ Prediction = acc" -> "Id = 158
+ Size = 1
+ Target Value = acc" [label=med]
+	"Id = 155
+ Attribute = Buying
+ Size = 4
+ Prediction = acc" -> "Id = 159
+ Size = 1
+ Target Value = acc" [label=low]
+	"Id = 160
+ Attribute = Buying
+ Size = 3
  Prediction = acc" -> "Id = 161
  Size = 1
- Target Value = unacc" [label=2]
+ Target Value = acc" [label=vhigh]
 	"Id = 160
- Attribute = Doors
- Size = 4
+ Attribute = Buying
+ Size = 3
  Prediction = acc" -> "Id = 162
  Size = 1
- Target Value = acc" [label=3]
+ Target Value = acc" [label=med]
 	"Id = 160
- Attribute = Doors
- Size = 4
+ Attribute = Buying
+ Size = 3
  Prediction = acc" -> "Id = 163
  Size = 1
- Target Value = acc" [label=4]
-	"Id = 160
- Attribute = Doors
+ Target Value = good" [label=low]
+	"Id = 164
+ Attribute = Buying
  Size = 4
- Prediction = acc" -> "Id = 164
+ Prediction = good" -> "Id = 165
  Size = 1
- Target Value = acc" [label="5more"]
-	"Id = 165
- Attribute = Doors
+ Target Value = acc" [label=vhigh]
+	"Id = 164
+ Attribute = Buying
  Size = 4
  Prediction = good" -> "Id = 166
  Size = 1
- Target Value = acc" [label=2]
-	"Id = 165
- Attribute = Doors
+ Target Value = acc" [label=high]
+	"Id = 164
+ Attribute = Buying
  Size = 4
  Prediction = good" -> "Id = 167
  Size = 1
- Target Value = good" [label=3]
-	"Id = 165
- Attribute = Doors
+ Target Value = good" [label=med]
+	"Id = 164
+ Attribute = Buying
  Size = 4
  Prediction = good" -> "Id = 168
  Size = 1
- Target Value = good" [label=4]
-	"Id = 165
- Attribute = Doors
- Size = 4
- Prediction = good" -> "Id = 169
- Size = 1
- Target Value = good" [label="5more"]
-	"Id = 173
+ Target Value = good" [label=low]
+	"Id = 208
  Attribute = Doors
  Size = 3
- Prediction = good" -> "Id = 174
+ Prediction = acc" -> "Id = 209
  Size = 1
  Target Value = acc" [label=2]
-	"Id = 173
+	"Id = 208
  Attribute = Doors
  Size = 3
- Prediction = good" -> "Id = 175
- Size = 1
- Target Value = good" [label=3]
-	"Id = 173
- Attribute = Doors
- Size = 3
- Prediction = good" -> "Id = 176
- Size = 1
- Target Value = good" [label="5more"]
-	"Id = 196
- Attribute = Doors
- Size = 3
- Prediction = acc" -> "Id = 197
- Size = 1
- Target Value = acc" [label=2]
-	"Id = 196
- Attribute = Doors
- Size = 3
- Prediction = acc" -> "Id = 198
+ Prediction = acc" -> "Id = 210
  Size = 1
  Target Value = acc" [label=3]
-	"Id = 196
+	"Id = 208
  Attribute = Doors
  Size = 3
- Prediction = acc" -> "Id = 199
- Size = 1
- Target Value = vgood" [label="5more"]
-	"Id = 203
- Attribute = Doors
- Size = 3
- Prediction = good" -> "Id = 204
- Size = 1
- Target Value = good" [label=2]
-	"Id = 203
- Attribute = Doors
- Size = 3
- Prediction = good" -> "Id = 205
- Size = 1
- Target Value = good" [label=3]
-	"Id = 203
- Attribute = Doors
- Size = 3
- Prediction = good" -> "Id = 206
- Size = 1
- Target Value = vgood" [label="5more"]
-	"Id = 212
- Attribute = Doors
- Size = 4
- Prediction = vgood" -> "Id = 213
- Size = 1
- Target Value = acc" [label=2]
-	"Id = 212
- Attribute = Doors
- Size = 4
- Prediction = vgood" -> "Id = 214
- Size = 1
- Target Value = acc" [label=3]
-	"Id = 212
- Attribute = Doors
- Size = 4
- Prediction = vgood" -> "Id = 215
+ Prediction = acc" -> "Id = 211
  Size = 1
  Target Value = vgood" [label=4]
-	"Id = 212
+	"Id = 215
  Attribute = Doors
- Size = 4
+ Size = 2
  Prediction = vgood" -> "Id = 216
  Size = 1
- Target Value = vgood" [label="5more"]
-	"Id = 220
- Attribute = Doors
- Size = 2
- Prediction = vgood" -> "Id = 221
- Size = 1
- Target Value = good" [label=2]
-	"Id = 220
- Attribute = Doors
- Size = 2
- Prediction = vgood" -> "Id = 222
- Size = 1
- Target Value = vgood" [label=4]
-	"Id = 234
- Attribute = Lug_boot
- Size = 3
- Prediction = acc" -> "Id = 235
- Size = 1
- Target Value = unacc" [label=small]
-	"Id = 234
- Attribute = Lug_boot
- Size = 3
- Prediction = acc" -> "Id = 236
- Size = 1
- Target Value = acc" [label=med]
-	"Id = 234
- Attribute = Lug_boot
- Size = 3
- Prediction = acc" -> "Id = 237
- Size = 1
- Target Value = acc" [label=big]
-	"Id = 245
- Attribute = Lug_boot
- Size = 3
- Prediction = acc" -> "Id = 246
- Size = 1
- Target Value = unacc" [label=small]
-	"Id = 245
- Attribute = Lug_boot
- Size = 3
- Prediction = acc" -> "Id = 247
- Size = 1
- Target Value = acc" [label=med]
-	"Id = 245
- Attribute = Lug_boot
- Size = 3
- Prediction = acc" -> "Id = 248
- Size = 1
- Target Value = acc" [label=big]
-	"Id = 253
- Attribute = Lug_boot
- Size = 3
- Prediction = acc" -> "Id = 254
- Size = 1
- Target Value = unacc" [label=small]
-	"Id = 253
- Attribute = Lug_boot
- Size = 3
- Prediction = acc" -> "Id = 255
- Size = 1
- Target Value = acc" [label=med]
-	"Id = 253
- Attribute = Lug_boot
- Size = 3
- Prediction = acc" -> "Id = 256
- Size = 1
- Target Value = acc" [label=big]
-	"Id = 262
- Attribute = Lug_boot
- Size = 2
- Prediction = acc" -> "Id = 263
- Size = 1
- Target Value = unacc" [label=small]
-	"Id = 262
- Attribute = Lug_boot
- Size = 2
- Prediction = acc" -> "Id = 264
- Size = 1
- Target Value = acc" [label=big]
-	"Id = 269
- Attribute = Doors
- Size = 3
- Prediction = acc" -> "Id = 270
- Size = 1
- Target Value = unacc" [label=2]
-	"Id = 269
- Attribute = Doors
- Size = 3
- Prediction = acc" -> "Id = 271
- Size = 1
- Target Value = acc" [label=4]
-	"Id = 269
- Attribute = Doors
- Size = 3
- Prediction = acc" -> "Id = 272
- Size = 1
- Target Value = acc" [label="5more"]
-	"Id = 276
- Attribute = Doors
- Size = 4
- Prediction = acc" -> "Id = 277
- Size = 1
- Target Value = unacc" [label=2]
-	"Id = 276
- Attribute = Doors
- Size = 4
- Prediction = acc" -> "Id = 278
- Size = 1
- Target Value = acc" [label=3]
-	"Id = 276
- Attribute = Doors
- Size = 4
- Prediction = acc" -> "Id = 279
- Size = 1
- Target Value = acc" [label=4]
-	"Id = 276
- Attribute = Doors
- Size = 4
- Prediction = acc" -> "Id = 280
- Size = 1
- Target Value = acc" [label="5more"]
-	"Id = 284
- Attribute = Doors
- Size = 4
- Prediction = good" -> "Id = 285
- Size = 1
- Target Value = unacc" [label=2]
-	"Id = 284
- Attribute = Doors
- Size = 4
- Prediction = good" -> "Id = 286
- Size = 1
  Target Value = good" [label=3]
-	"Id = 284
+	"Id = 215
  Attribute = Doors
- Size = 4
- Prediction = good" -> "Id = 287
- Size = 1
- Target Value = good" [label=4]
-	"Id = 284
- Attribute = Doors
- Size = 4
- Prediction = good" -> "Id = 288
- Size = 1
- Target Value = good" [label="5more"]
-	"Id = 289
- Attribute = Doors
- Size = 3
- Prediction = vgood" -> "Id = 290
- Size = 1
- Target Value = good" [label=2]
-	"Id = 289
- Attribute = Doors
- Size = 3
- Prediction = vgood" -> "Id = 291
+ Size = 2
+ Prediction = vgood" -> "Id = 217
  Size = 1
  Target Value = vgood" [label=4]
-	"Id = 289
+	"Id = 223
  Attribute = Doors
- Size = 3
- Prediction = vgood" -> "Id = 292
- Size = 1
- Target Value = vgood" [label="5more"]
-	"Id = 298
- Attribute = Doors
- Size = 3
- Prediction = vgood" -> "Id = 299
+ Size = 4
+ Prediction = vgood" -> "Id = 224
  Size = 1
  Target Value = acc" [label=2]
-	"Id = 298
+	"Id = 223
  Attribute = Doors
- Size = 3
- Prediction = vgood" -> "Id = 300
+ Size = 4
+ Prediction = vgood" -> "Id = 225
  Size = 1
- Target Value = vgood" [label=3]
-	"Id = 298
+ Target Value = acc" [label=3]
+	"Id = 223
  Attribute = Doors
- Size = 3
- Prediction = vgood" -> "Id = 301
+ Size = 4
+ Prediction = vgood" -> "Id = 226
  Size = 1
  Target Value = vgood" [label=4]
-	"Id = 305
+	"Id = 223
  Attribute = Doors
- Size = 3
- Prediction = vgood" -> "Id = 306
- Size = 1
- Target Value = good" [label=2]
-	"Id = 305
- Attribute = Doors
- Size = 3
- Prediction = vgood" -> "Id = 307
- Size = 1
- Target Value = vgood" [label=3]
-	"Id = 305
- Attribute = Doors
- Size = 3
- Prediction = vgood" -> "Id = 308
+ Size = 4
+ Prediction = vgood" -> "Id = 227
  Size = 1
  Target Value = vgood" [label="5more"]
+	"Id = 231
+ Attribute = Doors
+ Size = 4
+ Prediction = vgood" -> "Id = 232
+ Size = 1
+ Target Value = good" [label=2]
+	"Id = 231
+ Attribute = Doors
+ Size = 4
+ Prediction = vgood" -> "Id = 233
+ Size = 1
+ Target Value = good" [label=3]
+	"Id = 231
+ Attribute = Doors
+ Size = 4
+ Prediction = vgood" -> "Id = 234
+ Size = 1
+ Target Value = vgood" [label=4]
+	"Id = 231
+ Attribute = Doors
+ Size = 4
+ Prediction = vgood" -> "Id = 235
+ Size = 1
+ Target Value = vgood" [label="5more"]
+	"Id = 239
+ Attribute = Doors
+ Size = 3
+ Prediction = vgood" -> "Id = 240
+ Size = 1
+ Target Value = good" [label=2]
+	"Id = 239
+ Attribute = Doors
+ Size = 3
+ Prediction = vgood" -> "Id = 241
+ Size = 1
+ Target Value = vgood" [label=4]
+	"Id = 239
+ Attribute = Doors
+ Size = 3
+ Prediction = vgood" -> "Id = 242
+ Size = 1
+ Target Value = vgood" [label="5more"]
+	"Id = 249
+ Attribute = Lug_boot
+ Size = 3
+ Prediction = acc" -> "Id = 250
+ Size = 1
+ Target Value = unacc" [label=small]
+	"Id = 249
+ Attribute = Lug_boot
+ Size = 3
+ Prediction = acc" -> "Id = 251
+ Size = 1
+ Target Value = acc" [label=med]
+	"Id = 249
+ Attribute = Lug_boot
+ Size = 3
+ Prediction = acc" -> "Id = 252
+ Size = 1
+ Target Value = acc" [label=big]
+	"Id = 257
+ Attribute = Doors
+ Size = 2
+ Prediction = acc" -> "Id = 258
+ Size = 1
+ Target Value = unacc" [label=2]
+	"Id = 257
+ Attribute = Doors
+ Size = 2
+ Prediction = acc" -> "Id = 259
+ Size = 1
+ Target Value = acc" [label=4]
+	"Id = 265
+ Attribute = Lug_boot
+ Size = 3
+ Prediction = acc" -> "Id = 266
+ Size = 1
+ Target Value = unacc" [label=small]
+	"Id = 265
+ Attribute = Lug_boot
+ Size = 3
+ Prediction = acc" -> "Id = 267
+ Size = 1
+ Target Value = acc" [label=med]
+	"Id = 265
+ Attribute = Lug_boot
+ Size = 3
+ Prediction = acc" -> "Id = 268
+ Size = 1
+ Target Value = acc" [label=big]
+	"Id = 273
+ Attribute = Lug_boot
+ Size = 2
+ Prediction = acc" -> "Id = 274
+ Size = 1
+ Target Value = unacc" [label=small]
+	"Id = 273
+ Attribute = Lug_boot
+ Size = 2
+ Prediction = acc" -> "Id = 275
+ Size = 1
+ Target Value = acc" [label=med]
+	"Id = 280
+ Attribute = Lug_boot
+ Size = 2
+ Prediction = acc" -> "Id = 281
+ Size = 1
+ Target Value = unacc" [label=small]
+	"Id = 280
+ Attribute = Lug_boot
+ Size = 2
+ Prediction = acc" -> "Id = 282
+ Size = 1
+ Target Value = acc" [label=big]
+	"Id = 288
+ Attribute = Lug_boot
+ Size = 2
+ Prediction = acc" -> "Id = 289
+ Size = 1
+ Target Value = unacc" [label=small]
+	"Id = 288
+ Attribute = Lug_boot
+ Size = 2
+ Prediction = acc" -> "Id = 290
+ Size = 1
+ Target Value = acc" [label=med]
+	"Id = 296
+ Attribute = Doors
+ Size = 4
+ Prediction = acc" -> "Id = 297
+ Size = 1
+ Target Value = unacc" [label=2]
+	"Id = 296
+ Attribute = Doors
+ Size = 4
+ Prediction = acc" -> "Id = 298
+ Size = 1
+ Target Value = acc" [label=3]
+	"Id = 296
+ Attribute = Doors
+ Size = 4
+ Prediction = acc" -> "Id = 299
+ Size = 1
+ Target Value = acc" [label=4]
+	"Id = 296
+ Attribute = Doors
+ Size = 4
+ Prediction = acc" -> "Id = 300
+ Size = 1
+ Target Value = acc" [label="5more"]
+	"Id = 301
+ Attribute = Doors
+ Size = 3
+ Prediction = vgood" -> "Id = 302
+ Size = 1
+ Target Value = acc" [label=2]
+	"Id = 301
+ Attribute = Doors
+ Size = 3
+ Prediction = vgood" -> "Id = 303
+ Size = 1
+ Target Value = vgood" [label=4]
+	"Id = 301
+ Attribute = Doors
+ Size = 3
+ Prediction = vgood" -> "Id = 304
+ Size = 1
+ Target Value = vgood" [label="5more"]
+	"Id = 307
+ Attribute = Doors
+ Size = 4
+ Prediction = good" -> "Id = 308
+ Size = 1
+ Target Value = unacc" [label=2]
+	"Id = 307
+ Attribute = Doors
+ Size = 4
+ Prediction = good" -> "Id = 309
+ Size = 1
+ Target Value = good" [label=3]
+	"Id = 307
+ Attribute = Doors
+ Size = 4
+ Prediction = good" -> "Id = 310
+ Size = 1
+ Target Value = good" [label=4]
+	"Id = 307
+ Attribute = Doors
+ Size = 4
+ Prediction = good" -> "Id = 311
+ Size = 1
+ Target Value = good" [label="5more"]
 	"Id = 312
  Attribute = Doors
  Size = 4
@@ -1995,6 +2088,132 @@ digraph "Decision Tree" {
  Attribute = Doors
  Size = 4
  Prediction = vgood" -> "Id = 316
+ Size = 1
+ Target Value = vgood" [label="5more"]
+	"Id = 321
+ Attribute = Doors
+ Size = 4
+ Prediction = acc" -> "Id = 322
+ Size = 1
+ Target Value = unacc" [label=2]
+	"Id = 321
+ Attribute = Doors
+ Size = 4
+ Prediction = acc" -> "Id = 323
+ Size = 1
+ Target Value = acc" [label=3]
+	"Id = 321
+ Attribute = Doors
+ Size = 4
+ Prediction = acc" -> "Id = 324
+ Size = 1
+ Target Value = acc" [label=4]
+	"Id = 321
+ Attribute = Doors
+ Size = 4
+ Prediction = acc" -> "Id = 325
+ Size = 1
+ Target Value = acc" [label="5more"]
+	"Id = 326
+ Attribute = Doors
+ Size = 4
+ Prediction = vgood" -> "Id = 327
+ Size = 1
+ Target Value = acc" [label=2]
+	"Id = 326
+ Attribute = Doors
+ Size = 4
+ Prediction = vgood" -> "Id = 328
+ Size = 1
+ Target Value = vgood" [label=3]
+	"Id = 326
+ Attribute = Doors
+ Size = 4
+ Prediction = vgood" -> "Id = 329
+ Size = 1
+ Target Value = vgood" [label=4]
+	"Id = 326
+ Attribute = Doors
+ Size = 4
+ Prediction = vgood" -> "Id = 330
+ Size = 1
+ Target Value = vgood" [label="5more"]
+	"Id = 333
+ Attribute = Doors
+ Size = 3
+ Prediction = good" -> "Id = 334
+ Size = 1
+ Target Value = unacc" [label=2]
+	"Id = 333
+ Attribute = Doors
+ Size = 3
+ Prediction = good" -> "Id = 335
+ Size = 1
+ Target Value = good" [label=4]
+	"Id = 333
+ Attribute = Doors
+ Size = 3
+ Prediction = good" -> "Id = 336
+ Size = 1
+ Target Value = good" [label="5more"]
+	"Id = 337
+ Attribute = Doors
+ Size = 4
+ Prediction = vgood" -> "Id = 338
+ Size = 1
+ Target Value = good" [label=2]
+	"Id = 337
+ Attribute = Doors
+ Size = 4
+ Prediction = vgood" -> "Id = 339
+ Size = 1
+ Target Value = vgood" [label=3]
+	"Id = 337
+ Attribute = Doors
+ Size = 4
+ Prediction = vgood" -> "Id = 340
+ Size = 1
+ Target Value = vgood" [label=4]
+	"Id = 337
+ Attribute = Doors
+ Size = 4
+ Prediction = vgood" -> "Id = 341
+ Size = 1
+ Target Value = vgood" [label="5more"]
+	"Id = 344
+ Attribute = Doors
+ Size = 3
+ Prediction = good" -> "Id = 345
+ Size = 1
+ Target Value = unacc" [label=2]
+	"Id = 344
+ Attribute = Doors
+ Size = 3
+ Prediction = good" -> "Id = 346
+ Size = 1
+ Target Value = good" [label=3]
+	"Id = 344
+ Attribute = Doors
+ Size = 3
+ Prediction = good" -> "Id = 347
+ Size = 1
+ Target Value = good" [label=4]
+	"Id = 348
+ Attribute = Doors
+ Size = 3
+ Prediction = vgood" -> "Id = 349
+ Size = 1
+ Target Value = good" [label=2]
+	"Id = 348
+ Attribute = Doors
+ Size = 3
+ Prediction = vgood" -> "Id = 350
+ Size = 1
+ Target Value = vgood" [label=3]
+	"Id = 348
+ Attribute = Doors
+ Size = 3
+ Prediction = vgood" -> "Id = 351
  Size = 1
  Target Value = vgood" [label="5more"]
 }
