@@ -104,7 +104,7 @@ def prune_tree(my_tree, curr_accuracy):
                 locations[idx].alter_prune()
                 preds = my_tree.predict_value(X_data)
                 curr_acc = calc_score(data, preds)
-                if curr_acc > new_accuracy:
+                if curr_acc >= new_accuracy:
                     new_accuracy = curr_acc
                     best_node = idx
                 
@@ -113,7 +113,8 @@ def prune_tree(my_tree, curr_accuracy):
         if best_node == -1:
             break
         
-        num_nodes.append(num_nodes[-1]-1)
+        cur_nodes = num_nodes[-1] - 1
+        num_nodes.append(cur_nodes)
         accuracy_values.append(new_accuracy)
 
         print(f"Removing node: {best_node}")
