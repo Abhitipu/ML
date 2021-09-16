@@ -2,6 +2,7 @@ import pandas as pd
 from graphviz import Digraph
 import time
 import math
+import matplotlib.pyplot as plt
 
 from decision_tree import node
 from description import attr_list, possible_values, classifications, header_list
@@ -79,6 +80,7 @@ def get_depth_limit(my_tree):
     X_data = my_input.validation_set
     data = []
     accuracy_values = []
+    height_values = []
     for index, row in X_data.iterrows():
         data.append(row['Class_value'])
 
@@ -88,13 +90,16 @@ def get_depth_limit(my_tree):
         preds = my_tree.predict_value(X_data, height)
         acc = calc_score(data, preds)
         accuracy_values.append(acc)
+        height_values.append(height)
         if acc > best_accuracy:
             best_accuracy = acc
             best_height = height
     
-    '''
-        TODO: plot graph
-    '''
+    plt.plot(height_values, accuracy_values)
+    plt.xlabel('Height of the tree')
+    plt.ylabel('Accuracy in validation set')
+    plt.savefig('output_files/height_vs_accuracy')
+
     return best_height, best_accuracy
 
 def prune_tree(my_tree):
