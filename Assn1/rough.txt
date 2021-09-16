@@ -1,0 +1,17 @@
+To create a decision tree we need to create a node class
+Just like we do while creating a tree
+
+Now, we'll have to store the data associated to that node class
+i.e. the path that we get after that particular sequence of conjunctions
+
+So we'll have to track the conjunctions
+Maybe we can go for bitwise operations
+
+We'll also need to track the exact set of data that we're referring to!
+Because we need to get the best split!
+
+maintain an attr_list maybe we can hash the attributes
+
+
+Woah woah woah woah, before that we need to have a root node!
+The conjunction for the root node will be 
