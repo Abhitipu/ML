@@ -1,0 +1,15 @@
+Reading from csv....
+Constructing both decision trees
+Done
+Time taken: 0.943979024887085 seconds
+
+Computing accuracy of tree1
+Done, Got accuracy 98.75722543352599
+Computing accuracy of tree2
+Done, Got accuracy 98.78612716763004
+Time taken: 2.7031943798065186 seconds
+
+Evaluating best depth limit
+Done, Best depth limit = 7, Best accuracy = 98.55491329479769
+Time taken: 3.2338907718658447 seconds
+

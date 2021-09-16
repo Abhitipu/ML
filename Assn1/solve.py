@@ -1,6 +1,7 @@
 import pandas as pd
-import math
 from graphviz import Digraph
+import time
+import math
 
 from decision_tree import node
 from description import attr_list, possible_values, classifications, header_list
@@ -83,7 +84,7 @@ def get_depth_limit(my_tree):
 
     best_accuracy = 0
     best_height = -1
-    for height in range(1, 8):
+    for height in range(1, len(attr_list) + 2):
         preds = my_tree.predict_value(X_data, height)
         acc = calc_score(data, preds)
         accuracy_values.append(acc)
@@ -142,21 +143,37 @@ def print_tree(my_tree, op_file):
 
 if __name__ == "__main__":
 
+    print("Reading from csv....")
+    start = time.time()
+
     my_input = my_data('input_files/car.data')
     # Part 1
+
+    print("Constructing both decision trees")
     tree1, tree2 = construct_tree(my_input)
+    print("Done")
+    print(f"Time taken: {time.time()-start} seconds\n")
     
+    print("Computing accuracy of tree1")
     accuracy1 = compute_accuracy(my_input, tree1)
+    print(f"Done, Got accuracy {accuracy1}")
+
+    print("Computing accuracy of tree2")
     accuracy2 = compute_accuracy(my_input, tree2)
+    print(f"Done, Got accuracy {accuracy2}")
+
+    print(f"Time taken: {time.time()-start} seconds\n")
 
     better_tree = tree2
     if accuracy1 > accuracy2:
         better_tree = tree1
-
-    best_height, best_accuracy = get_depth_limit(better_tree)
     
-    print(best_accuracy)
-    print(best_height)
+    print("Evaluating best depth limit")
+    best_height, best_accuracy = get_depth_limit(better_tree)
+    print(f"Done, Best depth limit = {best_height}, Best accuracy = {best_accuracy}")
+
+    print(f"Time taken: {time.time()-start} seconds\n")
+    
     '''
     # Part 4
     prune_tree(tree1)
