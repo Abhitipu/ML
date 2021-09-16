@@ -32,6 +32,7 @@ class node:
         self.categories = dict()                        # contains the classifications of input
         self.input_data = input_data                    # This should rather be static!
         self.idx = 0
+        self.is_leaf = True                             # TODO: reset during propagate
 
         self.compute_values()                           # compute initial values
         self.propagate()                                # extend the tree
@@ -71,6 +72,7 @@ class node:
         if self.done:
             return
         
+        self.is_leaf = False
         self.max_gain = 0.0
         self.best_attribute = ''
         self.base_impurity = self.impurity_evaluator(self.categories)        # advantage: both gini gain and info gain are calculated in the same manner
@@ -116,7 +118,61 @@ class node:
         return self.max_index
 
     def __str__(self):                  # used for printing the node, add more info if reqd
-        if self.attr != '-':
+        if not self.is_leaf:
             return f"Id = {self.idx}\n Attribute = {self.attr}\n Size = {len(self.indices)}\n Prediction = {self.class_value}"
         else:
             return f"Id = {self.idx}\n Size = {len(self.indices)}\n Target Value = {self.class_value}"
+
+    def predict_cal(self, data, curr_height, height):
+        if(self.attr == '-' or curr_height == height):
+            return self.class_value
+        
+        reqd_attribute = self.attr
+        reqd_value = data[reqd_attribute]
+
+        if reqd_value in self.children:
+            return self.children[reqd_value].predict_cal(data, curr_height+1, height)
+        else:
+            return self.class_value
+
+    def predict_value(self, X_data, height=10):
+        mse = 0
+        preds = []
+        for index, row in X_data.iterrows():
+            test_data = dict()
+            for attribute in attr_list:
+                test_data[attribute] = row[attribute]
+
+            val = self.predict_cal(test_data, 1, height)
+            preds.append(val)
+
+        return preds
+    
+    def prune_tree(self):
+        '''
+            Here we will be using the reduced error pruning method.
+            It is basically a post pruning method.
+            
+            pseudo code:
+            while(accuracy_for_validation_set_doesnt_decrease):
+                check_accuracy_after removing each non_leaf_node
+                remove the one that improves accuracy the most
+        '''
+       
+        pass
+    
+    def remove_node(self, idx):
+        '''
+            this function will just remove a node with given index.
+            Basically it will just set it to a leaf.
+            This can be checked while printing the tree
+        '''
+
+        if self.idx == idx:
+            self.is_leaf = True
+
+        elif idx in range(self.idx, self.max_index + 1):
+            for key, child in self.children.items():
+                child.remove_node(idx)
+
+        return

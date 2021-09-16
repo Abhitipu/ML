@@ -27,7 +27,7 @@ def entropy(categories):
     for key in categories:
         tot += categories[key]
 
-    if tot == 0:
+    if tot == 0:                # check this... should never hit... maybe an assertion would be good here
         return 0
 
     value = 0.0
@@ -52,14 +52,74 @@ def construct_tree(my_input):
 
     return root1, root2
 
-def compute_accuracy():
-    pass
+def calc_score(Y, Y_pred):
+    cnt = 0
+    for i, val in enumerate(Y):
+        if val == Y_pred[i]:
+            cnt += 1
+    accuracy = cnt/len(Y)
+    return accuracy*100
 
-def get_depth_limit():
-    pass
+def compute_accuracy(my_input, my_tree):
+    avg_acc = 0
+    for i in range(10):
+        my_input.gen_test_and_validation_set()
+        X_data = my_input.validation_set
+        preds = my_tree.predict_value(X_data)
+        data = []
+        for index, row in X_data.iterrows():
+            data.append(row['Class_value'])
+        acc = calc_score(data, preds)
+        avg_acc += acc
 
-def prune_tree():
-    pass
+    return avg_acc/10
+
+def get_depth_limit(my_tree):
+    X_data = my_input.validation_set
+    data = []
+    accuracy_values = []
+    for index, row in X_data.iterrows():
+        data.append(row['Class_value'])
+
+    best_accuracy = 0
+    best_height = -1
+    for height in range(1, 8):
+        preds = my_tree.predict_value(X_data, height)
+        acc = calc_score(data, preds)
+        accuracy_values.append(acc)
+        if acc > best_accuracy:
+            best_accuracy = acc
+            best_height = height
+    
+    '''
+        TODO: plot graph
+    '''
+    return best_height, best_accuracy
+
+def prune_tree(my_tree):
+    '''
+        Here we'll have to execute the while loop
+        and make a call to prune the tree
+    '''
+    
+    while(True):
+        check_vals = dict()
+        my_tree.prune_tree(check_vals)
+        
+        best_improvement = 0
+        best_node = -1
+
+        for key, value in check_vals.items():
+            if value > best_improvement:
+                best_improvement = value
+                best_node = key
+
+        if best_node == -1:
+            break
+        
+        my_tree.remove_node(best_node)
+
+    return 
 
 def print_tree(my_tree, op_file):
     
@@ -78,14 +138,31 @@ def print_tree(my_tree, op_file):
 
     my_graph.render(op_file, view=True)
 
+    return
+
 if __name__ == "__main__":
+
     my_input = my_data('input_files/car.data')
-    
+    # Part 1
     tree1, tree2 = construct_tree(my_input)
+    
+    accuracy1 = compute_accuracy(my_input, tree1)
+    accuracy2 = compute_accuracy(my_input, tree2)
 
-    compute_accuracy()
-    get_depth_limit()
-    prune_tree()
+    better_tree = tree2
+    if accuracy1 > accuracy2:
+        better_tree = tree1
 
+    best_height, best_accuracy = get_depth_limit(better_tree)
+    
+    print(best_accuracy)
+    print(best_height)
+    '''
+    # Part 4
+    prune_tree(tree1)
+    prune_tree(tree2)
+
+    # Part 5
     print_tree(tree1, './output_files/decision_tree_entropy.gv')
     print_tree(tree2, './output_files/decision_tree_gini_index.gv')
+    '''
