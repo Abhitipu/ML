@@ -65,34 +65,55 @@ def get_depth_limit(my_tree):
     plt.plot(height_values, accuracy_values)
     plt.xlabel('Height of the tree')
     plt.ylabel('Accuracy in validation set')
-    plt.savefig('output_files/height_vs_accuracy')
+    plt.savefig('output_files/height_vs_accuracy.png')
 
     return best_height, best_accuracy
 
-def prune_tree(my_tree):
-    '''
-        Here we'll have to execute the while loop
-        and make a call to prune the tree
-    '''
-    
-    while(True):
-        check_vals = dict()
-        my_tree.prune_tree(check_vals)
-        
-        best_improvement = 0
-        best_node = -1
+def prune_tree(my_tree, curr_accuracy):
 
-        for key, value in check_vals.items():
-            if value > best_improvement:
-                best_improvement = value
-                best_node = key
+    '''
+        Here we will be using the reduced error pruning method.
+        It is basically a post pruning method.
+        
+        pseudo code:
+        while(accuracy_for_validation_set_doesnt_decrease):
+            check_accuracy_after removing each non_leaf_node
+            remove the one that improves accuracy the most
+    
+    '''
+
+    locations = dict()
+    my_tree.get_locations(locations)
+
+    X_data = my_input.validation_set
+    data = []
+    for index, row in X_data.iterrows():
+        data.append(row['Class_value'])
+    
+    new_accuracy = curr_accuracy
+
+    while(True):
+        best_node = -1
+        for idx in range(my_tree.max_index + 1):
+            if(locations[idx].is_leaf):
+                continue
+            else:
+                locations[idx].alter_prune()
+                preds = my_tree.predict_value(X_data)
+                curr_acc = calc_score(data, preds)
+                if curr_acc > new_accuracy:
+                    new_accuracy = curr_acc
+                    best_node = idx
+                
+                locations[idx].alter_prune()
 
         if best_node == -1:
             break
         
-        my_tree.remove_node(best_node)
+        print(f"Removing node: {best_node}")
+        locations[best_node].alter_prune()
 
-    return 
+    return new_accuracy
 
 def print_tree(my_tree, op_file):
     
@@ -102,7 +123,7 @@ def print_tree(my_tree, op_file):
     my_graph.attr('node', shape='rectangle')
     
     # doing a bfs using a queue
-    qq = [my_tree]  # using a list as a queue for the bradth first search
+    qq = [my_tree]                          # using a list as a queue for the bradth first search
     while len(qq) > 0:
         node = qq.pop(0)         
         for key, child in node.children.items():
@@ -119,13 +140,14 @@ if __name__ == "__main__":
     start = time.time()
 
     my_input = my_data('input_files/car.data')
-    # Part 1
 
+    # Part 1
     print("Constructing both decision trees")
     tree1, tree2 = construct_tree(my_input)
     print("Done")
     print(f"Time taken: {time.time()-start} seconds\n")
     
+    # Part 2
     print("Computing accuracy of tree1")
     accuracy1 = compute_accuracy(my_input, tree1)
     print(f"Done, Got accuracy {accuracy1}")
@@ -140,18 +162,17 @@ if __name__ == "__main__":
     if accuracy1 > accuracy2:
         better_tree = tree1
     
+    # Part 3
     print("Evaluating best depth limit")
     best_height, best_accuracy = get_depth_limit(better_tree)
     print(f"Done, Best depth limit = {best_height}, Best accuracy = {best_accuracy}")
 
     print(f"Time taken: {time.time()-start} seconds\n")
     
-    '''
     # Part 4
-    prune_tree(tree1)
-    prune_tree(tree2)
+    print("Pruning tree")
+    new_accuracy = prune_tree(better_tree, best_accuracy)         # Confirm this!
+    print(f"Done! Accuracy = {new_accuracy}")
 
     # Part 5
-    print_tree(tree1, './output_files/decision_tree_entropy.gv')
-    print_tree(tree2, './output_files/decision_tree_gini_index.gv')
-    '''
+    print_tree(better_tree, './output_files/decision_tree.gv')
