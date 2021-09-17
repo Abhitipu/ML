@@ -8,7 +8,7 @@ from description import attr_list, possible_values, classifications, header_list
 from data_handling import my_data
 from impurity_calculators import gini_index, entropy
 
-def construct_tree(my_dataset):
+def construct_tree(my_dataset, impurity_calculator):
     my_conjunction = dict()
     for attribute in attr_list:
         my_conjunction[attribute] = ''
@@ -16,7 +16,7 @@ def construct_tree(my_dataset):
     my_dataset.gen_test_and_validation_set()                              # generate random test and validation set!
     my_indices = [i for i in range(len(my_dataset.training_set))]         # constructing on the training set
     
-    tree = node(my_conjunction, my_indices, entropy, my_dataset)         # 2 trees are constructed
+    tree = node(my_conjunction, my_indices, impurity_calculator, my_dataset)         # 2 trees are constructed
     return tree
 
 def calc_score(Y, Y_pred):
@@ -39,7 +39,7 @@ def compute_accuracy(my_dataset, impurity_calculator):
 
     for i in range(10):
 
-        cur_tree = construct_tree(my_dataset)
+        cur_tree = construct_tree(my_dataset, impurity_calculator)
 
         X_data = my_dataset.validation_set
         preds = cur_tree.predict_value(X_data)
