@@ -1,19 +1,70 @@
 Reading from csv....
 Constructing both decision trees
 Done
-Time taken: 0.3559529781341553 seconds
+Time taken: 0.36397552490234375 seconds
 
 Computing accuracy of tree1
-Done, Got accuracy 98.81502890173411
+Done, Got accuracy 99.30635838150289
 Computing accuracy of tree2
-Done, Got accuracy 98.67052023121389
-Time taken: 1.1399662494659424 seconds
+Done, Got accuracy 98.87283236994219
+Time taken: 1.0579729080200195 seconds
 
 Evaluating best depth limit
-Done, Best depth limit = 7, Best accuracy = 98.84393063583815
-Time taken: 1.4244818687438965 seconds
+Done, Best depth limit = 7, Best accuracy = 99.13294797687861
+Time taken: 1.3969721794128418 seconds
 
 Pruning tree
-Removing node: 54
-Done! Accuracy = 99.13294797687861
-Time taken: 5.531946420669556 seconds
+Removing node: 260
+Removing node: 334
+Removing node: 330
+Removing node: 324
+Removing node: 319
+Removing node: 318
+Removing node: 314
+Removing node: 310
+Removing node: 297
+Removing node: 292
+Removing node: 286
+Removing node: 274
+Removing node: 273
+Removing node: 265
+Removing node: 264
+Removing node: 254
+Removing node: 253
+Removing node: 244
+Removing node: 243
+Removing node: 220
+Removing node: 210
+Removing node: 203
+Removing node: 175
+Removing node: 170
+Removing node: 159
+Removing node: 154
+Removing node: 149
+Removing node: 144
+Removing node: 139
+Removing node: 136
+Removing node: 129
+Removing node: 124
+Removing node: 119
+Removing node: 115
+Removing node: 108
+Removing node: 103
+Removing node: 96
+Removing node: 92
+Removing node: 80
+Removing node: 78
+Removing node: 73
+Removing node: 64
+Removing node: 56
+Removing node: 48
+Removing node: 41
+Removing node: 39
+Removing node: 18
+Removing node: 16
+Removing node: 10
+Removing node: 8
+Removing node: 5
+Done! Accuracy = 99.42196531791907
+Time taken: 80.93153953552246 seconds
+

@@ -1,5 +1,5 @@
-import pandas as pd
 from graphviz import Digraph
+import copy
 import time
 import matplotlib.pyplot as plt
 
@@ -8,18 +8,16 @@ from description import attr_list, possible_values, classifications, header_list
 from data_handling import my_data
 from impurity_calculators import gini_index, entropy
 
-def construct_tree(my_input):
+def construct_tree(my_dataset):
     my_conjunction = dict()
     for attribute in attr_list:
         my_conjunction[attribute] = ''
     
-    my_input.gen_test_and_validation_set()                              # generate random test and validation set!
-    my_indices = [i for i in range(len(my_input.training_set))]         # constructing on the training set
+    my_dataset.gen_test_and_validation_set()                              # generate random test and validation set!
+    my_indices = [i for i in range(len(my_dataset.training_set))]         # constructing on the training set
     
-    root1 = node(my_conjunction, my_indices, entropy, my_input)         # 2 trees are constructed
-    root2 = node(my_conjunction, my_indices, gini_index, my_input)      # using the 2 impurity measure functions
-
-    return root1, root2
+    tree = node(my_conjunction, my_indices, entropy, my_dataset)         # 2 trees are constructed
+    return tree
 
 def calc_score(Y, Y_pred):
     cnt = 0
@@ -29,22 +27,41 @@ def calc_score(Y, Y_pred):
     accuracy = cnt/len(Y)
     return accuracy*100
 
-def compute_accuracy(my_input, my_tree):
+def compute_accuracy(my_dataset, impurity_calculator):
+    '''
+        Return accuracy, best tree and the corresponding validation set
+    '''
+
+    best_tree = None
+    best_validation_set = None
     avg_acc = 0
+    best_accuracy = 0
+
     for i in range(10):
-        my_input.gen_test_and_validation_set()
-        X_data = my_input.validation_set
-        preds = my_tree.predict_value(X_data)
+
+        cur_tree = construct_tree(my_dataset)
+
+        X_data = my_dataset.validation_set
+        preds = cur_tree.predict_value(X_data)
+
         data = []
         for index, row in X_data.iterrows():
             data.append(row['Class_value'])
         acc = calc_score(data, preds)
+
+        if acc > best_accuracy:
+            best_accuracy = acc
+            best_tree = cur_tree
+            best_validation_set = X_data
+
         avg_acc += acc
 
-    return avg_acc/10
+    avg_acc /= 10
 
-def get_depth_limit(my_tree):
-    X_data = my_input.validation_set
+    return avg_acc, best_tree, best_validation_set, best_accuracy
+
+def get_depth_limit(my_tree, my_validation_set):
+    X_data = my_validation_set
     data = []
     accuracy_values = []
     height_values = []
@@ -69,7 +86,7 @@ def get_depth_limit(my_tree):
 
     return best_height, best_accuracy
 
-def prune_tree(my_tree, curr_accuracy):
+def prune_tree(my_tree, curr_accuracy, validation_set):
 
     '''
         Here we will be using the reduced error pruning method.
@@ -85,15 +102,18 @@ def prune_tree(my_tree, curr_accuracy):
     locations = dict()
     my_tree.get_locations(locations)
 
-    X_data = my_input.validation_set
+    X_data = validation_set
     data = []
     for index, row in X_data.iterrows():
         data.append(row['Class_value'])
     
     new_accuracy = curr_accuracy
     
-    num_nodes = [my_tree.max_index]
-    accuracy_values = [curr_accuracy]
+    num_nodes = []
+    accuracy_values = []
+
+    num_nodes.append(my_tree.max_index)
+    accuracy_values.append(curr_accuracy)
 
     while(True):
         best_node = -1
@@ -148,42 +168,38 @@ def print_tree(my_tree, op_file):
 
 if __name__ == "__main__":
 
-    print("Reading from csv....")
+    print("Reading from csv....\n")
     start = time.time()
 
-    my_input = my_data('../input_files/car.data')
+    my_dataset = my_data('../input_files/car.data')
 
-    # Part 1
-    print("Constructing both decision trees")
-    tree1, tree2 = construct_tree(my_input)
-    print("Done")
-    print(f"Time taken: {time.time()-start} seconds\n")
-    
-    # Part 2
-    print("Computing accuracy of tree1")
-    accuracy1 = compute_accuracy(my_input, tree1)
-    print(f"Done, Got accuracy {accuracy1}")
+    # Part 1 and 2
+    print("Constructing decision tree using entropy and information gain")
+    accuracy1, tree1, my_validation_set1, best_accuracy1 = compute_accuracy(my_dataset, entropy)
+    print(f"Done, Got avg accuracy {accuracy1} and best accuracy {best_accuracy1}\n")
 
-    print("Computing accuracy of tree2")
-    accuracy2 = compute_accuracy(my_input, tree2)
-    print(f"Done, Got accuracy {accuracy2}")
+    print("Constructing decision tree using gini index and gini gain")
+    accuracy2, tree2, my_validation_set2, best_accuracy2 = compute_accuracy(my_dataset, gini_index)
+    print(f"Done, Got avg accuracy {accuracy2} and best accuracy {best_accuracy2}\n")
 
     print(f"Time taken: {time.time()-start} seconds\n")
 
     better_tree = tree2
+    validation_set = my_validation_set2
+
     if accuracy1 > accuracy2:
         better_tree = tree1
+        validation_set = my_validation_set1
     
     # Part 3
     print("Evaluating best depth limit")
-    best_height, best_accuracy = get_depth_limit(better_tree)
+    best_height, best_accuracy = get_depth_limit(better_tree, validation_set)
     print(f"Done, Best depth limit = {best_height}, Best accuracy = {best_accuracy}")
-
     print(f"Time taken: {time.time()-start} seconds\n")
     
     # Part 4
     print("Pruning tree")
-    new_accuracy = prune_tree(better_tree, best_accuracy)         # Confirm this!
+    new_accuracy = prune_tree(better_tree, best_accuracy, validation_set)         # Confirm this!
     print(f"Done! Accuracy = {new_accuracy}")
     print(f"Time taken: {time.time()-start} seconds\n")
 
