@@ -15,12 +15,14 @@
  `python3 problem.py`
  
 # For Windows Users
+
 1. Make sure Graphviz is installed
 - `Install chocolatey` <br>
 - `choco install graphviz` <br>
 2. Make sure Graphviz is added in the PATH
 
 # For Linux Users
+
 1. Make sure Graphviz is installed
 - `sudo apt-get install graphviz`
 
