@@ -52,6 +52,8 @@ def compute_accuracy(my_dataset, impurity_calculator):
     avg_accuracy = 0
     best_accuracy = 0
 
+    accuracies = []         # for making table
+
     for i in range(10):
 
         cur_tree = construct_tree(my_dataset, impurity_calculator)  # construct a tree using the impurity evaluator
@@ -63,6 +65,7 @@ def compute_accuracy(my_dataset, impurity_calculator):
         for index, row in X_data.iterrows():
             data.append(row['Class_value'])
         acc = calc_score(data, preds)                   # Get the accuracy
+        accuracies.append(acc)
 
         if acc > best_accuracy:                         # Reset values if accuracy improves
             best_accuracy = acc
@@ -72,6 +75,7 @@ def compute_accuracy(my_dataset, impurity_calculator):
         avg_accuracy += acc
 
     avg_accuracy /= 10       # Since we had 10 iterations
+    print(accuracies)
 
     return avg_accuracy ,best_tree, best_validation_set, best_accuracy   # Returns the required values
 
@@ -87,6 +91,8 @@ def get_depth_limit(my_tree, my_validation_set):
     data = []
     accuracy_values = []                        # required for plots
     height_values = []
+    num_node_values = []
+
     for index, row in X_data.iterrows():        # getting the target values
         data.append(row['Class_value'])
 
@@ -94,9 +100,11 @@ def get_depth_limit(my_tree, my_validation_set):
     best_height = -1
     for height in range(1, len(attr_list) + 2): # iterate over the heights
         preds = my_tree.predict_value(X_data, height)   # predict values
+        num_nodes = my_tree.count_nodes(1, height)
         acc = calc_score(data, preds)                   # get accuracy
         accuracy_values.append(acc)
         height_values.append(height)
+        num_node_values.append(num_nodes)
         if acc > best_accuracy:                 # if the accuracy improves update accordingly
             best_accuracy = acc
             best_height = height
@@ -105,6 +113,11 @@ def get_depth_limit(my_tree, my_validation_set):
     plt.xlabel('Height of the tree')
     plt.ylabel('Accuracy in validation set')
     plt.savefig('../output_files/height_vs_accuracy.png')
+
+    plt.plot(num_node_values, accuracy_values)        # construct the plot for num of nodes vs accuracy
+    plt.xlabel('No of nodes in the tree')
+    plt.ylabel('Accuracy in validation set')
+    plt.savefig('../output_files/num_nodes_vs_accuracy.png')
 
     return best_height, best_accuracy
 
@@ -161,10 +174,12 @@ def prune_tree(my_tree, curr_accuracy, validation_set):
         print(f"Removing node: {best_node}")
         locations[best_node].alter_prune()
 
+    '''
     plt.plot(num_nodes, accuracy_values)            # plot num of nodes vs accuracy
     plt.xlabel('Number of nodes')
     plt.ylabel('Accuracy in validation set')
     plt.savefig('../output_files/num_nodes_vs_accuracy.png')
+    '''
 
     return new_accuracy
 
@@ -217,6 +232,8 @@ if __name__ == "__main__":
     if accuracy1 > accuracy2:
         better_tree = tree1
         validation_set = my_validation_set1
+
+    print_tree(better_tree, '../output_files/decision_tree_unpruned.gv')
     
     # Part 3
     print("Evaluating best depth limit")
@@ -231,4 +248,4 @@ if __name__ == "__main__":
     print(f"Time taken: {time.time()-start} seconds\n")
 
     # Part 5
-    print_tree(better_tree, '../output_files/decision_tree.gv')
+    print_tree(better_tree, '../output_files/decision_tree_pruned.gv')

@@ -1,70 +1,89 @@
 Reading from csv....
-Constructing both decision trees
-Done
-Time taken: 0.36397552490234375 seconds
 
-Computing accuracy of tree1
-Done, Got accuracy 99.30635838150289
-Computing accuracy of tree2
-Done, Got accuracy 98.87283236994219
-Time taken: 1.0579729080200195 seconds
+Constructing decision tree using entropy and information gain
+[93.35260115606935, 94.50867052023122, 94.50867052023122, 94.21965317919076, 92.77456647398844, 92.48554913294798, 95.08670520231213, 93.0635838150289, 93.35260115606935, 96.24277456647398]
+Done, Got avg accuracy 93.95953757225433 and best accuracy 96.24277456647398
+
+Constructing decision tree using gini index and gini gain
+[95.08670520231213, 95.08670520231213, 93.0635838150289, 95.95375722543352, 94.50867052023122, 93.0635838150289, 92.1965317919075, 95.37572254335261, 95.66473988439307, 94.50867052023122]
+Done, Got avg accuracy 94.45086705202313 and best accuracy 95.95375722543352
+
+Time taken: 3.6031463146209717 seconds
 
 Evaluating best depth limit
-Done, Best depth limit = 7, Best accuracy = 99.13294797687861
-Time taken: 1.3969721794128418 seconds
+Done, Best depth limit = 6, Best accuracy = 95.95375722543352
+Time taken: 4.2494142055511475 seconds
 
 Pruning tree
-Removing node: 260
+Removing node: 90
+Removing node: 346
+Removing node: 345
+Removing node: 339
 Removing node: 334
-Removing node: 330
+Removing node: 333
+Removing node: 328
 Removing node: 324
-Removing node: 319
-Removing node: 318
-Removing node: 314
+Removing node: 316
+Removing node: 315
 Removing node: 310
-Removing node: 297
-Removing node: 292
-Removing node: 286
-Removing node: 274
+Removing node: 306
+Removing node: 300
+Removing node: 296
+Removing node: 288
+Removing node: 287
+Removing node: 281
+Removing node: 280
 Removing node: 273
+Removing node: 272
+Removing node: 266
 Removing node: 265
-Removing node: 264
-Removing node: 254
-Removing node: 253
+Removing node: 260
+Removing node: 259
+Removing node: 251
+Removing node: 250
 Removing node: 244
 Removing node: 243
-Removing node: 220
-Removing node: 210
-Removing node: 203
-Removing node: 175
-Removing node: 170
+Removing node: 234
+Removing node: 226
+Removing node: 218
+Removing node: 216
+Removing node: 208
+Removing node: 202
+Removing node: 180
+Removing node: 178
+Removing node: 172
+Removing node: 169
+Removing node: 161
 Removing node: 159
-Removing node: 154
-Removing node: 149
-Removing node: 144
+Removing node: 153
+Removing node: 148
+Removing node: 147
+Removing node: 140
 Removing node: 139
-Removing node: 136
-Removing node: 129
-Removing node: 124
-Removing node: 119
-Removing node: 115
-Removing node: 108
+Removing node: 133
+Removing node: 131
+Removing node: 126
+Removing node: 114
+Removing node: 109
+Removing node: 105
 Removing node: 103
 Removing node: 96
-Removing node: 92
+Removing node: 82
 Removing node: 80
-Removing node: 78
-Removing node: 73
+Removing node: 75
+Removing node: 67
 Removing node: 64
-Removing node: 56
+Removing node: 73
+Removing node: 65
+Removing node: 58
+Removing node: 50
 Removing node: 48
-Removing node: 41
-Removing node: 39
+Removing node: 43
+Removing node: 35
+Removing node: 31
+Removing node: 28
 Removing node: 18
-Removing node: 16
 Removing node: 10
 Removing node: 8
-Removing node: 5
-Done! Accuracy = 99.42196531791907
-Time taken: 80.93153953552246 seconds
-
+Done! Accuracy = 96.53179190751445
+Time taken: 125.090993642807 seconds

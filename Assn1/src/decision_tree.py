@@ -185,3 +185,15 @@ class node:
         '''
         self.is_leaf = not self.is_leaf
         return
+
+    def count_nodes(self, height, max_height):
+        '''
+            Function to count the nodes in a subtree upto a given height.
+        '''
+        if height > max_height:
+            return 0
+
+        ans = 1
+        for key, child in self.children.items():
+            ans += child.count_nodes(height + 1, max_height)
+        return ans
