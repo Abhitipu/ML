@@ -1,82 +1,118 @@
 Reading from csv....
 
 Constructing decision tree using entropy and information gain
-[95.66473988439307, 93.9306358381503, 94.21965317919076, 95.08670520231213, 94.21965317919076, 95.08670520231213, 95.08670520231213, 93.9306358381503, 93.0635838150289, 95.08670520231213]
-Done, Got avg accuracy 94.53757225433526 and best accuracy 95.66473988439307
+[94.21965317919076, 95.08670520231213, 92.77456647398844, 93.9306358381503, 94.50867052023122, 95.95375722543352, 96.24277456647398, 94.79768786127167, 94.21965317919076, 95.37572254335261]
+Done, Got avg accuracy 94.71098265895954 and best accuracy 96.24277456647398
+
+              precision    recall  f1-score   support
+
+       unacc       0.90      0.93      0.92        71
+         acc       0.79      0.92      0.85        12
+        good       1.00      0.98      0.99       249
+       vgood       0.86      0.86      0.86        14
+
+    accuracy                           0.96       346
+   macro avg       0.89      0.92      0.90       346
+weighted avg       0.96      0.96      0.96       346
 
 Constructing decision tree using gini index and gini gain
-[96.24277456647398, 94.21965317919076, 91.32947976878613, 94.50867052023122, 94.79768786127167, 95.37572254335261, 93.35260115606935, 94.50867052023122, 94.50867052023122, 93.64161849710982]
-Done, Got avg accuracy 94.2485549132948 and best accuracy 96.24277456647398
+[93.35260115606935, 93.9306358381503, 93.35260115606935, 95.08670520231213, 92.77456647398844, 95.08670520231213, 93.9306358381503, 95.95375722543352, 95.08670520231213, 96.53179190751445]
+Done, Got avg accuracy 94.5086705202312 and best accuracy 96.53179190751445
 
-Time taken: 4.145869970321655 seconds
+              precision    recall  f1-score   support
+
+       unacc       0.92      0.94      0.93        72
+         acc       0.78      0.64      0.70        11
+        good       1.00      0.98      0.99       253
+       vgood       0.77      1.00      0.87        10
+
+    accuracy                           0.97       346
+   macro avg       0.87      0.89      0.87       346
+weighted avg       0.97      0.97      0.97       346
+
+Time taken: 4.514482259750366 seconds
 
 Evaluating best depth limit
-Done, Best depth limit = 6, Best accuracy = 95.66473988439307
-Time taken: 4.90263032913208 seconds
+Done, Best depth limit = 6, Best accuracy = 96.24277456647398
+Time taken: 5.335283041000366 seconds
 
 Pruning tree
-Removing node: 5
-Removing node: 336
-Removing node: 332
+Removing node: 348
+Removing node: 344
+Removing node: 337
+Removing node: 333
 Removing node: 327
-Removing node: 324
-Removing node: 318
-Removing node: 314
-Removing node: 307
-Removing node: 306
+Removing node: 320
+Removing node: 319
+Removing node: 312
+Removing node: 308
+Removing node: 300
 Removing node: 299
-Removing node: 294
-Removing node: 293
-Removing node: 289
-Removing node: 284
+Removing node: 292
+Removing node: 291
 Removing node: 283
-Removing node: 277
+Removing node: 282
 Removing node: 276
+Removing node: 275
 Removing node: 269
 Removing node: 268
-Removing node: 261
-Removing node: 260
-Removing node: 253
-Removing node: 252
+Removing node: 258
+Removing node: 257
 Removing node: 247
-Removing node: 246
-Removing node: 238
-Removing node: 237
-Removing node: 232
+Removing node: 239
 Removing node: 231
 Removing node: 222
-Removing node: 214
-Removing node: 207
-Removing node: 198
-Removing node: 196
-Removing node: 190
-Removing node: 185
-Removing node: 188
-Removing node: 168
-Removing node: 163
+Removing node: 215
+Removing node: 192
+Removing node: 187
+Removing node: 186
+Removing node: 179
+Removing node: 178
+Removing node: 171
+Removing node: 170
+Removing node: 164
+Removing node: 156
+Removing node: 152
+Removing node: 145
 Removing node: 144
-Removing node: 139
-Removing node: 133
-Removing node: 128
+Removing node: 138
+Removing node: 130
 Removing node: 118
-Removing node: 117
 Removing node: 112
 Removing node: 110
-Removing node: 104
-Removing node: 95
-Removing node: 93
-Removing node: 88
-Removing node: 78
-Removing node: 71
-Removing node: 69
-Removing node: 62
-Removing node: 53
-Removing node: 46
-Removing node: 38
-Removing node: 25
-Removing node: 18
+Removing node: 102
+Removing node: 100
+Removing node: 96
+Removing node: 84
+Removing node: 77
+Removing node: 68
+Removing node: 60
+Removing node: 52
+Removing node: 45
+Removing node: 42
+Removing node: 58
+Removing node: 50
+Removing node: 43
+Removing node: 32
+Removing node: 27
+Removing node: 24
+Removing node: 22
+Removing node: 37
 Removing node: 16
+Removing node: 14
 Removing node: 10
+Removing node: 5
 Removing node: 8
-Done! Accuracy = 95.95375722543352
-Time taken: 94.11775135993958 seconds
+Done! Accuracy = 96.24277456647398
+Time taken: 133.83753442764282 seconds
+
+              precision    recall  f1-score   support
+
+       unacc       0.89      0.94      0.92        71
+         acc       0.85      0.92      0.88        12
+        good       1.00      0.98      0.99       249
+       vgood       0.86      0.86      0.86        14
+
+    accuracy                           0.96       346
+   macro avg       0.90      0.92      0.91       346
+weighted avg       0.96      0.96      0.96       346
