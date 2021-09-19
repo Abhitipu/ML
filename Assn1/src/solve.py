@@ -102,9 +102,11 @@ def get_depth_limit(my_tree, my_validation_set):
         preds = my_tree.predict_value(X_data, height)   # predict values
         num_nodes = my_tree.count_nodes(1, height)
         acc = calc_score(data, preds)                   # get accuracy
+
         accuracy_values.append(acc)
         height_values.append(height)
         num_node_values.append(num_nodes)
+
         if acc > best_accuracy:                 # if the accuracy improves update accordingly
             best_accuracy = acc
             best_height = height
@@ -113,6 +115,8 @@ def get_depth_limit(my_tree, my_validation_set):
     plt.xlabel('Height of the tree')
     plt.ylabel('Accuracy in validation set')
     plt.savefig('../output_files/height_vs_accuracy.png')
+
+    plt.cla()
 
     plt.plot(num_node_values, accuracy_values)        # construct the plot for num of nodes vs accuracy
     plt.xlabel('No of nodes in the tree')

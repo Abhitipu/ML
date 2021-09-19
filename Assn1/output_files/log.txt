@@ -1,89 +1,82 @@
 Reading from csv....
 
 Constructing decision tree using entropy and information gain
-[93.35260115606935, 94.50867052023122, 94.50867052023122, 94.21965317919076, 92.77456647398844, 92.48554913294798, 95.08670520231213, 93.0635838150289, 93.35260115606935, 96.24277456647398]
-Done, Got avg accuracy 93.95953757225433 and best accuracy 96.24277456647398
+[95.66473988439307, 93.9306358381503, 94.21965317919076, 95.08670520231213, 94.21965317919076, 95.08670520231213, 95.08670520231213, 93.9306358381503, 93.0635838150289, 95.08670520231213]
+Done, Got avg accuracy 94.53757225433526 and best accuracy 95.66473988439307
 
 Constructing decision tree using gini index and gini gain
-[95.08670520231213, 95.08670520231213, 93.0635838150289, 95.95375722543352, 94.50867052023122, 93.0635838150289, 92.1965317919075, 95.37572254335261, 95.66473988439307, 94.50867052023122]
-Done, Got avg accuracy 94.45086705202313 and best accuracy 95.95375722543352
+[96.24277456647398, 94.21965317919076, 91.32947976878613, 94.50867052023122, 94.79768786127167, 95.37572254335261, 93.35260115606935, 94.50867052023122, 94.50867052023122, 93.64161849710982]
+Done, Got avg accuracy 94.2485549132948 and best accuracy 96.24277456647398
 
-Time taken: 3.6031463146209717 seconds
+Time taken: 4.145869970321655 seconds
 
 Evaluating best depth limit
-Done, Best depth limit = 6, Best accuracy = 95.95375722543352
-Time taken: 4.2494142055511475 seconds
+Done, Best depth limit = 6, Best accuracy = 95.66473988439307
+Time taken: 4.90263032913208 seconds
 
 Pruning tree
-Removing node: 90
-Removing node: 346
-Removing node: 345
-Removing node: 339
-Removing node: 334
-Removing node: 333
-Removing node: 328
+Removing node: 5
+Removing node: 336
+Removing node: 332
+Removing node: 327
 Removing node: 324
-Removing node: 316
-Removing node: 315
-Removing node: 310
+Removing node: 318
+Removing node: 314
+Removing node: 307
 Removing node: 306
-Removing node: 300
-Removing node: 296
-Removing node: 288
-Removing node: 287
-Removing node: 281
-Removing node: 280
-Removing node: 273
-Removing node: 272
-Removing node: 266
-Removing node: 265
+Removing node: 299
+Removing node: 294
+Removing node: 293
+Removing node: 289
+Removing node: 284
+Removing node: 283
+Removing node: 277
+Removing node: 276
+Removing node: 269
+Removing node: 268
+Removing node: 261
 Removing node: 260
-Removing node: 259
-Removing node: 251
-Removing node: 250
-Removing node: 244
-Removing node: 243
-Removing node: 234
-Removing node: 226
-Removing node: 218
-Removing node: 216
-Removing node: 208
-Removing node: 202
-Removing node: 180
-Removing node: 178
-Removing node: 172
-Removing node: 169
-Removing node: 161
-Removing node: 159
-Removing node: 153
-Removing node: 148
-Removing node: 147
-Removing node: 140
+Removing node: 253
+Removing node: 252
+Removing node: 247
+Removing node: 246
+Removing node: 238
+Removing node: 237
+Removing node: 232
+Removing node: 231
+Removing node: 222
+Removing node: 214
+Removing node: 207
+Removing node: 198
+Removing node: 196
+Removing node: 190
+Removing node: 185
+Removing node: 188
+Removing node: 168
+Removing node: 163
+Removing node: 144
 Removing node: 139
 Removing node: 133
-Removing node: 131
-Removing node: 126
-Removing node: 114
-Removing node: 109
-Removing node: 105
-Removing node: 103
-Removing node: 96
-Removing node: 82
-Removing node: 80
-Removing node: 75
-Removing node: 67
-Removing node: 64
-Removing node: 73
-Removing node: 65
-Removing node: 58
-Removing node: 50
-Removing node: 48
-Removing node: 43
-Removing node: 35
-Removing node: 31
-Removing node: 28
+Removing node: 128
+Removing node: 118
+Removing node: 117
+Removing node: 112
+Removing node: 110
+Removing node: 104
+Removing node: 95
+Removing node: 93
+Removing node: 88
+Removing node: 78
+Removing node: 71
+Removing node: 69
+Removing node: 62
+Removing node: 53
+Removing node: 46
+Removing node: 38
+Removing node: 25
 Removing node: 18
+Removing node: 16
 Removing node: 10
 Removing node: 8
-Done! Accuracy = 96.53179190751445
-Time taken: 125.090993642807 seconds
+Done! Accuracy = 95.95375722543352
+Time taken: 94.11775135993958 seconds
