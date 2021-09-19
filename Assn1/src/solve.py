@@ -6,6 +6,7 @@ from decision_tree import node
 from description import attr_list, possible_values, classifications, header_list
 from data_handling import my_data
 from impurity_calculators import gini_index, entropy
+from sklearn.metrics import classification_report
 
 def construct_tree(my_dataset, impurity_calculator):
     '''
@@ -23,18 +24,29 @@ def construct_tree(my_dataset, impurity_calculator):
     tree = node(my_conjunction, my_indices, impurity_calculator, my_dataset)         # Construct the tree
     return tree
 
-def calc_score(Y, Y_pred):
+def calc_score(Y, Y_pred, gen_report = False):
     '''
         This basically compares our prediction with the target values.
         If the classification is correct, 1 is added to our score.
         The final accuracy is our percentage of correct classifications
     '''
+
+    if gen_report:
+        print(classification_report(Y, Y_pred, target_names = classifications)) 
+
     cnt = 0
     for i, val in enumerate(Y):
         if val == Y_pred[i]:
             cnt += 1            # add 1 if correct
     accuracy = cnt/len(Y)
     return accuracy*100         # to get a percentage
+
+def get_true_values(X_data):
+    data = []                                       # Get the target values
+    for index, row in X_data.iterrows():
+        data.append(row['Class_value'])
+
+    return data
 
 def compute_accuracy(my_dataset, impurity_calculator):
     '''
@@ -61,9 +73,8 @@ def compute_accuracy(my_dataset, impurity_calculator):
         X_data = my_dataset.validation_set
         preds = cur_tree.predict_value(X_data)          # predict on the validation set
 
-        data = []                                       # Get the target values
-        for index, row in X_data.iterrows():
-            data.append(row['Class_value'])
+        data = get_true_values(X_data)                               # Get the target values
+
         acc = calc_score(data, preds)                   # Get the accuracy
         accuracies.append(acc)
 
@@ -88,13 +99,10 @@ def get_depth_limit(my_tree, my_validation_set):
     '''
 
     X_data = my_validation_set
-    data = []
+    data = get_true_values(X_data)
     accuracy_values = []                        # required for plots
     height_values = []
     num_node_values = []
-
-    for index, row in X_data.iterrows():        # getting the target values
-        data.append(row['Class_value'])
 
     best_accuracy = 0
     best_height = -1
@@ -223,10 +231,12 @@ if __name__ == "__main__":
     print("Constructing decision tree using entropy and information gain")
     accuracy1, tree1, my_validation_set1, best_accuracy1 = compute_accuracy(my_dataset, entropy)
     print(f"Done, Got avg accuracy {accuracy1} and best accuracy {best_accuracy1}\n")
+    calc_score(get_true_values(my_validation_set1), tree1.predict_value(my_validation_set1), True)
 
     print("Constructing decision tree using gini index and gini gain")
     accuracy2, tree2, my_validation_set2, best_accuracy2 = compute_accuracy(my_dataset, gini_index)
     print(f"Done, Got avg accuracy {accuracy2} and best accuracy {best_accuracy2}\n")
+    calc_score(get_true_values(my_validation_set2), tree2.predict_value(my_validation_set2), True)
 
     print(f"Time taken: {time.time()-start} seconds\n")
 
@@ -250,6 +260,8 @@ if __name__ == "__main__":
     new_accuracy = prune_tree(better_tree, best_accuracy, validation_set)         # Confirm this!
     print(f"Done! Accuracy = {new_accuracy}")
     print(f"Time taken: {time.time()-start} seconds\n")
+
+    calc_score(get_true_values(validation_set), better_tree.predict_value(validation_set), True)
 
     # Part 5
     print_tree(better_tree, '../output_files/decision_tree_pruned.gv')
