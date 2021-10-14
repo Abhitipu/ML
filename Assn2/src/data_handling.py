@@ -4,6 +4,7 @@
 
 import pandas as pd
 from description import attr_list, header_list
+
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.utils import shuffle
 
