@@ -1,14 +1,17 @@
 # All the distance and similarity functions will be put here
 import numpy as np
 
+# check this!
 def cosine_similarity(X, Y):
-    if(np.linalg.norm(X) == 0):
-        print("Nooooooooo")
-    if(np.linalg.norm(Y) == 0):
-        print("Nooooooooo")
-    unit_X = X / np.linalg.norm(X)
-    unit_Y = Y / np.linalg.norm(Y)
-    return np.dot(unit_X, unit_Y)
+    unit_X = X
+    if np.linalg.norm(X) > 1e-50:
+        unit_X /= np.linalg.norm(X)
+    
+    unit_Y = Y
+    if np.linalg.norm(Y) > 1e-50:
+        unit_Y /= np.linalg.norm(Y)
+
+    return 1 - np.dot(unit_X, unit_Y)
 
 def manhattan_distance(X, Y):
     ans = np.abs(X - Y)
