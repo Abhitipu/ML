@@ -5,34 +5,20 @@ from knn_model import knn_classifier
 from distance_functions import cosine_similarity, manhattan_distance, euclidian_distance
 
 def run_model(my_dataset):
-    my_classifier = knn_classifier(my_dataset.training_set, my_dataset.validation_set, my_dataset.training_set_labels, my_dataset.validation_set_labels, euclidian_distance)
-    my_classifier.predict()
-    accuracy = my_classifier.compute_accuracy()
-    print(f"Accuracy obtained is {accuracy}")
-    return
+    '''
+        This will run the model with the different difference/similarity measures
+        Then it will also plot the different accuracies
+    '''
+    functions = [cosine_similarity, manhattan_distance, euclidian_distance]
 
-
-def vary_num_neighbours(my_dataset, lower_bound, upper_bound, delta):
-    my_functions = [cosine_similarity, manhattan_distance, euclidian_distance]
-
-    for my_func in my_functions:
-        print(f"Using {my_func.__name__} for distances")
-        number_of_nbrs = []
-        accuracies = []
-
-        for k in range(lower_bound, upper_bound, delta):
-            my_classifier = knn_classifier(my_dataset.training_set, my_dataset.validation_set, my_dataset.training_set_labels, my_dataset.validation_set_labels, euclidian_distance, k)
-            my_classifier.predict()
-            accuracy = my_classifier.compute_accuracy()
-
-            number_of_nbrs.append(i)
-            accuracies.append(accuracy) 
-
-            print(f"Accuracy obtained for {i} neighbors is {accuracy}") 
-
-        plot(number_of_nbrs, accuracies, my_func.__name__)
+    for my_func in functions:
+        my_classifier = knn_classifier(my_dataset.training_set, my_dataset.validation_set, my_dataset.training_set_labels, my_dataset.validation_set_labels, my_func)
+        my_classifier.predict()
+        accuracies, num_nbrs = my_classifier.compute_accuracy()
+        plot(num_nbrs, accuracies, my_func.__name__)
 
     return
+
 
 def plot(x_values, y_values, filename):
     '''
@@ -42,11 +28,13 @@ def plot(x_values, y_values, filename):
     plt.plot(x_values, y_values)
     plt.xlabel("Number of neighbors")
     plt.ylabel("Accuracy values")
+    plt.title({filename})
     plt.savefig(f"../output_files/{filename}_num_nbrs_vs_accuracy")
+    plt.cla()       # clear axes
     return
 
 def showtime(start_time):
-    print(f"Time taken: {time.time() - start_time}")
+    print(f"Time taken: {time.time() - start_time} seconds")
     return
 
 if __name__ == "__main__":
@@ -61,6 +49,5 @@ if __name__ == "__main__":
     my_dataset.gen_test_and_validation_set()
     
     run_model(my_dataset)
-    # vary_num_neighbours(my_dataset, 100, 4100, 50)
-    print("Ran model")
+    print("Done")
     showtime(start)

@@ -9,16 +9,17 @@ done
 import numpy as np
 
 class knn_classifier:
-    # need a dataset, distance function
-    # need to make a generic distance function
-    def __init__(self, X_train, X_test, y_train, y_test, distance_function, num_nbrs = 25):
+    '''
+        This knn classifier constructs a classification for all possible k
+        May change later
+    '''
+    def __init__(self, X_train, X_test, y_train, y_test, distance_function):
         
-        self.X_train = X_train.toarray()
-        self.X_test = X_test.toarray()
+        self.X_train = X_train            # converting to d dimensional matrices
+        self.X_test = X_test
         self.y_train = y_train
         self.y_test = y_test
 
-        self.num_nbrs = num_nbrs
         self.distance_function = distance_function
         pass
 
@@ -26,12 +27,11 @@ class knn_classifier:
         '''
             Computes an array of predictions of X_test
         '''
-        print("Trying to predict")
-
         self.predictions = []
         idx2 = 0
         for new_point in self.X_test:
             neighbors = []
+            curr_predictions = []
             idx = 0
             
             indices = np.arange(len(self.X_train))
@@ -41,40 +41,52 @@ class knn_classifier:
             
             neighbors = neighbors[neighbors[:,0].argsort()]     # sorting by distances
 
-            k_nearest_neighbours = np.array([ int(neighbors[i][1]) for i in range(min(self.num_nbrs, len(neighbors))) ])
-            # indices of the k nearest neighbours
+            spam_labels = 0
+            ham_labels = 0
 
-            given_classification = np.array([self.y_train[i] for i in k_nearest_neighbours])
-            # obtain the given classification
+            # so here we will find the values by varying the number of neighbors from 1 to len(X_train)
 
-            class_values, counts = np.unique(given_classification, return_counts = True)
-            assert(len(class_values) < 3)
-            # get the corresponding classifications with the frequencies
-            if idx2 == 0:
-                print(class_values)
-                print(counts)
+            for k in range(len(neighbors)):
+                index = int(neighbors[k][1])
+                given_classification = self.y_train[index]
+                if given_classification == 1:
+                    spam_labels += 1
+                else:
+                    ham_labels += 1
+                
+                if k == 0:
+                    continue
 
-            max_idx = np.argmax(counts)
-            # get the index for the maxima
+                if spam_labels > ham_labels:
+                    curr_predictions.append(1)
+                else:
+                    curr_predictions.append(0)
 
-            if idx2 == 0:
-                print(max_idx)
-                print(class_values[max_idx])
+            self.predictions.append(curr_predictions)
 
-            self.predictions.append(class_values[max_idx])
-            # append the prediction thus obtained
-            
             if idx2 % 100 == 0:
-                print(f"Done for {idx2}")
+                print(f"Done for {idx2 + 1} test samples")
 
             idx2 += 1
 
         return
     
     def compute_accuracy(self):
-        cnt = 0
-        for i in range(len(self.y_test)):
-            if self.y_test[i] == self.predictions[i]:
-                cnt += 1
+        '''
+            This will have to compute accuracy
+            for variable no of neighbors
+            i.e. from 1 to len(X_train)
+        '''
+        accuracies = []
+        num_nbrs = []
 
-        return cnt / len(self.y_test)
+        for k in range(len(self.y_train) - 1):
+            curr_predictions = np.array([predicted_value[k] for predicted_value in self.predictions])
+            cnt = 0
+            for i in range(len(self.y_test)):
+                if self.y_test[i] == curr_predictions[i]:
+                    cnt += 1
+            accuracies.append(cnt / len(self.y_test))
+            num_nbrs.append(k + 1)
+
+        return accuracies, num_nbrs
