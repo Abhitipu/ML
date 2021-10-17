@@ -5,7 +5,9 @@ Then we find the nearest neighbors
 After that we make predictions by varying k (no of neighbors)
 '''
 
+import sys
 import numpy as np
+from sklearn.metrics import classification_report
 
 class knn_classifier:
     '''
@@ -45,25 +47,24 @@ class knn_classifier:
             neighbors = np.column_stack((distances, indices))
             neighbors = neighbors[neighbors[:,0].argsort()]     # sorting by distances
 
-            spam_labels = 0
-            ham_labels = 0
+            numerator = 0
+            denominator = 1e-30
 
             # Here we will find the values by varying the number of neighbors from 1 to len(X_train)
 
             for k in range(len(neighbors)):
                 index = int(neighbors[k][1])
                 given_classification = self.y_train[index]
-                if given_classification == 1:
-                    spam_labels += 1
-                else:
-                    ham_labels += 1
                 
-                if k == 0:
-                    continue
+                curr_weight = 1 / (neighbors[k][0] + 1e-15)**2
+                denominator += curr_weight
 
-                # We just check the greater frequency
-                # and classify accordingly
-                if spam_labels > ham_labels:
+                if given_classification == 1:
+                    numerator += curr_weight    # We add to the numerator iff it is classified as spam
+                
+                # We just check the weighted average
+                # and choose the closer value
+                if numerator / denominator > 0.5:
                     curr_predictions.append(1)
                 else:
                     curr_predictions.append(0)
@@ -71,7 +72,7 @@ class knn_classifier:
             self.predictions.append(curr_predictions)
 
             if idx2 % 100 == 0:                             # Printing status after processing every 100 test samples
-                print(f"Done for {idx2 + 1} test samples")
+                print(f"Done for {idx2 + 1} test samples", file=sys.stderr)
 
             idx2 += 1
 
@@ -84,8 +85,10 @@ class knn_classifier:
         '''
         accuracies = []
         num_nbrs = []
+        best_accuracy = 0
+        best_num_nbrs = 0
 
-        for k in range(len(self.y_train) - 1):
+        for k in range(len(self.y_train)):
             # Get all the predictions for the given k
             curr_predictions = np.array([predicted_value[k] for predicted_value in self.predictions])
 
@@ -96,7 +99,17 @@ class knn_classifier:
                     cnt += 1
 
             # Append to the accuracy list for plotting
-            accuracies.append(cnt / len(self.y_test))
+            curr_accuracy = cnt / len(self.y_test)
+
+            if curr_accuracy > best_accuracy:
+                best_accuracy = curr_accuracy
+                best_num_nbrs = k + 1
+
+            accuracies.append(curr_accuracy)
             num_nbrs.append(k + 1)
 
+        print(f"Obtained best accuracy {best_accuracy} for {best_num_nbrs} neighbors")
+        best_predictions = np.array([predicted_value[k] for predicted_value in self.predictions])
+        print(classification_report(self.y_test, best_predictions, target_names = ['Ham', 'Spam']))
+        
         return accuracies, num_nbrs
