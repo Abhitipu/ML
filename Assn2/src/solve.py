@@ -48,6 +48,7 @@ if __name__ == "__main__":
     #generating a random test and validation set
     my_dataset.gen_test_and_validation_set()
     
+    # Running our code
     run_model(my_dataset)
     print("Done")
     showtime(start)
