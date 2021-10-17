@@ -20,6 +20,9 @@ class knn_classifier:
         
         self.X_train = X_train            
         self.X_test = X_test
+        print(f"Training set dimensions: {X_train.shape}")
+        print(f"Test set dimensions: {X_test.shape}")
+
         self.y_train = y_train
         self.y_test = y_test
 
@@ -82,6 +85,7 @@ class knn_classifier:
         '''
             Here we compute accuracies by varying no of neighbors from 1 to len(X_train)
             After that we return a list containing the accuracies and the corresponding number of neighbors considered
+            This also prints a classification report and the accuracy v/s num nbrs table
         '''
         accuracies = []
         num_nbrs = []
@@ -101,15 +105,20 @@ class knn_classifier:
             # Append to the accuracy list for plotting
             curr_accuracy = cnt / len(self.y_test)
 
-            if curr_accuracy > best_accuracy:
+            if curr_accuracy >= best_accuracy:
                 best_accuracy = curr_accuracy
                 best_num_nbrs = k + 1
 
             accuracies.append(curr_accuracy)
             num_nbrs.append(k + 1)
 
-        print(f"Obtained best accuracy {best_accuracy} for {best_num_nbrs} neighbors")
+        print(f"Obtained best accuracy {best_accuracy} for {best_num_nbrs} neighbors\n")
         best_predictions = np.array([predicted_value[k] for predicted_value in self.predictions])
+
         print(classification_report(self.y_test, best_predictions, target_names = ['Ham', 'Spam']))
+
+        print("\n Accuracy v/s number of neighbors table\n")
+        for i in range(0, len(accuracies), 100):
+            print(f"{accuracies[i]} \t\t {num_nbrs[i]} ")
         
         return accuracies, num_nbrs

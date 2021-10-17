@@ -30,7 +30,7 @@ def plot(x_values, y_values, filename):
     plt.plot(x_values, y_values)
     plt.xlabel("Number of neighbors")
     plt.ylabel("Accuracy values")
-    plt.title({filename})
+    plt.title(filename)
     plt.savefig(f"../output_files/{filename}_num_nbrs_vs_accuracy_weighted")
     plt.cla()       # clear axes
     return
