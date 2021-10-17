@@ -1,0 +1,38 @@
+Read data
+
+Using cosine_similarity
+Obtained best accuracy 0.9710144927536232 for 36 neighbors
+              precision    recall  f1-score   support
+
+         Ham       0.74      1.00      0.85       753
+        Spam       1.00      0.05      0.09       282
+
+    accuracy                           0.74      1035
+   macro avg       0.87      0.52      0.47      1035
+weighted avg       0.81      0.74      0.64      1035
+
+
+Using manhattan_distance
+Obtained best accuracy 0.8801932367149758 for 216 neighbors
+              precision    recall  f1-score   support
+
+         Ham       0.74      1.00      0.85       753
+        Spam       1.00      0.04      0.08       282
+
+    accuracy                           0.74      1035
+   macro avg       0.87      0.52      0.46      1035
+weighted avg       0.81      0.74      0.64      1035
+
+
+Using euclidian_distance
+Obtained best accuracy 0.9681159420289855 for 30 neighbors
+              precision    recall  f1-score   support
+
+         Ham       0.73      1.00      0.85       753
+        Spam       1.00      0.04      0.07       282
+
+    accuracy                           0.74      1035
+   macro avg       0.87      0.52      0.46      1035
+weighted avg       0.81      0.74      0.63      1035
+
+Done
