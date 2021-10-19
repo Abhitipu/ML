@@ -11,7 +11,7 @@ def run_model(my_dataset):
         Then it will also plot the different accuracies
     '''
     functions = [cosine_similarity, manhattan_distance, euclidian_distance]
-
+    
     for my_func in functions:
         print(f"\nUsing {my_func.__name__}")
         my_classifier = knn_classifier(my_dataset.training_set, my_dataset.validation_set, my_dataset.training_set_labels, my_dataset.validation_set_labels, my_func)

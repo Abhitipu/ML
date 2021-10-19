@@ -105,7 +105,7 @@ class knn_classifier:
             # Append to the accuracy list for plotting
             curr_accuracy = cnt / len(self.y_test)
 
-            if curr_accuracy >= best_accuracy:
+            if curr_accuracy > best_accuracy:
                 best_accuracy = curr_accuracy
                 best_num_nbrs = k + 1
 
@@ -113,12 +113,12 @@ class knn_classifier:
             num_nbrs.append(k + 1)
 
         print(f"Obtained best accuracy {best_accuracy} for {best_num_nbrs} neighbors\n")
-        best_predictions = np.array([predicted_value[k] for predicted_value in self.predictions])
+        best_predictions = np.array([predicted_value[best_num_nbrs] for predicted_value in self.predictions])
 
         print(classification_report(self.y_test, best_predictions, target_names = ['Ham', 'Spam']))
 
         print("\n Accuracy v/s number of neighbors table\n")
         for i in range(0, len(accuracies), 100):
-            print(f"{accuracies[i]} \t\t {num_nbrs[i]} ")
+            print(f"{num_nbrs[i]} \t\t {accuracies[i]} ")
         
         return accuracies, num_nbrs
