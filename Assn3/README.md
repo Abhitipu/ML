@@ -1,7 +1,7 @@
 # Assignment 3
 ## ANN
 
-[For dataset click here]("https://archive.ics.uci.edu/ml/datasets/Statlog+(Landsat+Satellite)")
+[For dataset click here](https://archive.ics.uci.edu/ml/datasets/Statlog+(Landsat+Satellite))
 
 # Directions to use the code  
 1. Download this directory into your local machine
