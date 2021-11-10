@@ -16,13 +16,9 @@ if __name__ == "__main__":
     training_loader = DataLoader(dataset=training_dataset, batch_size=1, shuffle=True)
     # Can iterate using for labels, value in training_loader:
     
-    print(len(training_dataset))
-    
     test_dataset = my_dataset(test_datapath)
     test_loader = DataLoader(dataset=test_dataset, batch_size=1, shuffle=True)
 
-    print(len(test_dataset))
-    
     # Define the hyperparameters
     input_size = 36
     output_size = 7
@@ -104,8 +100,6 @@ if __name__ == "__main__":
     plt.savefig("../output_files/accuracy_plot.png")
     plt.cla()
 
-    # plt.plot(x2, y2, label = "line 2")
-    
     # pca = PCA(training_dataset.X)
     # X_reduced = pca.project(training_dataset.X, 2)
     # total_values = zip(X_reduced, training_dataset.y)
@@ -115,4 +109,45 @@ if __name__ == "__main__":
     # colors =  ["red", "green", "yellow", "blue", "orange", "purple", "brown"]	
     
     # plt.plot(total_values[:, 0], total_values[:, 1], color=colors[total_values[:,2].astype(int)])
-        
+    
+    # X_test_reduced = pca.project(test_dataset.X, 2)
+    # for hidden_layers in required_hidden_layers:
+    #       curr_network = Network(input_size, output_size, hidden_layers)
+    #               curr_network = Network(input_size, output_size, hidden_layers)
+            # n_epochs = 20
+            # optimizer = torch.optim.SGD(curr_network.parameters(), lr=learning_rate)
+
+            # # Training the network
+            # for _ in tqdm(range(n_epochs)):
+            #     curr_loss = 0.0
+            #     for x, y in training_loader:
+            #         predictions = curr_network(x.float())
+            #         loss = loss_function(predictions, y.long())
+                    
+            #         curr_loss += loss.item()
+                
+            #         # Back propagation
+            #         optimizer.zero_grad()
+            #         loss.backward()
+                    
+            #         # update
+            #         optimizer.step()
+            #     # print(f"Epoch {_}: {curr_loss}")
+            
+            # # Computation of accuracy
+            # curr_network.eval()
+            # n_correct = 0
+            # n_samples = 0
+            # # skip the gradient calculation while evaluation
+            # with torch.no_grad():
+            #     # Here we iterate over the test_loader (containing mini batches)
+            #     for x, y in test_loader:
+            #         # Forward pass
+            #         scores = curr_network(x.float())
+            #         _, preds = scores.max(1) # preds is the index here
+                    
+            #         n_correct += (preds == y).sum().item()
+            #         n_samples += 1
+                            
+            # curr_accuracy =  n_correct / n_samples
+            # accuracy_values.append(curr_accuracy)
