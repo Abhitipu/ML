@@ -1,13 +1,13 @@
-# This is pca... use only if reqd...
 import numpy as np
- 
-def PCA(X , num_components):
-    X_meaned = X - np.mean(X , axis = 0)
-    cov_mat = np.cov(X_meaned , rowvar = False)
-    eigen_values , eigen_vectors = np.linalg.eigh(cov_mat)
-    sorted_index = np.argsort(eigen_values)[::-1]
-    sorted_eigenvalue = eigen_values[sorted_index]
-    sorted_eigenvectors = eigen_vectors[:,sorted_index]
-    eigenvector_subset = sorted_eigenvectors[:,0:num_components]
-    X_reduced = np.dot(eigenvector_subset.transpose() , X_meaned.transpose()).transpose()
-    return X_reduced
+
+class PCA():   
+    def __init__(self, X):           
+        covariance_matrix = np.cov(X - X.mean(axis=0), rowvar=False)    
+        eigen_values, eigen_vector = np.linalg.eigh(covariance_matrix)        
+        self.U = np.asarray(eigen_vector).T[::-1]    
+        self.D = eigen_values[::-1]
+
+    def project(self, X, new_dim):
+        Z = np.dot(X-X.mean(axis=0),np.asmatrix(self.U[:new_dim]).T)
+        return Z
+    
