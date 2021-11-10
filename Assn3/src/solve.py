@@ -6,16 +6,6 @@ import torch
 from tqdm import tqdm
 from utils import PCA
 
-def add_line(x_label, y_label, learning_rate, hidden_layers):
-    plt.title("Learning rates v/s accuracy for different networks")
-    plt.xlabel("Learning rates")
-    plt.ylabel("Accuracy")
-    label = f"L: {learning_rate}" + ", ".join(str(x) for x in hidden_layers)
-    plt.plot(x_label, y_label, label=label)
-
-def save_n_clear(path):
-    plt.savefig(path)
-    plt.cla()
     
 if __name__ == "__main__":
     # Load the data
@@ -37,16 +27,21 @@ if __name__ == "__main__":
     input_size = 36
     output_size = 7
     
-    # required_learning_rates = [0.1, 0.01, 0.001, 0.0001, 0.00001]
-    
+    required_learning_rates = [0.1, 0.01, 0.001, 0.0001, 0.00001]
     required_hidden_layers = [[], [2], [6], [2, 3], [3, 2]]
-    required_learning_rates = [0.001]
-    # required_hidden_layers = [[]]
+    
     loss_function = torch.nn.CrossEntropyLoss()
 
     best_accuracy = 0
     best_learning_rate = -1
     best_hidden_layers = []
+    all_accuracies = []
+    all_labels = []
+    
+    plt.title("Learning rates v/s accuracy for different networks")
+    plt.xlabel("Learning rates")
+    plt.ylabel("Accuracy")
+    plt.xscale("log")
     
     for hidden_layers in required_hidden_layers:
         accuracy_values = []
@@ -89,17 +84,25 @@ if __name__ == "__main__":
                             
             curr_accuracy =  n_correct / n_samples
             accuracy_values.append(curr_accuracy)
-            
+                              
             if curr_accuracy > best_accuracy:
                 best_accuracy = curr_accuracy
                 best_learning_rate = learning_rate
                 best_hidden_layers = hidden_layers
                 
             print(f"Got accuracy {curr_accuracy} for {learning_rate} and {hidden_layers}")
-            add_line(required_learning_rates, accuracy_values, learning_rate, hidden_layers)
         
-    print(f"Got best accuracy {curr_accuracy} for {learning_rate} and {hidden_layers}")
-    save_n_clear("../output_files/accuracy_plot.png")
+        all_accuracies.append(accuracy_values)
+        all_labels.append(f"L: " + ", ".join(str(x) for x in hidden_layers))
+        
+    print(f"Got best accuracy {curr_accuracy} for {best_learning_rate} and {best_hidden_layers}")
+    
+    for label, accuracy_values in zip(all_labels, all_accuracies):
+        print(label, accuracy_values)
+        plt.plot(required_learning_rates, accuracy_values, label=label)
+        
+    plt.savefig("../output_files/accuracy_plot.png")
+    plt.cla()
 
     # plt.plot(x2, y2, label = "line 2")
     
