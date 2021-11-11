@@ -12,6 +12,7 @@ from utils import PCA
 n_epochs = 20
 
 def train_network(curr_network, learning_rate, training_loader):
+    '''Function to train the neural network using SGD and CrossEntropyLoss'''
     optimizer = torch.optim.SGD(curr_network.parameters(), lr=learning_rate)
     loss_function = torch.nn.CrossEntropyLoss()
     
@@ -33,6 +34,7 @@ def train_network(curr_network, learning_rate, training_loader):
         # print(f"Epoch {_}: {curr_loss}")
 
 def compute_accuracy(curr_network, test_loader):
+    '''Function to compute accuracy of the neural network'''
     # Computation of accuracy
     curr_network.eval()
     n_correct = 0
@@ -51,6 +53,7 @@ def compute_accuracy(curr_network, test_loader):
     return n_correct / n_samples
 
 def compute_for_all_networks_and_plot(input_size, output_size, required_hidden_layers, required_learning_rates, training_loader, test_loader):
+    ''' Q2 and 3 solver: Trains and computes accuracy for all networks Then constructs the required plots.'''
     best_accuracy = 0
     best_learning_rate = -1
     best_hidden_layers = []
@@ -104,6 +107,7 @@ def compute_for_all_networks_and_plot(input_size, output_size, required_hidden_l
     return best_accuracy, best_hidden_layers, best_learning_rate
 
 def pca_n_scatterplot(training_dataset, output_size):
+    '''Performs a dim reduction and makes a 2-d scatterplot'''
     pca = PCA(training_dataset.X)
     X_reduced = pca.project(training_dataset.X, 2)
 
@@ -132,6 +136,7 @@ def pca_n_scatterplot(training_dataset, output_size):
     plt.cla()
 
 def learn_with_reduction(training_dataset, test_dataset, reduced_input_size, required_hidden_layers, best_learning_rate):
+    '''Applies the algorithm on the reduced dimensions'''
     pca = PCA(training_dataset.X)
     X_reduced = pca.project(training_dataset.X, reduced_input_size)
     X_test_reduced = pca.project(test_dataset.X, reduced_input_size)
@@ -156,7 +161,6 @@ if __name__ == "__main__":
     
     training_dataset = my_dataset(training_datapath)
     training_loader = DataLoader(dataset=training_dataset, batch_size=1, shuffle=True)
-    # Can iterate using for labels, value in training_loader:
     
     test_dataset = my_dataset(test_datapath)
     test_loader = DataLoader(dataset=test_dataset, batch_size=1, shuffle=True)
@@ -165,10 +169,8 @@ if __name__ == "__main__":
     input_size = 36
     output_size = 7
     
-    # required_learning_rates = [0.1, 0.01, 0.001, 0.0001, 0.00001]
-    # required_hidden_layers = [[], [2], [6], [2, 3], [3, 2]]
-    required_learning_rates = [0.1, 0.01]
-    required_hidden_layers = [[], [2],]
+    required_learning_rates = [0.1, 0.01, 0.001, 0.0001, 0.00001]
+    required_hidden_layers = [[], [2], [6], [2, 3], [3, 2]]
     
     # Q2, Q3
     best_accuracy, best_hidden_layers, best_learning_rate = compute_for_all_networks_and_plot(input_size, output_size, required_hidden_layers, required_learning_rates, training_loader, test_loader)
