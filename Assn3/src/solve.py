@@ -1,38 +1,58 @@
+import numpy as np
 import matplotlib.pyplot as plt
+import torch
+from torch.utils.data import DataLoader
+from tqdm import tqdm
+
 from model import Network
 from data_handling import my_dataset
-from torch.utils.data import DataLoader
-import torch
-from tqdm import tqdm
 from utils import PCA
-import numpy as np
 
 # Increase this for better accuracy    
-n_epochs = 20
+n_epochs = 1
 
-if __name__ == "__main__":
-    # Load the data
-    training_datapath = "../input_files/sat.trn"
-    test_datapath = "../input_files/sat.tst"
-    
-    training_dataset = my_dataset(training_datapath)
-    training_loader = DataLoader(dataset=training_dataset, batch_size=1, shuffle=True)
-    # Can iterate using for labels, value in training_loader:
-    
-    test_dataset = my_dataset(test_datapath)
-    test_loader = DataLoader(dataset=test_dataset, batch_size=1, shuffle=True)
-
-    # Define the hyperparameters
-    input_size = 36
-    output_size = 7
-    
-    required_learning_rates = [0.1, 0.01, 0.001, 0.0001, 0.00001]
-    required_hidden_layers = [[], [2], [6], [2, 3], [3, 2]]
-    
+def train_network(curr_network, learning_rate, training_loader):
+    optimizer = torch.optim.SGD(curr_network.parameters(), lr=learning_rate)
     loss_function = torch.nn.CrossEntropyLoss()
+    
+    # Training the network
+    for _ in tqdm(range(n_epochs)):
+        curr_loss = 0.0
+        for x, y in training_loader:
+            predictions = curr_network(x.float())
+            loss = loss_function(predictions, y.long())
+            
+            curr_loss += loss.item()
+        
+            # Back propagation
+            optimizer.zero_grad()
+            loss.backward()
+            
+            # update
+            optimizer.step()
+        # print(f"Epoch {_}: {curr_loss}")
 
+def compute_accuracy(curr_network, test_loader):
+    # Computation of accuracy
+    curr_network.eval()
+    n_correct = 0
+    n_samples = 0
+    # skip the gradient calculation while evaluation
+    with torch.no_grad():
+        # Here we iterate over the test_loader (containing mini batches)
+        for x, y in test_loader:
+            # Forward pass
+            scores = curr_network(x.float())
+            _, preds = scores.max(1) # preds is the index here
+            
+            n_correct += (preds == y).sum().item()
+            n_samples += 1
+                    
+    return n_correct / n_samples
+
+def compute_for_all_networks_and_plot(required_hidden_layers, required_learning_rates):
     best_accuracy = 0
-    best_learning_rate = 0.001
+    best_learning_rate = -1
     best_hidden_layers = []
     all_accuracies = []
     all_labels = []
@@ -46,41 +66,9 @@ if __name__ == "__main__":
         accuracy_values = []
         for learning_rate in required_learning_rates:         
             curr_network = Network(input_size, output_size, hidden_layers)
-            optimizer = torch.optim.SGD(curr_network.parameters(), lr=learning_rate)
-
-            # Training the network
-            for _ in tqdm(range(n_epochs)):
-                curr_loss = 0.0
-                for x, y in training_loader:
-                    predictions = curr_network(x.float())
-                    loss = loss_function(predictions, y.long())
-                    
-                    curr_loss += loss.item()
-                
-                    # Back propagation
-                    optimizer.zero_grad()
-                    loss.backward()
-                    
-                    # update
-                    optimizer.step()
-                # print(f"Epoch {_}: {curr_loss}")
             
-            # Computation of accuracy
-            curr_network.eval()
-            n_correct = 0
-            n_samples = 0
-            # skip the gradient calculation while evaluation
-            with torch.no_grad():
-                # Here we iterate over the test_loader (containing mini batches)
-                for x, y in test_loader:
-                    # Forward pass
-                    scores = curr_network(x.float())
-                    _, preds = scores.max(1) # preds is the index here
-                    
-                    n_correct += (preds == y).sum().item()
-                    n_samples += 1
-                            
-            curr_accuracy =  n_correct / n_samples
+            train_network(curr_network, learning_rate, training_loader)
+            curr_accuracy =  compute_accuracy(curr_network, test_loader)
             accuracy_values.append(curr_accuracy)
                               
             if curr_accuracy > best_accuracy:
@@ -97,10 +85,14 @@ if __name__ == "__main__":
     
     for label, accuracy_values in zip(all_labels, all_accuracies):
         plt.plot(required_learning_rates, accuracy_values, label=label)
-        
+    
+    plt.legend()
     plt.savefig("../output_files/accuracy_plot.png")
     plt.cla()
+    
+    return best_accuracy, best_hidden_layers, best_learning_rate
 
+def pca_n_scatterplot(training_dataset, output_size):
     pca = PCA(training_dataset.X)
     X_reduced = pca.project(training_dataset.X, 2)
 
@@ -127,11 +119,13 @@ if __name__ == "__main__":
     plt.legend()
     plt.savefig("../output_files/scatter_plot.png")
     plt.cla()
-    
-    reduced_input_size = 2
+
+def learn_with_reduction(training_dataset, test_dataset, reduced_input_size, required_hidden_layers, best_learning_rate):
+    pca = PCA(training_dataset.X)
+    X_reduced = pca.project(training_dataset.X, reduced_input_size)
     X_test_reduced = pca.project(test_dataset.X, reduced_input_size)
     
-    # # Regenerate the data loaders for the reduced dimensions
+    # Regenerate the data loaders for the reduced dimensions
     training_dataset.Norm(X_reduced)
     training_loader = DataLoader(dataset=training_dataset, batch_size=1, shuffle=True)
     test_dataset.Norm(X_test_reduced)
@@ -139,39 +133,33 @@ if __name__ == "__main__":
     
     for hidden_layers in required_hidden_layers:
         curr_network = Network(reduced_input_size, output_size, hidden_layers)
-        optimizer = torch.optim.SGD(curr_network.parameters(), lr=best_learning_rate)
+        train_network(curr_network, best_learning_rate, training_loader)
+        new_accuracy =  compute_accuracy(curr_network, test_loader)
 
-        # Training the network
-        for _ in tqdm(range(n_epochs)):
-            curr_loss = 0.0
-            for x, y in training_loader:
-                predictions = curr_network(x.float())
-                loss = loss_function(predictions, y.long())
-                
-                curr_loss += loss.item()
-            
-                # Back propagation
-                optimizer.zero_grad()
-                loss.backward()
-                
-                # update
-                optimizer.step()
-            # print(f"Epoch {_}: {curr_loss}")
-        
-        # Computation of accuracy
-        curr_network.eval()
-        n_correct = 0
-        n_samples = 0
-        # skip the gradient calculation while evaluation
-        with torch.no_grad():
-            # Here we iterate over the test_loader (containing mini batches)
-            for x, y in test_loader:
-                # Forward pass
-                scores = curr_network(x.float())
-                _, preds = scores.max(1) # preds is the index here
-                
-                n_correct += (preds == y).sum().item()
-                n_samples += 1
-                        
-        new_accuracy =  n_correct / n_samples
-        print(f"Got best accuracy {new_accuracy} in the reduced dimension for {best_learning_rate} and {hidden_layers}")
+        print(f"Got accuracy {new_accuracy} in the reduced dimension for {best_learning_rate} and {hidden_layers}")
+
+if __name__ == "__main__":
+    # Load the data
+    training_datapath = "../input_files/sat.trn"
+    test_datapath = "../input_files/sat.tst"
+    
+    training_dataset = my_dataset(training_datapath)
+    training_loader = DataLoader(dataset=training_dataset, batch_size=1, shuffle=True)
+    # Can iterate using for labels, value in training_loader:
+    
+    test_dataset = my_dataset(test_datapath)
+    test_loader = DataLoader(dataset=test_dataset, batch_size=1, shuffle=True)
+
+    # Define the hyperparameters
+    input_size = 36
+    output_size = 7
+    
+    required_learning_rates = [0.1, 0.01, 0.001, 0.0001, 0.00001]
+    required_hidden_layers = [[], [2], [6], [2, 3], [3, 2]]
+    
+    # Q2, Q3
+    best_accuracy, best_hidden_layers, best_learning_rate = compute_for_all_networks_and_plot(required_hidden_layers, required_learning_rates)
+    # Q5
+    pca_n_scatterplot(training_dataset, output_size)
+    # Q6
+    learn_with_reduction(training_dataset, test_dataset, 2, required_hidden_layers, best_learning_rate)
