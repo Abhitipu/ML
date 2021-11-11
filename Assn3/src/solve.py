@@ -79,7 +79,7 @@ def compute_for_all_networks_and_plot(input_size, output_size, required_hidden_l
         all_accuracies.append(accuracy_values)
         all_labels.append(f"L: " + ", ".join(str(x) for x in hidden_layers))
         
-    print(f"Got best accuracy {curr_accuracy} for {best_learning_rate} and {best_hidden_layers}")
+    print(f"Got best accuracy {best_accuracy} for {best_learning_rate} and {best_hidden_layers}")
     
     # Plot 1
     plt.title("Learning rates v/s accuracy for different models")
