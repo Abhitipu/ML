@@ -9,7 +9,7 @@ from data_handling import my_dataset
 from utils import PCA
 
 # Increase this for better accuracy    
-n_epochs = 20
+n_epochs = 50
 
 def train_network(curr_network, learning_rate, training_loader):
     '''Function to train the neural network using SGD and CrossEntropyLoss'''
