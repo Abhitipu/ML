@@ -7,7 +7,9 @@ from tqdm import tqdm
 from utils import PCA
 import numpy as np
 
-    
+# Increase this for better accuracy    
+n_epochs = 20
+
 if __name__ == "__main__":
     # Load the data
     training_datapath = "../input_files/sat.trn"
@@ -30,7 +32,7 @@ if __name__ == "__main__":
     loss_function = torch.nn.CrossEntropyLoss()
 
     best_accuracy = 0
-    best_learning_rate = -1
+    best_learning_rate = 0.001
     best_hidden_layers = []
     all_accuracies = []
     all_labels = []
@@ -44,7 +46,6 @@ if __name__ == "__main__":
         accuracy_values = []
         for learning_rate in required_learning_rates:         
             curr_network = Network(input_size, output_size, hidden_layers)
-            n_epochs = 20
             optimizer = torch.optim.SGD(curr_network.parameters(), lr=learning_rate)
 
             # Training the network
@@ -95,7 +96,6 @@ if __name__ == "__main__":
     print(f"Got best accuracy {curr_accuracy} for {best_learning_rate} and {best_hidden_layers}")
     
     for label, accuracy_values in zip(all_labels, all_accuracies):
-        print(label, accuracy_values)
         plt.plot(required_learning_rates, accuracy_values, label=label)
         
     plt.savefig("../output_files/accuracy_plot.png")
@@ -103,15 +103,9 @@ if __name__ == "__main__":
 
     pca = PCA(training_dataset.X)
     X_reduced = pca.project(training_dataset.X, 2)
-    print(X_reduced.shape)
-    print(training_dataset.Y.shape)
-    assert(len(training_dataset.Y) == X_reduced.shape[0])
 
-    # now we concatenate X_reduced and training_dataset.Y
-    # total_values = np.concatenate((X_reduced, np.array([training_dataset.Y]).T), axis=1)
-    
     plt.title("Scatter plot after applying PCA")
-    # make a list of 7 colors
+
     color_map =  np.array(["red", "green", "yellow", "blue", "orange", "purple", "brown"])	
     soil_map = ["red soil", "cotton crop", "grey soil", "damp grey soil", "soil with vegetation stubble", "mixture", "very damp grey soil"] 
     
@@ -129,49 +123,55 @@ if __name__ == "__main__":
     
     for i in range(len(all_x_vals)):
         plt.scatter(all_x_vals[i], all_y_vals[i], c=color_map[i], label=soil_map[i]) 
-        print(soil_map[i])
     
     plt.legend()
     plt.savefig("../output_files/scatter_plot.png")
-        
-    # X_test_reduced = pca.project(test_dataset.X, 2)
-    # for hidden_layers in required_hidden_layers:
-    #       curr_network = Network(input_size, output_size, hidden_layers)
-    #               curr_network = Network(input_size, output_size, hidden_layers)
-            # n_epochs = 20
-            # optimizer = torch.optim.SGD(curr_network.parameters(), lr=learning_rate)
+    plt.cla()
+    
+    reduced_input_size = 2
+    X_test_reduced = pca.project(test_dataset.X, reduced_input_size)
+    
+    # # Regenerate the data loaders for the reduced dimensions
+    training_dataset.Norm(X_reduced)
+    training_loader = DataLoader(dataset=training_dataset, batch_size=1, shuffle=True)
+    test_dataset.Norm(X_test_reduced)
+    test_loader = DataLoader(dataset=test_dataset, batch_size=1, shuffle=True)
+    
+    for hidden_layers in required_hidden_layers:
+        curr_network = Network(reduced_input_size, output_size, hidden_layers)
+        optimizer = torch.optim.SGD(curr_network.parameters(), lr=best_learning_rate)
 
-            # # Training the network
-            # for _ in tqdm(range(n_epochs)):
-            #     curr_loss = 0.0
-            #     for x, y in training_loader:
-            #         predictions = curr_network(x.float())
-            #         loss = loss_function(predictions, y.long())
-                    
-            #         curr_loss += loss.item()
+        # Training the network
+        for _ in tqdm(range(n_epochs)):
+            curr_loss = 0.0
+            for x, y in training_loader:
+                predictions = curr_network(x.float())
+                loss = loss_function(predictions, y.long())
                 
-            #         # Back propagation
-            #         optimizer.zero_grad()
-            #         loss.backward()
-                    
-            #         # update
-            #         optimizer.step()
-            #     # print(f"Epoch {_}: {curr_loss}")
+                curr_loss += loss.item()
             
-            # # Computation of accuracy
-            # curr_network.eval()
-            # n_correct = 0
-            # n_samples = 0
-            # # skip the gradient calculation while evaluation
-            # with torch.no_grad():
-            #     # Here we iterate over the test_loader (containing mini batches)
-            #     for x, y in test_loader:
-            #         # Forward pass
-            #         scores = curr_network(x.float())
-            #         _, preds = scores.max(1) # preds is the index here
-                    
-            #         n_correct += (preds == y).sum().item()
-            #         n_samples += 1
-                            
-            # curr_accuracy =  n_correct / n_samples
-            # accuracy_values.append(curr_accuracy)
+                # Back propagation
+                optimizer.zero_grad()
+                loss.backward()
+                
+                # update
+                optimizer.step()
+            # print(f"Epoch {_}: {curr_loss}")
+        
+        # Computation of accuracy
+        curr_network.eval()
+        n_correct = 0
+        n_samples = 0
+        # skip the gradient calculation while evaluation
+        with torch.no_grad():
+            # Here we iterate over the test_loader (containing mini batches)
+            for x, y in test_loader:
+                # Forward pass
+                scores = curr_network(x.float())
+                _, preds = scores.max(1) # preds is the index here
+                
+                n_correct += (preds == y).sum().item()
+                n_samples += 1
+                        
+        new_accuracy =  n_correct / n_samples
+        print(f"Got best accuracy {new_accuracy} in the reduced dimension for {best_learning_rate} and {hidden_layers}")
