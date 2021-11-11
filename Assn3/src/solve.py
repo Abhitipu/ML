@@ -5,6 +5,7 @@ from torch.utils.data import DataLoader
 import torch
 from tqdm import tqdm
 from utils import PCA
+import numpy as np
 
     
 if __name__ == "__main__":
@@ -100,16 +101,39 @@ if __name__ == "__main__":
     plt.savefig("../output_files/accuracy_plot.png")
     plt.cla()
 
-    # pca = PCA(training_dataset.X)
-    # X_reduced = pca.project(training_dataset.X, 2)
-    # total_values = zip(X_reduced, training_dataset.y)
+    pca = PCA(training_dataset.X)
+    X_reduced = pca.project(training_dataset.X, 2)
+    print(X_reduced.shape)
+    print(training_dataset.Y.shape)
+    assert(len(training_dataset.Y) == X_reduced.shape[0])
+
+    # now we concatenate X_reduced and training_dataset.Y
+    # total_values = np.concatenate((X_reduced, np.array([training_dataset.Y]).T), axis=1)
     
-    # plt.title("Scatter plot after applying PCA")
-    # # make a list of 7 colors
-    # colors =  ["red", "green", "yellow", "blue", "orange", "purple", "brown"]	
+    plt.title("Scatter plot after applying PCA")
+    # make a list of 7 colors
+    color_map =  np.array(["red", "green", "yellow", "blue", "orange", "purple", "brown"])	
+    soil_map = ["red soil", "cotton crop", "grey soil", "damp grey soil", "soil with vegetation stubble", "mixture", "very damp grey soil"] 
     
-    # plt.plot(total_values[:, 0], total_values[:, 1], color=colors[total_values[:,2].astype(int)])
+    all_x_vals = []
+    all_y_vals = []
+    for i in range(output_size):
+        x_vals = [] 
+        y_vals = []
+        for idx in range(len(training_dataset.Y)):
+            if training_dataset.Y[idx] == i:
+                x_vals.append(X_reduced.item(idx, 0))
+                y_vals.append(X_reduced.item(idx, 1))
+        all_x_vals.append(x_vals)
+        all_y_vals.append(y_vals)
     
+    for i in range(len(all_x_vals)):
+        plt.scatter(all_x_vals[i], all_y_vals[i], c=color_map[i], label=soil_map[i]) 
+        print(soil_map[i])
+    
+    plt.legend()
+    plt.savefig("../output_files/scatter_plot.png")
+        
     # X_test_reduced = pca.project(test_dataset.X, 2)
     # for hidden_layers in required_hidden_layers:
     #       curr_network = Network(input_size, output_size, hidden_layers)
