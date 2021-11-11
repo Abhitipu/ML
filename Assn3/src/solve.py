@@ -9,7 +9,7 @@ from data_handling import my_dataset
 from utils import PCA
 
 # Increase this for better accuracy    
-n_epochs = 1
+n_epochs = 20
 
 def train_network(curr_network, learning_rate, training_loader):
     optimizer = torch.optim.SGD(curr_network.parameters(), lr=learning_rate)
@@ -50,17 +50,12 @@ def compute_accuracy(curr_network, test_loader):
                     
     return n_correct / n_samples
 
-def compute_for_all_networks_and_plot(required_hidden_layers, required_learning_rates):
+def compute_for_all_networks_and_plot(input_size, output_size, required_hidden_layers, required_learning_rates, training_loader, test_loader):
     best_accuracy = 0
     best_learning_rate = -1
     best_hidden_layers = []
     all_accuracies = []
     all_labels = []
-    
-    plt.title("Learning rates v/s accuracy for different networks")
-    plt.xlabel("Learning rates")
-    plt.ylabel("Accuracy")
-    plt.xscale("log")
     
     for hidden_layers in required_hidden_layers:
         accuracy_values = []
@@ -83,13 +78,29 @@ def compute_for_all_networks_and_plot(required_hidden_layers, required_learning_
         
     print(f"Got best accuracy {curr_accuracy} for {best_learning_rate} and {best_hidden_layers}")
     
+    # Plot 1
+    plt.title("Learning rates v/s accuracy for different models")
+    plt.xlabel("Learning rates")
+    plt.ylabel("Accuracy")
+    plt.xscale("log")
     for label, accuracy_values in zip(all_labels, all_accuracies):
         plt.plot(required_learning_rates, accuracy_values, label=label)
     
     plt.legend()
-    plt.savefig("../output_files/accuracy_plot.png")
+    plt.savefig("../output_files/accuracy_vs_learning_rate.png")
     plt.cla()
     
+    # Plot 2
+    plt.title("Accuracy v/s model for different learning rates")
+    plt.xlabel("Models")
+    plt.ylabel("Accuracy")
+    all_accuracies = np.array(all_accuracies)
+    for i in range(len(required_learning_rates)):
+        plt.plot(all_labels, all_accuracies[:,i], label=required_learning_rates[i]) 
+    
+    plt.legend()
+    plt.savefig("../output_files/accuracy_vs_model.png")
+    plt.cla()
     return best_accuracy, best_hidden_layers, best_learning_rate
 
 def pca_n_scatterplot(training_dataset, output_size):
@@ -154,11 +165,13 @@ if __name__ == "__main__":
     input_size = 36
     output_size = 7
     
-    required_learning_rates = [0.1, 0.01, 0.001, 0.0001, 0.00001]
-    required_hidden_layers = [[], [2], [6], [2, 3], [3, 2]]
+    # required_learning_rates = [0.1, 0.01, 0.001, 0.0001, 0.00001]
+    # required_hidden_layers = [[], [2], [6], [2, 3], [3, 2]]
+    required_learning_rates = [0.1, 0.01]
+    required_hidden_layers = [[], [2],]
     
     # Q2, Q3
-    best_accuracy, best_hidden_layers, best_learning_rate = compute_for_all_networks_and_plot(required_hidden_layers, required_learning_rates)
+    best_accuracy, best_hidden_layers, best_learning_rate = compute_for_all_networks_and_plot(input_size, output_size, required_hidden_layers, required_learning_rates, training_loader, test_loader)
     # Q5
     pca_n_scatterplot(training_dataset, output_size)
     # Q6
