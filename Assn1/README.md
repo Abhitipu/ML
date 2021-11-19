@@ -1,7 +1,7 @@
 # Assignment 1
 ## Decision Trees
 
-[For dataset click here](https://archive.ics.uci.edu/ml/datasets/car+evaluation)
+Dataset used: [Car Evaluation Data Set](https://archive.ics.uci.edu/ml/datasets/car+evaluation)
 
 # Directions to use the code  
 1. Download this directory into your local machine
@@ -11,8 +11,8 @@
 
 3. Go into the src directory <br>
 
-4. Run specific functions with the aid of `problem.py` <br>
- `python3 problem.py`
+4. Run specific functions with the aid of `solve.py` <br>
+ `python3 solve.py`
  
 # For Windows Users
 
