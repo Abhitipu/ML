@@ -1,7 +1,7 @@
 # Assignment 2
-## KNN Classification
+## KNN Classifier
 
-[For dataset click here](https://www.kaggle.com/venky73/spam-mails-dataset)
+Dataset used: [Spam Mails Dataset](https://www.kaggle.com/venky73/spam-mails-dataset)
 
 # Directions to use the code  
 1. Download this directory into your local machine
