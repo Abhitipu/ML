@@ -4,5 +4,9 @@ venv/
 # Auto gen files
 __pycache__/
 
-# Playground jab dimaag ka __ ho
+# Playground
 Rough/
+
+# Submissions
+*.zip
+*.tar
